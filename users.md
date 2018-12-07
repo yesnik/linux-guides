@@ -28,9 +28,19 @@ landingx pts/0    172.11.10.179     15:08    0.00s  0.16s  0.10s w
 whoami
 ```
 
-## Show current user's groups
+## Show user's groups
+
+### - current user
 
 ```
 groups
 ```
 
+### - user nginx
+
+```
+groups nginx
+
+Output:
+  nginx : nginx apache
+```
