@@ -12,6 +12,13 @@ adduser kenny
 userdel -r kenny
 ```
 
+## Change user's password
+
+```
+passwd kenny
+```
+
+
 ## Show last login info
 
 ```
