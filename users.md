@@ -28,6 +28,19 @@ On CentOS, members of the *wheel* group have sudo privileges.
 usermod -aG wheel kenny
 ```
 
+To allow users from group *wheel* to run all commands using `sudo` without a password, open the sudoers file:
+
+```
+sudo visudo
+```
+
+Edit the following line:
+
+```
+## Same thing without a password
+%wheel  ALL=(ALL)       NOPASSWD: ALL
+```
+
 ## Show last login info
 
 ```
