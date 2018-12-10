@@ -1,5 +1,17 @@
 # Linux Users
 
+## Add user with home directory
+
+```
+adduser kenny
+```
+
+## Delete user including home directory
+
+```
+userdel -r kenny
+```
+
 ## Show last login info
 
 ```
