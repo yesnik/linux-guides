@@ -18,6 +18,15 @@ userdel -r kenny
 passwd kenny
 ```
 
+## Add user to sudoers
+
+### Centos
+
+On CentOS, members of the *wheel* group have sudo privileges.
+
+```
+usermod -aG wheel kenny
+```
 
 ## Show last login info
 
