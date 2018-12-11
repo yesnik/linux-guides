@@ -9,7 +9,7 @@ date
 ## Set timezone
 
 ```
-timedatectl set-timezone Asia/Yekaterinburg
+sudo timedatectl set-timezone Asia/Yekaterinburg
 ```
 
 ## Show current timezone
