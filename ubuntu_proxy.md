@@ -2,7 +2,7 @@
 
 If your PC behind proxy you need to configure settings to access Internet.
 
-## Does this command work?
+## Does wget command work?
 
 ```
 wget google.com
