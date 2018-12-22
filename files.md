@@ -11,3 +11,8 @@
 
 - `grep -rnw ./ -e 'hello'` - search files with text `hello` in it
 - `find -name '*.php'` - find all files with .php extension (in current folder and subfolders)
+
+## Archive
+
+- `tar -zcvf archive.tar.gz /home/www/html` - create archive `archive.tar.gz` in current directory
+- `tar -zxvf archive.tar.gz -C /tmp` - extract archive to `/tmp`
