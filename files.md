@@ -14,5 +14,5 @@
 
 ## Archive
 
-- `tar -zcvf archive.tar.gz /home/www` - create archive `archive.tar.gz` in current folder with folder's structure `/home/www`
-- `tar -zxvf archive.tar.gz -C /tmp` - extract archive to `/tmp`, i.e. these path will be created: `/tmp/home/www/...`
+- `tar -zcvf archive.tar.gz /home/www` - create archive in directory folder with folder's structure `/home/www`
+- `tar -zxvf archive.tar.gz -C /tmp` - extract archive to `/tmp`, i.e. this path will be created: `/tmp/home/www/...`
