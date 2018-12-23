@@ -77,5 +77,6 @@ whoami
 
 ## Show all users
 
-- `awk -F: '{ print $1}' /etc/passwd` - method 1
-- `cut -d: -f1 /etc/passwd` - method 2
+- `getent passwd | cut -d: -f1` - method 1
+- `awk -F: '{ print $1}' /etc/passwd` - method 2
+- `cut -d: -f1 /etc/passwd` - method 3
