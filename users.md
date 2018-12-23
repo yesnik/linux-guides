@@ -71,17 +71,11 @@ whoami
 
 ## Show user's groups
 
-### - current user
+- `getent group | cut -d: -f1` - show all groups
+- `groups` - show groups for current user
+- `groups nginx` - show groups of user nginx
 
-```
-groups
-```
+## Show all users
 
-### - user nginx
-
-```
-groups nginx
-
-Output:
-  nginx : nginx apache
-```
+- `awk -F: '{ print $1}' /etc/passwd` - method 1
+- `cut -d: -f1 /etc/passwd` - method 2
