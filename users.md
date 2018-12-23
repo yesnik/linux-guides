@@ -18,6 +18,16 @@ userdel -r kenny
 passwd kenny
 ```
 
+## Add user to group
+
+Add user *kenny* to group *nginx*:
+
+```
+sudo usermod -aG nginx kenny
+```
+
+**Important:** If the group was just created the user must re-login in order for the group's permissions to be applied.
+
 ## Add user to sudoers
 
 ### Centos
