@@ -16,4 +16,5 @@
 ## Archive
 
 - `tar -zcvf archive.tar.gz -C /var/www ./` - create archive in current folder with the content of folder `/var/www`
+- `tar -zcvf archive.tar.gz -C /var/www ./ --exclude=./uploads` - ... + exclude contents of `./uploads` folder
 - `tar -zxvf archive.tar.gz -C /tmp` - extract the content of archive to `/tmp`
