@@ -18,3 +18,21 @@ server {
 **Important:** This config file must have `.conf` extension.
 
 To apply config changes reload nginx: `sudo service nginx reload`
+
+## Add subdomain
+
+We can display another site for subdomain. Create `/etc/nginx/conf.d/news.nikos.ru.conf`:
+
+```
+server {
+    listen 80;
+    root /var/www/news.nikos.ru;
+    index index.html index.htm;
+    server_name news.nikos.ru;
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+```
+
+Reload nginx.
