@@ -1,4 +1,6 @@
-# Add domain
+# Add server config
+
+## Domain
 
 We can register many websites on one IP address. Let's allow your server to handle requests for specific domain name.
 
@@ -19,9 +21,9 @@ server {
 
 To apply config changes reload nginx: `sudo service nginx reload`
 
-## Add subdomain
+## Subdomain
 
-We can display another site for subdomain. Create `/etc/nginx/conf.d/news.nikos.ru.conf`:
+We can show another site for subdomain. Create `/etc/nginx/conf.d/news.nikos.ru.conf`:
 
 ```
 server {
