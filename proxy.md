@@ -1,6 +1,6 @@
-# Ubuntu proxy settings
+# Proxy settings
 
-If your PC behind proxy you need to configure settings to access Internet.
+If your PC with Ubuntu behind proxy you need to configure settings to access Internet.
 
 ## Does wget command work?
 
@@ -31,4 +31,27 @@ To fix this error edit `/etc/apt/apt.conf`:
 ```
 Acquire::http::Proxy "http://username:password@proxyserver.com:port";
 Acquire::https::Proxy "http://username:password@proxyserver.com:port";
+```
+
+## NPM proxy settings
+
+Try to install package:
+
+```
+npm install -g @vue/cli
+
+npm ERR! code E407
+npm ERR! 407 Proxy Authentication Required: @vue/cli@latest
+```
+
+**Get current NPM proxy config**
+
+```
+npm config get proxy
+```
+
+**Set new NPM proxy config**
+
+```
+npm config set proxy "http://myuser:mypassword@150.17.5.111:3128/"
 ```
