@@ -3,10 +3,12 @@
 ## File and directory size
 
 - `du -hsc *` - show size of folders
-- `du -hsx * | sort -rh` - show size of folders in DESC order
+- `du -chxs * | sort -rh` - show size of folders in DESC order
 - `df -i` - show free inodes. Filesystems with lots of little files usually run out of inodes way before running out of space. If this is your case you'll need to rebuild the filesystem and use `mkfs -i` to increase the available inodes on it.
 - `df -h` - show amount of free space on disks
 - `df -h .` - show available free space of the partition where your current working directory is located
+
+**Important:** If you have dot-folders in working folder, execute `shopt -s dotglob` to include them in the count.
 
 ## Search
 
