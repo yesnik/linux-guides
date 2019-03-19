@@ -14,6 +14,7 @@
 
 - `grep -rnw ./ -e 'hello'` - search files with text `hello` in it
 - `find -name '*.php'` - find all files with .php extension (in current folder and subfolders)
+- `find . -type f -name "*.log" -exec rm -f {} \;` - find `.log` files and delete them
 
 ## Archive
 
