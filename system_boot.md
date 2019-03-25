@@ -20,3 +20,17 @@ sudo update-rc.d apache2 remove
 
 This command will remove symlink from `/etc/rc0.d/K01apache2` to `/etc/init.d/apache2`.
 It means that `apache2` will no longer be booted on system startup.
+
+## Centos 7
+
+**Add service to startup**
+
+If you want to automatically start `php-fpm` on a system boot:
+
+```
+chkconfig php-fpm on
+
+Note: Forwarding request to 'systemctl enable php-fpm.service'.
+Created symlink from /etc/systemd/system/multi-user.target.wants/php-fpm.service 
+to /usr/lib/systemd/system/php-fpm.service.
+```
