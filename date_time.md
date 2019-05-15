@@ -8,11 +8,22 @@ date
 
 ## Set timezone
 
+**Centos / Ubuntu**
+
 ```
 sudo timedatectl set-timezone Asia/Yekaterinburg
 ```
 
+**Ubuntu**
+
+```
+echo "Asia/Yekaterinburg" > /etc/timezone
+dpkg-reconfigure -f noninteractive tzdata
+```
+
 ## Show current timezone
+
+**Centos**
 
 ```
 ls -l /etc/localtime
@@ -22,6 +33,15 @@ Output:
 ```
 
 So file `/etc/localtime` is symlink to one of many system files in directory `/usr/share/zoneinfo`.
+
+**Ubuntu**
+
+```
+cat /etc/timezone 
+
+Output:
+Asia/Yekaterinburg
+```
 
 ## Show available timezones
 
