@@ -10,6 +10,12 @@ curl http://127.0.0.1:8000/?a=1&b=2
 curl "http://127.0.0.1:8000/?a=1&b=2"
 ```
 
+**Note:** Add `-v` flag to `curl` to see headers of request and response:
+
+```
+curl -v http://127.0.0.1:8000
+```
+
 ## POST query
 
 ### application/x-www-form-urlencoded
