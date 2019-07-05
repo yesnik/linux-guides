@@ -1,5 +1,15 @@
 # Curl
 
+**Important:** If you have several query params in URL, wrap URL in quotes. Otherwise server will get only first param:
+
+```bash
+# BAD
+curl http://127.0.0.1:8000/?a=1&b=2
+
+# GOOD
+curl "http://127.0.0.1:8000/?a=1&b=2"
+```
+
 ## POST query
 
 ### application/x-www-form-urlencoded
