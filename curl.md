@@ -55,5 +55,5 @@ curl -X DELETE http://localhost:3000/
 ## HEAD query
 
 ```bash
-
+curl -X PUT -d a=1 http://localhost:3000/
 ```
