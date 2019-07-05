@@ -68,8 +68,8 @@ print_r( json_decode( file_get_contents('php://input'), true ) );
 curl -X DELETE http://localhost:3000/
 ```
 
-## HEAD query
+## PUT query
 
 ```bash
-curl -X PUT -d a=1 http://localhost:3000/
+curl -X PUT -d 'a=1&b=2' "http://127.0.0.1:8000/"
 ```
