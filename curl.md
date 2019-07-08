@@ -37,7 +37,7 @@ Content-Length: 7
 ### application/json
 
 ```bash
-curl -d '{"a":1, "b":"wow"}' -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/index.php
+curl -X POST -H "Content-Type: application/json" -d '{"a":1, "b":"wow"}' http://127.0.0.1:8000/index.php
 ```
 
 This will send headers to server:
@@ -65,11 +65,11 @@ print_r( json_decode( file_get_contents('php://input'), true ) );
 ## DELETE query
 
 ```bash
-curl -X DELETE http://localhost:3000/
+curl -X DELETE http://127.0.0.1:3000/users/3
 ```
 
 ## PUT query
 
 ```bash
-curl -X PUT -d 'a=1&b=2' "http://127.0.0.1:8000/"
+curl -X PUT -d 'a=1&b=2' "http://127.0.0.1:8000/users/2"
 ```
