@@ -33,6 +33,40 @@ Acquire::http::Proxy "http://username:password@proxyserver.com:port";
 Acquire::https::Proxy "http://username:password@proxyserver.com:port";
 ```
 
+## Docker proxy settings
+
+For more info see [docs](https://docs.docker.com/config/daemon/systemd/).
+
+You need to config your proxy if this command returns error:
+
+```
+docker-compose up
+Building fpm
+Step 1/5 : FROM php:fpm
+ERROR: Service 'fpm' failed to build: Get https://registry-1.docker.io/v2/: Proxy Authentication Required
+```
+
+1. Create or edit file `/etc/systemd/system/docker.service.d/http-proxy.conf`:
+
+```
+[Service]
+Environment="HTTP_PROXY=http://johny:mypassword@177.17.1.233:3121"
+Environment="HTTPS_PROXY=http://johny:mypassword@177.17.1.233:3121"
+Environment="NO_PROXY=localhost,127.0.0.1,localaddress,.localdomain.com"
+```
+
+2. Flush changes
+
+```
+sudo systemctl daemon-reload
+```
+
+3. Restart Docker
+
+```
+sudo systemctl restart docker
+```
+
 ## NPM proxy settings
 
 Try to install package:
