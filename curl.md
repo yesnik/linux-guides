@@ -50,6 +50,12 @@ Content-Type: application/json
 Content-Length: 20
 ```
 
+**Add Cookie header with session ID**
+
+```bash
+curl -X POST -H "Content-Type: application/json" -H "Cookie: PHPSESSID=f2je0;" -d '{"postId": 123}' "https://www.site.com/vote/22"
+```
+
 In PHP you can get passed JSON values like this:
 
 ```php
