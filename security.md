@@ -22,7 +22,7 @@ chkconfig serviceName off
 - `firewall-cmd --zone=public --permanent --add-service=https` - permanently open port 443 for service *https* (reload required)
 - `sudo firewall-cmd --reload`
 - `sudo firewall-cmd --list-all` - check for open ports/services. The services with permanently open ports are listed on line starting with *services*
-
+- `sudo firewall-cmd --zone=public --permanent --remove-service=https` - close the previously open HTTP port 443
 
 ## Disable Root login
 
