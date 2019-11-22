@@ -27,22 +27,22 @@ It means that `apache2` will no longer be booted on system startup.
 
 **Method 1**
 
-If you want to automatically start `php-fpm` on a system boot:
+Enable it to start Docker automatically on boot:
 
-```
-chkconfig php-fpm on
+```bash
+sudo systemctl enable docker
 
-Note: Forwarding request to 'systemctl enable php-fpm.service'.
-Created symlink from /etc/systemd/system/multi-user.target.wants/php-fpm.service 
-to /usr/lib/systemd/system/php-fpm.service.
+# Created symlink /etc/systemd/system/multi-user.target.wants/docker.service → /usr/lib/systemd/system/docker.service.
 ```
 
 **Method 2**
 
-Enable it to start Redis automatically on boot:
+If you want to automatically start `php-fpm` on a system boot:
 
-```
-sudo systemctl enable redis
+```bash
+chkconfig php-fpm on
 
-Created symlink from /etc/systemd/system/multi-user.target.wants/redis.service to /usr/lib/systemd/system/redis.service.
+# Note: Forwarding request to 'systemctl enable php-fpm.service'.
+# Created symlink from /etc/systemd/system/multi-user.target.wants/php-fpm.service 
+# to /usr/lib/systemd/system/php-fpm.service.
 ```
