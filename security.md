@@ -15,6 +15,10 @@ Disable the unwanted services from the system using ‘chkconfig’ command and 
 ```
 chkconfig serviceName off
 ```
+## Firewall
+
+- `sudo firewall-cmd --state` - check firewall status
+
 
 ## Disable Root login
 
