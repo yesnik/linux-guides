@@ -18,6 +18,7 @@ chkconfig serviceName off
 ## Firewall
 
 - `sudo firewall-cmd --state` - check firewall status
+- `sudo firewall-cmd --get-active-zones` - retrieve your currently active zones.
 
 
 ## Disable Root login
