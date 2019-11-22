@@ -39,14 +39,18 @@ service docker restart
 
 ```
 sudo systemctl restart iptables
-
-sudo service firewalld restart
 ```
 
 ### Show current iptables rules
 
 ```
-iptables -L -n -v 
+iptables -L -v -n --line-num
+```
+
+### Deny connections from IP
+
+```bash
+sudo iptables -A INPUT -s 155.10.10.55 -j DROP
 ```
 
 ### Allow connections from IP to port 3306
@@ -63,6 +67,9 @@ To apply changes restart: `systemctl restart iptables`
 ### Open port 80
 
 ```
-iptables -A INPUT -p tcp -m tcp --sport 80 -j ACCEPT
-iptables -A OUTPUT -p tcp -m tcp --dport 80 -j ACCEPT
+iptables -I INPUT -p tcp -m tcp --sport 80 -j ACCEPT
+iptables -I OUTPUT -p tcp -m tcp --dport 80 -j ACCEPT
 ```
+Here:
+- `-I` - insert to the beginning of the list of rules
+- `-A` - append to the end
