@@ -1,11 +1,13 @@
 # iptables
 
-## Centos 7
+## Centos 7, 8
 
 ### Restart iptables
 
 ```
-systemctl restart iptables
+sudo systemctl restart iptables
+
+sudo service firewalld restart
 ```
 
 ### Show current iptables rules
@@ -24,3 +26,10 @@ Add line to file `/etc/sysconfig/iptables`:
 ```
 
 To apply changes restart: `systemctl restart iptables`
+
+### Open port 80
+
+```
+iptables -A INPUT -p tcp -m tcp --sport 80 -j ACCEPT
+iptables -A OUTPUT -p tcp -m tcp --dport 80 -j ACCEPT
+```
