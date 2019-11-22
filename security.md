@@ -19,6 +19,9 @@ chkconfig serviceName off
 
 - `sudo firewall-cmd --state` - check firewall status
 - `sudo firewall-cmd --get-active-zones` - retrieve your currently active zones.
+- `firewall-cmd --zone=public --permanent --add-service=https` - permanently open port 443 for service *https* (reload required)
+- `sudo firewall-cmd --reload`
+- `sudo firewall-cmd --list-all` - check for open ports/services. The services with permanently open ports are listed on line starting with *services*
 
 
 ## Disable Root login
