@@ -19,7 +19,7 @@ Copy the content of your local `.ssh/id_rsa.pub` to `.ssh/authorized_keys` of re
 ssh-copy-id kenny@85.120.50.210
 ```
 
-Ensure that on remote server files have proper rights:
+**Important:** Ensure that files have proper rights on remote server:
 
 ```
 sudo chown kenny:kenny -R /kenny/.ssh/
