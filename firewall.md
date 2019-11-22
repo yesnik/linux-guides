@@ -17,6 +17,8 @@ The `firewall-cmd` acts as a frontend for the `nftables`. In CentOS 8 `nftables`
 - `sudo firewall-cmd --reload` - apply changes in rules
 - `sudo firewall-cmd --add-service http` - allow HTTP connections on port 80
 - `sudo firewall-cmd --remove-service=http --permanent` - restrict connection to port 80
+- `sudo firewall-cmd --permanent --add-port=80/tcp`
+- `sudo firewall-cmd --permanent --remove-port=80/tcp`
 
 ### Configuration for docker
 
