@@ -18,6 +18,18 @@ The `firewall-cmd` acts as a frontend for the `nftables`. In CentOS 8 `nftables`
 - `sudo firewall-cmd --add-service http` - allow HTTP connections on port 80
 - `sudo firewall-cmd --remove-service=http --permanent` - restrict connection to port 80
 
+### Configuration for docker
+
+```bash
+# trust the docker interface
+firewall-cmd --permanent --zone=trusted --change-interface=docker0
+# accept IPv4 traffic
+firewall-cmd --permanent --direct --add-rule ipv4 filter INPUT 4 -i docker0 -j ACCEPT
+# any ports on the host you want to access from the containers (strapi port 1337 here)
+firewall-cmd --permanent --zone=trusted --add-port=1337/tcp
+firewall-cmd --reload
+service docker restart
+```
 
 ## iptables
 
