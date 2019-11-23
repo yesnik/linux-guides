@@ -33,4 +33,4 @@
 
 - `tar -zxvf archive.tar.gz -C /tmp` - extract the content of archive to `/tmp`
 - `gunzip file.gz` - extracts archive and deletes archive file
-- `tar -xf file.tar` - extracts archive's contents to current directory and deletes archive file
+- `tar -xf file.tar` - extracts archive's contents to current directory and doesn't delete archive file
