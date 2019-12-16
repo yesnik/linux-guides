@@ -2,8 +2,13 @@
 
 ## Get current server datetime
 
-```
+```bash
 date
+```
+## Set server datetime
+
+```bash
+sudo date --set="2 DEC 2019 15:00:00"
 ```
 
 ## Set timezone
