@@ -20,6 +20,13 @@
 
 - `find . -type f -name "*.log" -exec rm -f {} \;` - find `.log` files and delete them
 
+### Search string in a file
+
+1. Open file: `less errors.log`
+2. To search string 'err' type `/err` and press 'Enter'
+3. Press `n` to search next occurence
+4. Press `N` to search previous occurence
+
 ## Archive
 
 ### Create archive
