@@ -26,6 +26,7 @@
 2. To search string 'err' type `/err` and press 'Enter'
 3. Press `n` to search next occurence
 4. Press `N` to search previous occurence
+5. Press `F` to continually read information from file and follow its end. Useful for logs watching.
 
 ## Archive
 
