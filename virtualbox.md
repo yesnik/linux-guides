@@ -1,5 +1,12 @@
 # VirtualBox
 
+## Mount CD-Rom vith GuestAdditions
+
+```bash
+sudo mkdir /media/cdrom
+sudo mount /dev/cdrom /media/cdrom
+```
+
 ## Add existing .vdi disk to Linux
 
 See more info in the [article](https://www.vitalsofttech.com/add-disk-storage-to-oracle-virtualbox-with-linux/).
