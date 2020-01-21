@@ -1,6 +1,6 @@
 # VirtualBox
 
-## Mount CD-Rom vith GuestAdditions
+## Mount CD-Rom with GuestAdditions
 
 ```bash
 sudo mkdir /media/cdrom
