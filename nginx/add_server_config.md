@@ -42,5 +42,6 @@ Reload nginx.
 **Important:** To make new domain accessible for browser don't forget to configure DNS settings in your provider's admin panel. Meantime you can check nginx settings via `curl`:
 
 ```
-curl -H 'Host: news.nikos.ru' http://194.87.219.243/
+curl -H 'Host: news.nikos.ru' http://194.85.210.240/
 ```
+Here `194.85.210.240` is the IP address of your server.
