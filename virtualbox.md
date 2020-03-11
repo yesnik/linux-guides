@@ -26,7 +26,8 @@ sudo fdisk -l
 ```
 You'll see the attached *.vdi* disk at `/dev/sdb`
 
-4. Use the following command to partition the device
+4. Use the following command to manipulate this disk's partition table:
+
 ```bash
 fdisk /dev/sdb
 ```
