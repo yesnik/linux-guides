@@ -30,17 +30,17 @@
 
 ## Permissions
 
-### chmown
+### chown
 
 - `sudo chown kenny:devops -R docker/` - change owner to `kenny`, group to `devops` of all files in `docker/` folder
 - `sudo chown $USER:$USER -R docker/` - change owner, group of all files in `docker/` folder to `$USER`
 
 ### chmod
 
-- `sudo chmod +x main.py` - allow everyone to execute file 
 - `sudo chmod u+x main.py` - allow user (owner) to execute file
 - `sudo chmod g+x main.py` - allow group to execute file
 - `sudo chmod o-x main.py` - disallow others to execute file
+- `sudo chmod +x main.py` - allow everyone to execute file 
 
 ## Archive
 
