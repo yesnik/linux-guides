@@ -73,11 +73,10 @@ USER     TTY      FROM              LOGIN@   IDLE   JCPU   PCPU WHAT
 landingx pts/0    172.11.10.179     15:08    0.00s  0.16s  0.10s w
 ```
 
-## Show current user name
+## Show current user info
 
-```
-whoami
-```
+- `whoami` - show current user name
+- `id` - show uid, gid, groups of current user
 
 ## Show user's groups
 
