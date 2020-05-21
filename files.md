@@ -42,16 +42,17 @@ stat file.txt
 
 ### chown
 
-- `sudo chown kenny:devops -R docker/` - change owner to `kenny`, group to `devops` of all files in `docker/` folder
-- `sudo chown $USER:$USER -R docker/` - change owner, group of all files in `docker/` folder to `$USER`
+- `chown kenny:devops -R docker/` - change owner to `kenny`, group to `devops` of all files in `docker/` folder
+- `chown $USER:$USER -R docker/` - change owner, group of all files in `docker/` folder to `$USER`
 
 ### chmod
 
-- `sudo chmod u+x main.py` - allow user (owner) to execute file
-- `sudo chmod g+x main.py` - allow group to execute file
-- `sudo chmod o-x main.py` - disallow others to execute file
-- `sudo chmod +x main.py` - allow everyone to execute file 
-- `sudo chmod u+rwx,g+rx,o-rwx main.py` - assign these rights to file: `rwxr-x---`
+- `chmod u+x main.py` - allow user (owner) to execute file
+- `chmod g+x main.py` - allow group to execute file
+- `chmod o-x main.py` - disallow others to execute file
+- `chmod +x main.py` - allow everyone to execute file 
+- `chmod u+rwx,g+rx,o-rwx main.py` - assign these rights to file: `rwxr-x---`
+- `chmod g+s myfolder` - new files in this folder will get this folder's group
 
 ### File rights
 
