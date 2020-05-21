@@ -11,6 +11,10 @@
 
 **Important:** If you have dot-folders in working folder, execute `shopt -s dotglob` to include them in the count.
 
+## Transfer files
+
+- `rsync -av --progress /opt mysite:/opt` - copy files from `/opt` to folder `/opt` on remote `mysite` host
+
 ## Search
 
 - `grep -rnw ./ -e 'hello'` - search files with text `hello` in it
