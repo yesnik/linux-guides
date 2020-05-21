@@ -45,6 +45,7 @@
 - `sudo chmod g+x main.py` - allow group to execute file
 - `sudo chmod o-x main.py` - disallow others to execute file
 - `sudo chmod +x main.py` - allow everyone to execute file 
+- `sudo chmod u+rwx,g+rx,o-rwx main.py` - assign these rights to file: `rwxr-x---`
 
 ### File rights
 
