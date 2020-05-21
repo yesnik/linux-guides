@@ -11,6 +11,12 @@
 
 **Important:** If you have dot-folders in working folder, execute `shopt -s dotglob` to include them in the count.
 
+## Detailed info about file or folder
+
+```
+stat file.txt
+```
+
 ## Transfer files
 
 - `rsync -av --progress /opt mysite:/opt` - copy files from `/opt` to folder `/opt` on remote `mysite` host
