@@ -46,6 +46,29 @@
 - `sudo chmod o-x main.py` - disallow others to execute file
 - `sudo chmod +x main.py` - allow everyone to execute file 
 
+### File rights
+
+```
+rwx r-x r--
+user group others
+```
+We can define rights as digits. Useful hint:
+- `r` - 4
+- `w` - 2
+- `x` - 1
+
+```bash
+chmod 751 main.py
+
+ls -lah
+# -rwxr-x--x  1 vagrant vagrant    9 May 21 17:59 main.py
+```
+```
+7 = 4 + 2 + 1 => rwx
+5 = 4 + 1     => r-x
+1 = 1         => --x
+```
+
 ## Archive
 
 ### Create archive
