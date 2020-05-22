@@ -93,3 +93,12 @@ ls -lah
 - `tar zxvf archive.tar.gz -C /tmp` - extract the content of archive to `/tmp`
 - `tar xf file.tar` - extracts archive's contents to current directory and doesn't delete archive file
 - `gunzip file.gz` - extracts archive and deletes archive file
+
+## File links
+
+A link is a connection between a file name and the actual data on the disk. Two main types of links: 
+- "hard" links
+- "soft" (symbolic) links. It's a special file that points to another file or directory (target). It does not contain a copy of the target file's data. If you delete a symbolic link, the target is unaffected. Also, if the target of a symbolic link is deleted, moved, or renamed, the symbolic link is not updated. When this happens, the symbolic link is called "broken", "orphaned".
+
+- `ln rep1.txt report.txt` - create hard link `report.txt` for file `rep1.txt`. These 2 names will be referring to the same data.
+- `ln -snf /var/www/builds/10 /var/www/current` - create symlink `current` to folder `10`
