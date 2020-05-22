@@ -10,6 +10,7 @@
   * `-x` - info about processes without terminals
   * `-f` - full info with process tree
   * `-e` - extended info with all args for each process
+- `pstree` - show tree of processes
 - `kill -9 500` - kill process with PID = 500
 
 ## Create process
