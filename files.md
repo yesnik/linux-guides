@@ -86,8 +86,8 @@ ls -ld /tmp
 
 A Sticky bi**t** is a permission bit that is set on a file or a directory that lets only the owner to delete or rename the file.
 
-- `chown +t /var/www/dev` - add sticky bit
-- `chown -t /var/www/dev` - remove sticky bit
+- `chmod +t /var/www/dev` - add sticky bit
+- `chmod -t /var/www/dev` - remove sticky bit
 
 ### SUID bit. Set-user Identification
 
@@ -98,8 +98,8 @@ ls -ld /usr/bin/password
 
 If we execute a script with SUID bit, its effective UID becomes that of the owner of the file.
  
-- `chown u+s main.py` - add SUID bit
-- `chown u-s main.py` - remove SUID bit
+- `chmod u+s main.py` - add SUID bit
+- `chmod u-s main.py` - remove SUID bit
 
 ### SGID bit. Set-group Identification
 
