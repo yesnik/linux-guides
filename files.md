@@ -77,6 +77,18 @@ ls -lah
 1 = 1         => --x
 ```
 
+### Sticky bit
+
+```bash
+ls -ld /tmp
+# drwxrwxrwt 15 root root ...
+```
+
+A Sticky bi**t** is a permission bit that is set on a file or a directory that lets only the owner to delete or rename the file.
+
+- `chown +t /var/www/dev` - add sticky bit
+- `chown -t /var/www/dev` - remove sticky bit
+
 ## Archive
 
 ### Create archive
