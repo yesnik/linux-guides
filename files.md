@@ -89,6 +89,25 @@ A Sticky bi**t** is a permission bit that is set on a file or a directory that l
 - `chown +t /var/www/dev` - add sticky bit
 - `chown -t /var/www/dev` - remove sticky bit
 
+### SUID bit. Set-user Identification
+
+```bash
+ls -ld /usr/bin/password
+# -rwsr-xr-x 1 root root ...
+```
+
+If we execute a script with SUID bit, its effective UID becomes that of the owner of the file.
+ 
+- `chown u+s main.py` - add SUID bit
+- `chown u-s main.py` - remove SUID bit
+
+### SGID bit. Set-group Identification
+
+If we execute a script with SGID, it runs as if it were a member of the same group in which the file is a member.
+
+- `chmod g+s main.py` - add SGID bit
+- `chmod g-s main.py`
+
 ## Archive
 
 ### Create archive
