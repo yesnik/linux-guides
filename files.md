@@ -11,11 +11,11 @@
 
 **Important:** If you have dot-folders in working folder, execute `shopt -s dotglob` to include them in the count.
 
-## Detailed info about file or folder
+## Files info
 
-```
-stat file.txt
-```
+`stat file.txt` - detailed info about file or folder
+`fdisk -l` - list the partition tables for the specified devices
+
 
 ## Transfer files
 
