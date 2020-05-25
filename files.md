@@ -15,6 +15,7 @@
 
 - `stat file.txt` - detailed info about file or folder
 - `fdisk -l` - list the partition tables for the specified devices
+- `lsblk` - list block devices
 
 ## Useful commands
 
