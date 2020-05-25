@@ -23,6 +23,9 @@
 - `sudo dd if=/dev/sda1 of=/dev/null` - copy disk `sda1` to nowhere: imitation of IO-load
 - `iostat -hyx 1 3` - display disk IO load. If param `%util` is high then disk is working hard. 
 - `iotop -o` - show programs that use IO now
+- `lsof -u mysql` - list open files for user `root`
+- `lsof -i` - selects  the  listing of files any of whose Internet address matches the address specified in i.
+- `lsof -p 4101` - show files opened by the process with PID
 
 ## Search
 
