@@ -13,8 +13,8 @@
 
 ## Files info
 
-`stat file.txt` - detailed info about file or folder
-`fdisk -l` - list the partition tables for the specified devices
+- `stat file.txt` - detailed info about file or folder
+- `fdisk -l` - list the partition tables for the specified devices
 
 
 ## Transfer files
