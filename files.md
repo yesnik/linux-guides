@@ -16,10 +16,10 @@
 - `stat file.txt` - detailed info about file or folder
 - `fdisk -l` - list the partition tables for the specified devices
 
-
-## Transfer files
+## Useful commands
 
 - `rsync -av --progress /opt mysite:/opt` - copy files from `/opt` to folder `/opt` on remote `mysite` host
+- `sudo dd if=/dev/sda1 of=/dev/null` - copy disk `sda1` to nowhere: imitation of IO-load
 
 ## Search
 
