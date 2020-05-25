@@ -26,3 +26,5 @@ The child process will have the same environment as its parent, but different PI
 - `strace -p 1000` - trace process by PID
 - `strace -c -p 1000` - show all system calls for PID
 - `strace -t df -h` - show time of each system call
+- `strace -e trace=open,read -p 1000 -o debug.txt` -  log a trace of the open, read system calls to file
+
