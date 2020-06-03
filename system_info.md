@@ -7,3 +7,4 @@
 - `cat /proc/cpuinfo` - info about CPU
 - `cat /etc/services` - port assignments to network services
 - `htop --tree` - show processes with tree
+- `sysctl -a` - show current *sysctl* settings
