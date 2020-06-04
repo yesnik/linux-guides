@@ -16,7 +16,7 @@
 
 ### Create swap file
 
-1. Create a file of a preallocated size instantly: `sudo dd if=/dev/zero of=/swapfile bs=3Gb count=1000`
+1. Create a 2Gb file: `sudo dd if=/dev/zero of=/swapfile bs=1M count=2048`
 2. Make the file only accessible to root: `sudo chmod 600 /swapfile`
 3. Mark the file as swap space: `sudo mkswap /swapfile`
 4. Enable the swap file, allowing our system to start utilizing it: `sudo swapon /swapfile`
