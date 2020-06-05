@@ -4,12 +4,13 @@
 
 ## Basic commands
 
-- `ps -aux` - show info about processes. Params:
+- `ps aux` - show info about processes. Params:
   * `-a` - all users
   * `-u` - additional info like `-f` option
   * `-x` - info about processes without terminals
   * `-f` - full info with process tree
   * `-e` - extended info with all args for each process
+- `ps aux | head -1; ps aux | sort -rnk 4 | head -5` - show top 5 processes with highest memory usage
 - `pstree` - show tree of processes
 - `kill -9 500` - kill process with PID = 500
 
