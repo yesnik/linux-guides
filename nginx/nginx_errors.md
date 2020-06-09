@@ -20,3 +20,4 @@
     sudo echo "net.core.netdev_max_backlog = 65535" | tee -a /etc/sysctl.conf
     sudo sysctl -p
     ```
+**Important:** If you changed `sysctl` restart `nginx`, `php-fpm`.
