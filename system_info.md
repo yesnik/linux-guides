@@ -8,6 +8,9 @@
 - `cat /etc/services` - port assignments to network services
 - `htop --tree` - show processes with tree
 - `sysctl -a` - show current *sysctl* settings
+- `sysctl -w net.core.somaxconn=65535` - set setting immediately (not persistent)
+- `sudo echo "net.core.somaxconn = 65535" | tee -a /etc/sysctl.conf && sudo sysctl -p` - set setting (persistent)
+- `cat /proc/sys/net/core/somaxconn` - show current value of setting
 
 ## Swap file
 
