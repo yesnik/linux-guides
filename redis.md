@@ -10,8 +10,8 @@
 
 ### Get key value
 
-`GET <key>` - for type `string` 
-`HGETALL <key>` - for type `hash`
-`lrange <key> <start> <end>` - for type `lists` 
-`smembers <key>` - for type `sets` 
-`ZRANGEBYSCORE <key> <min> <max>` - for type sorted `sets`
+- `GET <key>` - for type `string` 
+- `HGETALL <key>` - for type `hash`
+- `lrange <key> <start> <end>` - for type `lists` 
+- `smembers <key>` - for type `sets` 
+- `ZRANGEBYSCORE <key> <min> <max>` - for type sorted `sets`
