@@ -14,6 +14,14 @@
 - `pstree` - show tree of processes
 - `kill -9 500` - kill process with PID = 500
 
+### Run a command in the background
+
+```bash
+php artisan horizon > /dev/null 2>&1 &
+```
+
+Redirect the `stdout` and `stderr` to `/dev/null` to ignore the output.
+
 ## Create process
 
 A new process is normally created when an existing process makes an exact copy of itself in memory. 
