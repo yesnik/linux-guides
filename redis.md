@@ -3,6 +3,7 @@
 ## Commands
 
 - `redis-cli` - run redis console
+- `redis-cli --bigkeys` - show biggest keys
 - `keys app:claim:2957*` - find keys by pattern
 - `set app:name MySite` - set the value of the key `app:name`
 - `type horizon:123` - get type of the value
