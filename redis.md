@@ -6,6 +6,7 @@
 - `redis-cli --bigkeys` - show biggest keys
 - `keys app:claim:2957*` - find keys by pattern
 - `debug object <key>` - show the size of the key in bytes - see param `serializedlength` in the output. It is the size an objects would take when save to a RDB file on disk.
+- `memory usage <key>` - the number of bytes that a key and its value require to be stored in RAM
 - `set app:name MySite` - set the value of the key `app:name`
 - `type horizon:123` - get type of the value
 - `redis-cli --raw keys "app:claim:2957*" | xargs redis-cli del` - delete keys by pattern
