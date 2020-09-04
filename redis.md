@@ -9,6 +9,7 @@
 - `memory usage <key>` - the number of bytes that a key and its value require to be stored in RAM
 - `set app:name MySite` - set the value of the key `app:name`
 - `type horizon:123` - get type of the value
+- `memory doctor` - reports about different memory-related issues that the Redis server experiences
 - `redis-cli --raw keys "app:claim:2957*" | xargs redis-cli del` - delete keys by pattern
 
 ### Get key value
