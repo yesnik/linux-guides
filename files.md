@@ -121,7 +121,7 @@ If we execute a script with SGID, it runs as if it were a member of the same gro
 - `tar zcvf access.tar.gz access.log` - create `tar.gz` archive of file (`z` - gzip, `c` - create)
 - `tar zcvf archive.tar.gz -C /var/www ./` - create archive in current folder with the content of folder `/var/www`
 - `tar zcvf archive.tar.gz -C /var/www ./ --exclude=./uploads` - ... + exclude contents of `./uploads` folder
-- `zip -r node.zip . -x "**/node_modules/*"` - create archive `node.zip`, exclude `node_modules` folders in all folders
+- `zip -r node.zip . -x "**/node_modules/*"` - create archive `node.zip` from all files in current dir, exclude `node_modules` folders in all folders
 - `zip dump.sql.zip dump.sql` - create archive `dump.sql.zip` from file `dump.sql`
 - `gzip file.txt` - creates archive `file.txt.gz` and deletes original file
 
