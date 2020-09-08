@@ -121,6 +121,7 @@ If we execute a script with SGID, it runs as if it were a member of the same gro
 - `tar zcvf access.tar.gz access.log` - create `tar.gz` archive of file (`z` - gzip, `c` - create)
 - `tar zcvf archive.tar.gz -C /var/www ./` - create archive in current folder with the content of folder `/var/www`
 - `tar zcvf archive.tar.gz -C /var/www ./ --exclude=./uploads` - ... + exclude contents of `./uploads` folder
+- `zip -r node.zip . -x "**/node_modules/*"` - create archive `node.zip`, exclude `node_modules` folders in all folders
 - `zip dump.sql.zip dump.sql` - create archive `dump.sql.zip` from file `dump.sql`
 - `gzip file.txt` - creates archive `file.txt.gz` and deletes original file
 
@@ -129,6 +130,7 @@ If we execute a script with SGID, it runs as if it were a member of the same gro
 - `tar zxvf archive.tar.gz` - extract the content of archive to current folder (`x` - extract)
 - `tar zxvf archive.tar.gz -C /tmp` - extract the content of archive to `/tmp`
 - `tar xf file.tar` - extracts archive's contents to current directory and doesn't delete archive file
+- `unzip qm.zip` - extract archive in the current directory
 - `gunzip file.gz` - extracts archive and deletes archive file
 
 ## File links
