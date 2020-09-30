@@ -89,3 +89,11 @@ npm config get proxy
 ```
 npm config set proxy "http://myuser:mypassword@150.17.5.111:3128/"
 ```
+
+It this didn't help, try to change registry to `http`:
+
+```
+npm config rm proxy
+npm config rm https-proxy
+npm config set registry http://registry.npmjs.org/
+```
