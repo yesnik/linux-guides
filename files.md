@@ -136,8 +136,7 @@ If we execute a script with SGID, it runs as if it were a member of the same gro
 ## File links
 
 A link is a connection between a file name and the actual data on the disk. Two main types of links: 
-- "hard" links
-- "soft" (symbolic) links. It's a special file that points to another file or directory (target). It does not contain a copy of the target file's data. If you delete a symbolic link, the target is unaffected. Also, if the target of a symbolic link is deleted, moved, or renamed, the symbolic link is not updated. When this happens, the symbolic link is called "broken", "orphaned".
-
-- `ln rep1.txt report.txt` - create hard link `report.txt` for file `rep1.txt`. These 2 names will be referring to the same data.
-- `ln -snf /var/www/builds/10 /var/www/current` - create symlink `current` to folder `10`
+- *hard* links
+  - `ln rep1.txt report.txt` - create hard link `report.txt` for file `rep1.txt`. These 2 names will be referring to the same data.
+- *soft* (symbolic) links. It's a special file that points to another file or directory (target). It does not contain a copy of the target file's data. If you delete a symbolic link, the target is unaffected. Also, if the target of a symbolic link is deleted, moved, or renamed, the symbolic link is not updated. When this happens, the symbolic link is called "broken", "orphaned".
+  - `ln -snf /var/www/builds/10 /var/www/current` - create symlink `current` to folder `10`
