@@ -29,5 +29,6 @@ sudo supervisorctl reread
 
 sudo supervisorctl update
 
+# Run all processes inside the group "messenger-consume"
 sudo supervisorctl start messenger-consume:*
 ```
