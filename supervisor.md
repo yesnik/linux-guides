@@ -32,3 +32,8 @@ sudo supervisorctl update
 # Run all processes inside the group "messenger-consume"
 sudo supervisorctl start messenger-consume:*
 ```
+Run this command to tell supervisor to stop these workers:
+
+```bash
+sudo supervisorctl stop messenger-consume:*
+```
