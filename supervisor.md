@@ -22,12 +22,24 @@ autorestart=true
 process_name=%(program_name)s_%(process_num)02d
 ```
 
-Change `user` to the Unix user on your server. Next, tell Supervisor to read your config and start your workers:
+Options:
+
+- `[program:messenger-consume]` - name for the worker
+- `user` - run command on behalf of this user
+- `stdout_logfile=/var/log/worker.log` - output to file
+- `autostart=true` - start worker with supervisor
+- `autorestart=true` - autorestart worker on failure
+- `numprocs=2` - number of instances of this worker
+
+Next, tell Supervisor to read your config and start your workers:
 
 ```bash
 sudo supervisorctl reread
 
 sudo supervisorctl update
+
+# Restart supervisor
+sudo service supervisor restart
 
 # Run all processes inside the group "messenger-consume"
 sudo supervisorctl start messenger-consume:*
