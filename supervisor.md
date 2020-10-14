@@ -1,14 +1,24 @@
 # Supervisor
 
-Supervisor is a great tool to guarantee that your worker process(es) is always running (even if it closes due to failure).
+Supervisor is a great tool to guarantee that your worker process is always running, even if it closes due to failure.
+
+## Installation
 
 ```bash
+# Ubuntu
 sudo apt install supervisor
+# Centos
+sudo yum install supervisor
 ```
 
-Supervisor configuration files typically live in a `/etc/supervisor/conf.d` directory.
+## Config
 
-Create a new `messenger-worker.conf` file there to make sure that 2 instances of `messenger:consume` are running at all times:
+Supervisor configuration files typically live in:
+
+- `/etc/supervisor/conf.d` (Ubuntu)
+- `/etc/supervisord.d` (Centos)
+
+Create a new `messenger-worker.conf` (Ubuntu) or `messenger-worker.ini` (Centos) file there to make sure that 2 instances of `messenger:consume` are running at all times:
 
 ```
 ;/etc/supervisor/conf.d/messenger-worker.conf
@@ -31,7 +41,7 @@ Options:
 - `autorestart=true` - autorestart worker on failure
 - `numprocs=2` - number of instances of this worker
 
-Next, tell Supervisor to read your config and start your workers:
+## Console commands
 
 ```bash
 sudo supervisorctl reread
