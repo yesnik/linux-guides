@@ -48,6 +48,9 @@ sudo supervisorctl reread
 
 sudo supervisorctl update
 
+# Add supervisor to autoload on the system boot
+systemctl enable supervisord
+
 # Restart supervisor
 sudo service supervisor restart
 
