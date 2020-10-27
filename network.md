@@ -1,7 +1,7 @@
 # Linux Network
 
 - `tcpdump -i eth0` - show traffic on a network
-- `ip address show`, or `ip a s` - show IP address of current server
+- `ip a` - show network settings, IP address of current server
 
 ## Network kernel params
 
