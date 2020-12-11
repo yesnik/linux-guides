@@ -26,6 +26,7 @@
     - `-t` - preserve modification times
     - `-u` - skip files that are newer on the receiver
     - `-v` - info about what files are being transferred and a brief summary at the end - *stats1*.
+    - `--exclude='.env'` - exclude local file `.env` from copying
 
 ## Useful commands
 
