@@ -17,9 +17,18 @@
 - `fdisk -l` - list the partition tables for the specified devices
 - `lsblk` - list block devices
 
-## Useful commands
+## Copy files
 
 - `rsync -av --progress /opt mysite:/opt` - copy files from `/opt` to folder `/opt` on remote `mysite` host
+- `rsync -avu --delete ./dir1/ mysite:/root/dir1` - copy contents of local `dir1` folder to remote `dir1` folder.
+    - `-a` - archive mode; equals `-rlptgoD` (no -H,-A,-X). Do the sync preserving all filesystem attributes.
+    - `-r` - recurse into directories
+    - `-t` - preserve modification times
+    - `-u` - skip files that are newer on the receiver
+    - `-v` - info about what files are being transferred and a brief summary at the end - *stats1*.
+
+## Useful commands
+
 - `touch files/file{1..10}` - create 10 empty files in folder `files/`
 - `sudo dd if=/dev/sda1 of=/dev/null` - copy disk `sda1` to nowhere: imitation of IO-load
 - `iostat -hyx 1 3` - display disk IO load. If param `%util` is high then disk is working hard. 
