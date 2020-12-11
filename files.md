@@ -20,6 +20,7 @@
 ## Useful commands
 
 - `rsync -av --progress /opt mysite:/opt` - copy files from `/opt` to folder `/opt` on remote `mysite` host
+- `touch files/file{1..10}` - create 10 empty files in folder `files/`
 - `sudo dd if=/dev/sda1 of=/dev/null` - copy disk `sda1` to nowhere: imitation of IO-load
 - `iostat -hyx 1 3` - display disk IO load. If param `%util` is high then disk is working hard. 
 - `iotop -o` - show programs that use IO now
