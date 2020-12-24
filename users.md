@@ -90,6 +90,14 @@ landingx pts/0    172.11.10.179     15:08    0.00s  0.16s  0.10s w
 - `awk -F: '{ print $1}' /etc/passwd` - method 2
 - `cut -d: -f1 /etc/passwd` - method 3
 
+## Run command as another user
+
+Run command `ls /var/www/sales` as user `sales`:
+
+```bash
+runuser -u sales -- ls /var/www/sales
+```
+
 ## Useful commands
 
 - `su - kenny` - login as user `kenny`
