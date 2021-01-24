@@ -21,8 +21,8 @@
 
 ### scp
 
-`scp -R username@example.com:/file/to/send /place/to/save` - copy file from remote to local
-`scp -R /file/to/send username@example.com:/place/to/save` - cope file from local to remote
+`scp -r username@example.com:/file/to/send /place/to/save` - copy file from remote to local
+`scp -r /file/to/send username@example.com:/place/to/save` - cope file from local to remote
 
 ### rsync
 
