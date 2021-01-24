@@ -146,9 +146,9 @@ If we execute a script with SGID, it runs as if it were a member of the same gro
 
 ### Extract archive
 
-- `tar zxvf archive.tar.gz` - extract the content of archive to current folder (`x` - extract)
+- `tar zxvf archive.tar.gz` - extract the content of archive to current folder (`x` - extract). Archive won't be deleted.
 - `tar zxvf archive.tar.gz -C /tmp` - extract the content of archive to `/tmp`
-- `tar xf file.tar` - extracts archive's contents to current directory and doesn't delete archive file
+- `tar xf file.tar` - extract archive's contents to the current directory. Archive won't be deleted.
 - `unzip qm.zip` - extract archive in the current directory
 - `gunzip file.gz` - extracts archive and deletes archive file
 
