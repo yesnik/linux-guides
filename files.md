@@ -11,6 +11,10 @@
 
 **Important:** If you have dot-folders in working folder, execute `shopt -s dotglob` to include them in the count.
 
+## Directories
+
+- `mkdir -p mysite/logs/info` - create folder `info` with all *parent* directories: `mysite` and `logs`
+
 ## Files info
 
 - `stat file.txt` - detailed info about file or folder
