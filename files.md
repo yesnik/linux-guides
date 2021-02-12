@@ -42,6 +42,7 @@
 
 ## Useful commands
 
+- `mv temp/hello.txt{,_old}` - rename file `temp/hello.txt` to `temp/hello.txt_old`
 - `touch files/file{1..10}` - create 10 empty files in folder `files/`
 - `sudo dd if=/dev/sda1 of=/dev/null` - copy disk `sda1` to nowhere: imitation of IO-load
 - `iostat -hyx 1 3` - display disk IO load. If param `%util` is high then disk is working hard. 
