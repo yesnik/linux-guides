@@ -20,5 +20,9 @@ because of dependency problems for example, it is skipped.
 
 ## Config
 
+- `dnf config-manager --dump` - show all current config options with values
+
+### Folders
+
 - `/etc/dnf/dnf.conf` - main config files
 - `/etc/yum.repos.d` - folder to define individual repositories. Example: `/etc/yum.repos.d/fedora.repo`
