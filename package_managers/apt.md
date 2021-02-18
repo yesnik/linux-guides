@@ -1,4 +1,4 @@
-# Apt commands
+# Apt
 
 - `apt list --installed` - show installed packages
 - `sudo apt remove mongodb-org` - remove installed package by name
