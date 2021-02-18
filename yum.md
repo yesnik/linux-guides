@@ -1,7 +1,8 @@
 # Yum
 
 - `yum update` - update packages' versions
-- `yum repolist` - list the Enabled Repositories
+- `yum repolist` - list the enabled repositories
+- `yum repolist all` - list all repositories
 - `yum search php-mbstring` - search repos which name contains substring "php-mbstring"
 - `yum search netstat` - search repos that provide command "netstat"
 - `yum install php-mbstring.x86_64` - install package by name
