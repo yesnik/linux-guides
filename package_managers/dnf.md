@@ -5,6 +5,7 @@ All software on a Fedora system is divided into *RPM packages*, which can be ins
 ## Commands
 
 - `dnf install elixir` - install package
+- `dnf -y install /path/to/package.rpm` - install package from RPM file
 - `dnf remove mc` - remove package
 - `dnf check-update` - see which installed packages on your system have new versions available.
 - `dnf upgrade` - attempt to install any available updates. If a package cannot be updated, 
