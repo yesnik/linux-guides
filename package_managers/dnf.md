@@ -17,3 +17,8 @@ because of dependency problems for example, it is skipped.
 - `dnf repository-packages fedora list` - list packages from `fedora` repo
 - `dnf info elixir.x86_64` - show package's info
 - `dnf history` - show the history of changes in packages
+
+## Config
+
+- `/etc/dnf/dnf.conf` - main config files
+- `/etc/yum.repos.d` - folder to define individual repositories. Example: `/etc/yum.repos.d/fedora.repo`
