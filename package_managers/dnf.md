@@ -17,6 +17,9 @@ because of dependency problems for example, it is skipped.
 - `dnf repository-packages fedora list` - list packages from `fedora` repo
 - `dnf info elixir.x86_64` - show package's info
 - `dnf history` - show the history of changes in packages
+- `dnf config-manager --add-repo http://www.hello.com/example.repo` - add repo from URL
+- `dnf config-manager --set-enabled repo_name` - enable repository
+- `dnf config-manager --set-disabled repo_name` - disable repository
 
 ## Config
 
