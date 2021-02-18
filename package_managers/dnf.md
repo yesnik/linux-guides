@@ -16,4 +16,4 @@ because of dependency problems for example, it is skipped.
 - `dnf repolist` - list repositories
 - `dnf repository-packages fedora list` - list packages from `fedora` repo
 - `dnf info elixir.x86_64` - show package's info
-
+- `dnf history` - show the history of changes in packages
