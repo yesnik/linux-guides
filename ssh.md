@@ -40,3 +40,9 @@ If you need to forward requests from remote server to your local PC run on your 
 ```
 ssh -R 9009:localhost:9009 user@example.com
 ```
+
+## Execute commands on remote host
+
+```bash
+ssh sales-stage 'cd /var/www/esia-connector; pwd; date'
+```
