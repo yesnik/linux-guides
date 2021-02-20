@@ -30,13 +30,13 @@
 
 ### rsync
 
-- `rsync -av --progress /opt mysite:/opt` - copy files from `/opt` to folder `/opt` on remote `mysite` host
-- `rsync -avu --delete ./dir1/ mysite:/root/dir1` - copy contents of local `dir1` folder to remote `dir1` folder, delete absent files on remote
-- `rsync -avu --delete --exclude='.env' --exclude='.git' --exclude='vendor' ./ sales-stage:/var/www/sales`
+- `rsync -av --delete ./dir1/ mysite:/root/dir1` - copy contents of local `dir1` folder to remote `dir1` folder (delete old files on remote)
+- `rsync -av --delete --exclude='.env' --exclude='.git' --exclude='vendor' ./dir1/ mysite:/root/dir1` - exclude `vendor`, `.git` folders
 
 Options:
 
 - `-a` - archive mode; equals `-rlptgoD` (no -H,-A,-X). Do the sync recursively preserving all filesystem attributes: symbolic links, special and device files, modification times, group, owner, and permissions.
+- `--dry-run` - emulate files sync
 - `-r` - recurse, it's necessary for directory syncing
 - `-t` - preserve modification times
 - `-u` - skip files that are newer on the receiver
