@@ -35,12 +35,13 @@
 - `rsync -avu --delete --exclude='.env' --exclude='.git' --exclude='vendor' ./ sales-stage:/var/www/sales`
 
 Options:
-    - `-a` - archive mode; equals `-rlptgoD` (no -H,-A,-X). Do the sync preserving all filesystem attributes.
-    - `-r` - recurse into directories
-    - `-t` - preserve modification times
-    - `-u` - skip files that are newer on the receiver
-    - `-v` - info about what files are being transferred and a brief summary at the end - *stats1*.
-    - `--exclude='.env'` - exclude local file `.env` from copying
+
+- `-a` - archive mode; equals `-rlptgoD` (no -H,-A,-X). Do the sync recursively preserving all filesystem attributes: symbolic links, special and device files, modification times, group, owner, and permissions.
+- `-r` - recurse, it's necessary for directory syncing
+- `-t` - preserve modification times
+- `-u` - skip files that are newer on the receiver
+- `-v` - verbose, info about what files are being transferred and a brief summary at the end
+- `--exclude='.env'` - exclude local file `.env` from copying
 
 ## Useful commands
 
