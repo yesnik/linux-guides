@@ -25,14 +25,16 @@
 
 ### scp
 
-`scp -r username@example.com:/file/to/copy /place/to/save` - copy file from remote to local
-`scp -r /file/to/send username@example.com:/place/to/save` - copy file from local to remote
+- `scp -r username@example.com:/file/to/copy /place/to/save` - copy file from remote to local
+- `scp -r /file/to/send username@example.com:/place/to/save` - copy file from local to remote
 
 ### rsync
 
 - `rsync -av --progress /opt mysite:/opt` - copy files from `/opt` to folder `/opt` on remote `mysite` host
 - `rsync -avu --delete ./dir1/ mysite:/root/dir1` - copy contents of local `dir1` folder to remote `dir1` folder.
 - `rsync -avu --delete --exclude='.env' --exclude='.git' --exclude='vendor' ./ sales-stage:/var/www/sales`
+
+Options:
     - `-a` - archive mode; equals `-rlptgoD` (no -H,-A,-X). Do the sync preserving all filesystem attributes.
     - `-r` - recurse into directories
     - `-t` - preserve modification times
