@@ -41,6 +41,9 @@ Options:
 - `-t` - preserve modification times
 - `-u` - skip files that are newer on the receiver
 - `-v` - verbose, info about what files are being transferred and a brief summary at the end
+- `--progress` - it gives you a progress bar for the transfers
+- `--partial` - it allows you to resume interrupted transfers
+- `-P` - it combines the flags `--progress` and `--partial`
 - `--exclude='.env'` - exclude local file `.env` from copying
 
 ## Useful commands
