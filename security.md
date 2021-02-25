@@ -26,44 +26,20 @@ chkconfig serviceName off
 
 ## Disable Root login
 
-Create a user with sudo rights so that we can ssh into the server and perform administrative tasks.
+To disable login *root* user we need to create a user with sudo rights. Ensure that the new user can login to the server.
 
-### Centos
+We are now going to disable root login, which means no one can ssh or log into the server as *root* user.
 
-Create new user:
-
-```
-adduser myuser
-```
-
-Create password for the new user:
+Edit `sshd` configuration file 
 
 ```
-passwd myuser
-```
+sudo vim /etc/ssh/sshd_conf
+````
 
-Provide sudo permissions to the newly added user. On Centos add user to `wheel` group to give it sudo privileges:
-
-```
-usermod -aG wheel username
-```
-
-On another linux:
+Comment this line:
 
 ```
-echo 'myuser ALL=(ALL) ALL' >> /etc/sudoers
-```
-
-SSH to the server with the new user and ensure that the login works.
-
-**Important**: Don’t log out of the server yet. First test whether you can successfully ssh into the server using the previously created user. Open another instance of the terminal and ssh into the server with user you previously created. 
-If everything works fine, you can safely log out of the server as root.
-
-We are now going to disable root login, which means no one can ssh or log into the server as root user. 
-Edit sshd configuration file `/etc/ssh/sshd_conf`:
-
-```
-PermitRootLogin no
+# PermitRootLogin yes
 ```
 
 After that restart the service:
