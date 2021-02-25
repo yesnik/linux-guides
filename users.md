@@ -2,17 +2,21 @@
 
 OS: Centos, Ubuntu
 
-## Add user with home directory
+## Add user
 
 ```
 adduser kenny
 ```
 
-## Delete user including home directory
+Also folder `/home/kenny` will be created.
+
+## Delete user
 
 ```
 userdel -r kenny
 ```
+
+Folder `/home/kenny` will be removed.
 
 ## Change user's password
 
