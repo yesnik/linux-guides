@@ -36,6 +36,12 @@ sudo usermod -aG nginx kenny
 
 ## Add user to sudoers
 
+To do so you need to edit the `/etc/sudoers` this editor:
+
+```
+sudo visudo
+```
+
 ### Centos
 
 On CentOS, members of the *wheel* group have sudo privileges.
@@ -44,13 +50,7 @@ On CentOS, members of the *wheel* group have sudo privileges.
 usermod -aG wheel kenny
 ```
 
-To allow users from group *wheel* to run all commands using `sudo` without a password, open the sudoers file:
-
-```
-sudo visudo
-```
-
-Edit the following line:
+To allow users from group *wheel* to run all commands using `sudo` without a password, edit the following line:
 
 ```
 ## Same thing without a password
@@ -63,6 +63,12 @@ On Ubuntu members of the *sudo* group have sudo privileges.
 
 ```
 usermod -aG sudo kenny
+```
+
+In case you need all members of the *sudo* group to execute any commands using passwordless *sudo*, change the configuration line:
+
+```
+%sudo   ALL=(ALL:ALL) NOPASSWD:ALL
 ```
 
 ## Show last login info
