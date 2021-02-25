@@ -92,6 +92,14 @@ Options:
 - `chmod u+rwx,g+rx,o-rwx main.py` - assign these rights to file: `rwxr-x---`
 - `chmod g+s myfolder` - new files in this folder will get this folder's group
 
+### chattr
+
+`chattr` changes the file attributes on a Linux file system.
+
+- `sudo chattr +i test.txt` - secure file from modification, deletion
+- `sudo chattr -i test.txt` - remove security from modification
+- `lsattr test.txt` - show attributes for file. It will show: `----i--------e-- test.txt`
+
 ### File rights
 
 ```
