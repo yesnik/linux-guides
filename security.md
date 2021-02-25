@@ -36,10 +36,10 @@ Edit `sshd` configuration file
 sudo vim /etc/ssh/sshd_conf
 ````
 
-Comment this line:
+Edit this line:
 
 ```
-# PermitRootLogin yes
+PermitRootLogin no
 ```
 
 After that restart the service:
