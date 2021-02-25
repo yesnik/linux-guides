@@ -1,5 +1,7 @@
 # Linux Users
 
+OS: Centos, Ubuntu
+
 ## Add user with home directory
 
 ```
