@@ -7,6 +7,7 @@
 - `cat /proc/cpuinfo` - info about CPU
 - `cat /etc/services` - port assignments to network services
 - `htop --tree` - show processes with tree
+- `iptstate` - displays information held in the IP Tables state table in real-time in a top-like format
 - `sysctl -a` - show current *sysctl* settings
 - `sysctl -w net.core.somaxconn=65535` - set setting immediately (not persistent)
 - `sudo echo "net.core.somaxconn = 65535" | tee -a /etc/sysctl.conf && sudo sysctl -p` - set setting (persistent)
