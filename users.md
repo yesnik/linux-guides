@@ -8,7 +8,7 @@ OS: Centos, Ubuntu
 adduser kenny
 ```
 
-Also folder `/home/kenny` will be created.
+Folder `/home/kenny` will be created.
 
 ## Delete user
 
