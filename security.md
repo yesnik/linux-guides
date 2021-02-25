@@ -91,3 +91,16 @@ Because ssh is no longer listening for connections on the standard port, you wil
 ```
 ssh -p 2345 myserver
 ```
+
+## Update Linux software and Kernel
+
+Half of the Linux security battle is keeping everything up to date because updates frequently add extra security features. 
+Every time a new security update becomes available, you need to review it and install it as soon as you can.
+
+```bash
+# Centos
+yum update
+
+# Ubuntu
+apt update && apt upgrade
+```
