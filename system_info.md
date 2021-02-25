@@ -1,6 +1,7 @@
 # Linux system info
 
 - `cat /etc/*-release` - show Linux version
+- `fdisk -l` - List  the  partition  tables for the specified devices and then exit.  If no devices are given, those mentioned in /proc/partitions (if that exists) are used
 - `hostnamectl` - show Linux version
 - `uname -sr` - show kernel version
 - `lscpu` - info about CPU
