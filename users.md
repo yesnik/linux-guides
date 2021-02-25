@@ -57,6 +57,14 @@ Edit the following line:
 %wheel  ALL=(ALL)       NOPASSWD: ALL
 ```
 
+### Ubuntu
+
+On Ubuntu members of the *sudo* group have sudo privileges.
+
+```
+usermod -aG sudo kenny
+```
+
 ## Show last login info
 
 ```
