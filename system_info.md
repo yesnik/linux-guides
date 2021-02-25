@@ -15,3 +15,8 @@
 - `cat /proc/sys/net/core/somaxconn` - show current value of setting
 - `sudo swapon --show` - show info about current swap files
 - `free -h` - show free memory, including swap
+
+## Systemctl
+
+- `systemctl list-units` - list active modules of systemd
+- `systemctl list-unit-files` - list status of all available modules
