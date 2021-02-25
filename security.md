@@ -56,7 +56,7 @@ To make the change, edit file `/etc/ssh/sshd_config`:
 
 ```
 # Run ssh on a non-standard port:
-Port 2345  #Change me
+Port 2345  # Change me
 ```
 
 Restart the sshd service: 
