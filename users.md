@@ -65,9 +65,11 @@ On Ubuntu members of the *sudo* group have sudo privileges.
 usermod -aG sudo kenny
 ```
 
-In case you need all members of the *sudo* group to execute any commands using passwordless *sudo*, change the configuration line:
+In case you need all members of the *sudo* group to execute any commands using *sudo* withoud password, change the config line:
 
 ```
+# Allow members of group sudo to execute any command
+# %sudo   ALL=(ALL:ALL) ALL
 %sudo   ALL=(ALL:ALL) NOPASSWD:ALL
 ```
 
