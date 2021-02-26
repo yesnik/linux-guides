@@ -5,6 +5,39 @@
 - `ifconfig` - show network interfaces
 - `ifconfig venet0:2 down` - disable interface named `venet0:2`
 
+## tcpdump
+
+- `tcpdump -n host google.com` - capture connections to host
+- `tcpdump -n udp` - capture UDP traffic
+- `tcpdump -D` - show available network interfaces
+- `tcpdump -ni any` - capture packets from all interfaces
+- `tcpdump -c 10` - capture first 10 packets
+
+### Output format
+
+```
+06:41:02.633729 IP 37.230.124.116.34194 > 77.88.55.55.80: Flags [P.], seq 1:75, ack 1, win 502, 
+options [nop,nop,TS val 526238602 ecr 3869570736], length 74: HTTP: POST / HTTP/1.1
+```
+- `06:41:02.633729` - hours:minutes:seconds.frac. frac - number of seconds after midnight
+- `IP` - protocol IPv4
+- `37.230.124.116.34194` - source host and port
+- `77.88.55.55.80` - destination host and port
+- `Flags` - TCP flags. To remember easier: *Unskilled Attackers Pester Real Security Folks*
+    - Unskilled `URG` (Not Displayed in Flag Field, Displayed elsewhere) 
+    - Attackers `ACK` (Not Displayed in Flag Field, Displayed elsewhere)
+    - Pester `PSH` [P] (Push Data)
+    - Real `RST` [R] (Reset Connection)
+    - Security `SYN` [S] (Start Connection)
+    - Folks `FIN` [F] (Finish Connection)
+    - `SYN-ACK` [S.] (SynAcK Packet)
+    - [.] (No Flag Set)
+- `seq 1:75` - packet contains bytes from 1 to 75 of the data flow
+- `ack 1` - serial number of next slice of data that destination host is waiting for
+- `win 502` - window, amount of available bytes in buffer
+- `options [nop,nop,TS val 526238602 ecr 3869570736]`
+- `length 74` - payload length
+
 ## Network kernel params
 
 `sysctl net.core` - show network kernel params
