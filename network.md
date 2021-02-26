@@ -9,6 +9,7 @@
 
 - `tcpdump -n host google.com` - capture connections to host
 - `tcpdump port 80` - see only traffic to or from a certain port
+- `tcpdump -n portrange 80-150` - traffic in the range of ports
 - `tcpdump -n udp` - capture UDP traffic
 - `tcpdump -D` - show available network interfaces
 - `tcpdump -ni any` - capture packets from all interfaces
