@@ -30,6 +30,8 @@ These reports are intended to help identify system bottlenecks.
 - `vmstat -s` - displays a table of various event counters  and  memory  statistics.
 - `vmstat -w` - wide output mode (useful for systems with higher amount of memory)
 - `vmstat -f` - show number of forks. It shows the number of tasks that have been launched (and, for the bulk of them, closed again) since the system was booted. Every process launched from the command line would increase this figure. Each time a task or process spawns or clones a new task, this figure will increase.
+- `vmstat -d` - read/write stats for various disks
+- `vmstat -D` - summary disks statistics
 
 **Output**
 
@@ -49,7 +51,7 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
     - `cache`: the amount of memory used as cache.
     - `inact`: the amount of inactive memory. (-a option)
     - `active`: the amount of active memory. (-a option)
-- Swap
+- Swap. If these values are high you should increase RAM.
     - `si`: Amount of memory swapped in from disk (/s).
     - `so`: Amount of memory swapped to disk (/s).
 - IO
