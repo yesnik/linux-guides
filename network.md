@@ -10,12 +10,17 @@
 - `tcpdump -n host google.com` - capture connections to host
 - `tcpdump port 80` - see only traffic to or from a certain port
 - `tcpdump -n portrange 80-150` - traffic in the range of ports
+- `tcpdump -n dst port 80` - trafic from any source to destination port 80
 - `tcpdump -n udp` - capture UDP traffic
 - `tcpdump -D` - show available network interfaces
 - `tcpdump -ni any` - capture packets from all interfaces
 - `tcpdump -c 10` - capture first 10 packets
 
-### Output format
+**Options**
+
+- `-n` - Don't convert addresses (i.e., host addresses, port numbers, etc.) to names
+
+**Output format**
 
 ```
 06:41:02.633729 IP 37.230.124.116.34194 > 77.88.55.55.80: Flags [P.], seq 1:75, ack 1, win 502, 
