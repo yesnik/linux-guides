@@ -16,7 +16,16 @@
 - `sudo swapon --show` - show info about current swap files
 - `free -h` - show free memory, including swap
 
-## Systemctl
+## systemctl
 
 - `systemctl list-units` - list active modules of systemd
 - `systemctl list-unit-files` - list status of all available modules
+
+## vmstat
+
+It reports information about processes, memory, paging, block IO, traps, disks and cpu activity.
+These reports are intended to help identify system bottlenecks.
+
+- `vmstat 5` - show info, update every 5 sec.
+- `vmstat -s` - displays a table of various event counters  and  memory  statistics.
+- `vmstat -w` - wide output mode (useful for systems with higher amount of memory)
