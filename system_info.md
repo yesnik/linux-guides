@@ -40,8 +40,8 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
 ```
 
 - Procs
-    - `r`: The number of processes waiting for run time 
-    - `b`: The number of processes in uninterruptible sleep
+    - `r`: The number of processes waiting for run time by CPU. If r > 0, then CPU is overloaded
+    - `b`: The number of processes in uninterruptible sleep. If b > 0, then disks / filesystem is overloaded
 - Memory
     - `swpd`: the amount of virtual memory used.
     - `free`: the amount of idle memory.
