@@ -29,7 +29,7 @@ These reports are intended to help identify system bottlenecks.
 - `vmstat 2` - show info, update every 2 sec.
 - `vmstat -s` - displays a table of various event counters  and  memory  statistics.
 - `vmstat -w` - wide output mode (useful for systems with higher amount of memory)
-- `vmstat -f` - show number of forks. It shows the number of tasks that have been launched (and, for the bulk of them, closed again) since the system was booted. Every process launched from the command line would increase this figure. Each time a task or process spawns or clones a new task, this figure will increase.
+- `vmstat -f` - show number of system calls (fork(2), vfork(2) и rfork(2)). It shows the number of tasks that have been launched (and, for the bulk of them, closed again) since the system was booted. Every process launched from the command line would increase this figure. Each time a task or process spawns or clones a new task, this figure will increase.
 - `vmstat -d` - read/write stats for various disks
 - `vmstat -D` - summary disks statistics
 
