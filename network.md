@@ -4,6 +4,7 @@
 - `ip a` - show network settings, IP address of current server
 - `ifconfig` - show network interfaces
 - `ifconfig venet0:2 down` - disable interface named `venet0:2`
+- `route -n` - show IP routing table
 
 ## tcpdump
 
