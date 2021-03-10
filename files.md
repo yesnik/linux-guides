@@ -159,10 +159,10 @@ If we execute a script with SGID, it runs as if it were a member of the same gro
 ### Create archive
 
 - `tar zcvf access.tar.gz access.log` - create `tar.gz` archive of file (`z` - gzip, `c` - create)
-- `tar zcvf archive.tar.gz -C /var/www ./` - create archive in current folder with the content of folder `/var/www`
+- `tar zcvf archive.tar.gz -C /var/www ./` - create archive in current folder *with the contents* of folder `/var/www`
 - `tar zcvf archive.tar.gz -C /var/www/. ./` - .. including dot-files: `.env`, `.git`, etc.
 - `tar zcvf archive.tar.gz -C /var/www ./ --exclude=./uploads` - ... + exclude contents of `./uploads` folder
-- `tar -zcvf ~/backups/"php-$(date '+%Y-%m-%d').tar.gz" ./php` - create archive `php-2021-03-10.tar.gz` of `php` folder and place it at `~/backups/`
+- `tar -zcvf ~/backups/"www-$(date '+%Y-%m-%d').tar.gz" -C /var/www ./` - create archive at `~/backups/www-2021-03-08.tar.gz` with the contents of `/var/www` folder
 - `zip -r node.zip . -x "**/node_modules/*"` - create archive `node.zip` from all files in current dir, exclude `node_modules` folders in all folders
 - `zip dump.sql.zip dump.sql` - create archive `dump.sql.zip` from file `dump.sql`
 - `gzip file.txt` - creates archive `file.txt.gz` and deletes original file
