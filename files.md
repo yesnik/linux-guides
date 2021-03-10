@@ -167,6 +167,10 @@ If we execute a script with SGID, it runs as if it were a member of the same gro
 - `zip dump.sql.zip dump.sql` - create archive `dump.sql.zip` from file `dump.sql`
 - `gzip file.txt` - creates archive `file.txt.gz` and deletes original file
 
+Options:
+- `-C DIR` - Change to DIR before performing any operations
+- `-z` - Filter the archive through `gzip` i.e. compress or decompress archive
+
 ### Extract archive
 
 - `tar zxvf archive.tar.gz` - extract the content of archive to current folder (`x` - extract). Archive won't be deleted.
