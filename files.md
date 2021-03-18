@@ -165,7 +165,8 @@ If we execute a script with SGID, it runs as if it were a member of the same gro
 - `tar -zcvf ~/backups/"www-$(date '+%Y-%m-%d').tar.gz" -C /var/www ./` - create archive at `~/backups/www-2021-03-08.tar.gz` with the contents of `/var/www` folder
 - `zip -r node.zip . -x "**/node_modules/*"` - create archive `node.zip` from all files in current dir, exclude `node_modules` folders in all folders
 - `zip dump.sql.zip dump.sql` - create archive `dump.sql.zip` from file `dump.sql`
-- `gzip file.txt` - creates archive `file.txt.gz` and deletes original file
+- `gzip file.txt` - creates archive `file.txt.gz` and deletes original file. **Note:** `gzip` in Linux can only be used to compress a single file.
+    In order to compress a folder, use `tar -z` (which is tar + gzip).
 
 Options:
 - `-C DIR` - Change to DIR before performing any operations
