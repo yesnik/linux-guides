@@ -21,3 +21,23 @@
     sudo sysctl -p
     ```
 **Important:** If you changed `sysctl` restart `nginx`, `php-fpm`.
+
+### upstream sent too big header while reading response header from upstream
+
+Edit `/etc/nginx/conf.d/some_site.conf`:
+
+```
+server {
+    location ~ ^/index\.php(/|$) {
+        fastcgi_pass php-upstream;
+        fastcgi_split_path_info ^(.+\.php)(/.*)$;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param HTTPS off;
+
+        # Add these lines
+        fastcgi_buffer_size 32k;
+        fastcgi_buffers 4 32k;
+    }
+}
+```
