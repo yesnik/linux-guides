@@ -1,5 +1,13 @@
 # Bash Syntax
 
+## Variable
+
+```bash
+NAME=kenny
+
+echo "/tmp/${NAME}"
+```
+
 ## SSH and execute a command
 
 ```bash
