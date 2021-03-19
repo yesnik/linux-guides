@@ -47,3 +47,27 @@ EOF
 ```
 
 This command will create archive `files-2021-03-10.tar.gz` on the remote host.
+
+## Arrays
+
+```bash
+arr=(PHP Python JavaScript)
+
+# Count total number of elements of the array
+total=${#arr[*]}
+echo "Total elements: $total"
+
+# Print each element value of the array
+echo "Array values :"
+for item in ${arr[*]}
+do
+  printf "%s\n" $item
+done
+
+# Print each element value of the array with key 
+echo "Array values with key:"
+for key in ${!arr[*]}
+do
+  printf "%4d: %s\n" $key ${arr[$key]}
+done
+```
