@@ -2,10 +2,40 @@
 
 ## Variable
 
+**Use double quotes**
+
 ```bash
 NAME=kenny
+echo "/tmp/$NAME"
+#=> /tmp/kenny
+```
 
-echo "/tmp/${NAME}"
+**Use double parenthesis**
+
+```bash
+a=2
+((result = a + 3))
+echo $result
+#=> 5
+```
+
+**Global and local variables**
+
+```bash
+a=1
+
+function add()
+{
+  local a=3
+  local b=4
+  (( result = a + b ))
+  echo $result
+
+}
+add
+#=> 7
+echo $a
+#=> 1
 ```
 
 ## SSH and execute a command
