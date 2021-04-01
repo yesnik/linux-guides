@@ -188,4 +188,5 @@ A link is a connection between a file name and the actual data on the disk. Two 
 - *soft* (symbolic) links. It's a special file that points to another file or directory (target). It does not contain a copy of the target file's data. If you delete a symbolic link, the target is unaffected. Also, if the target of a symbolic link is deleted, moved, or renamed, the symbolic link is not updated. When this happens, the symbolic link is called "broken", "orphaned".
   - `sudo ln -snf /home/nik/projects/messenger/config/messenger-worker.conf ./` - create symlink `messenger-worker.conf` in the current folder
   - `ln -snf /var/www/builds/10 /var/www/current` - create symlink `current` to folder `10`
+  - `ln -snf /etc/ssl/certs /usr/local/ssl/certs` - create symlink `/usr/local/ssl/certs` to the contents of dir `/etc/ssl/certs`. Ensure, that `/usr/local/ssl/certs` doesn't exist before you execute this command.
   
