@@ -68,7 +68,7 @@ server {
 }
 ```
 
-## 2. PHP app with SSL
+## PHP app with SSL
 
 File `/etc/nginx/conf.d/horizon_ssl.conf`:
 
