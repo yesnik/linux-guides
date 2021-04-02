@@ -1,6 +1,34 @@
 # Nginx config examples
 
-## 1. PHP app
+## PHP app (1)
+
+File `/etc/nginx/conf.d/site.conf`:
+
+```
+server {
+    listen 80;
+    charset utf-8;
+    index index.php index.html;
+    root /app/public;
+
+    add_header X-Frame-Options "SAMEORIGIN";
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location ~ \.php$ {
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_pass api-php:9000;
+        fastcgi_index index.php;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param PATH_INFO $fastcgi_path_info;
+    }
+}
+```
+
+## PHP app (2)
 
 File `/etc/nginx/conf.d/horizon.conf`:
 
