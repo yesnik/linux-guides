@@ -33,7 +33,7 @@ We are now going to disable root login, which means no one can ssh or log into t
 Edit `sshd` configuration file 
 
 ```
-sudo vim /etc/ssh/sshd_conf
+sudo vim /etc/ssh/sshd_config
 ````
 
 Edit this line:
