@@ -13,6 +13,7 @@
 - `memory doctor` - reports about different memory-related issues that the Redis server experiences
 - `memory purge` - attempt to purge dirty pages so these can be reclaimed by the allocator
 - `redis-cli --raw keys "app:claim:2957*" | xargs redis-cli del` - delete keys by pattern
+- `flushdb` - delete all the keys of the currently selected DB
 
 ### Get key value
 
