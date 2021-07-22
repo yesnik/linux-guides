@@ -2,6 +2,8 @@
 
 ## Example of pipeline
 
+Contents of `Jenkinsfile`:
+
 ```
 pipeline {
     agent any
