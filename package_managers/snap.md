@@ -14,6 +14,9 @@ snap info ruby
 # Install ruby package
 snap install ruby --classic
 
+# Install ruby from defined channel
+snap install ruby --classic --channel=2.7/stable
+
 # Remove ruby package
 snap remove ruby
 
