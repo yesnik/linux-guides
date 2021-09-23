@@ -12,5 +12,8 @@ It is available out-of-the-box on Ubuntu.
 snap info ruby
 
 # Install ruby package
-sudo snap install ruby --classic
+snap install ruby --classic
+
+# Remove ruby package
+snap remove ruby
 ```
