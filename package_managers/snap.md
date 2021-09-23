@@ -16,4 +16,7 @@ snap install ruby --classic
 
 # Remove ruby package
 snap remove ruby
+
+# List installed packages
+snap list
 ```
