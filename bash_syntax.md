@@ -2,6 +2,14 @@
 
 ## Variable
 
+**No space around `=`**
+
+```bash
+A=1
+echo $A
+#=> 1
+```
+
 **Use double quotes**
 
 ```bash
