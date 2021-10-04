@@ -13,6 +13,8 @@
 - `ps aux | head -1; ps aux | sort -rnk 4 | head -5` - show top 5 processes with highest memory usage
 - `pstree` - show tree of processes
 - `kill -9 500` - kill process with PID = 500
+- `sleep 1000 &` - run process in the background
+- `jobs` - show processes running in the context of the current shell
 
 ### Run a command in the background
 
