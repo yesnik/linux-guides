@@ -15,6 +15,7 @@
 - `kill -9 500` - kill process with PID = 500
 - `sleep 1000 &` - run process in the background
 - `jobs` - show processes running in the context of the current shell
+- `watch date` - run a command repeatedly (2 seconds cycle by default)
 
 ### Run a command in the background
 
