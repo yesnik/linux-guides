@@ -40,3 +40,29 @@ The child process will have the same environment as its parent, but different PI
 - `strace -t df -h` - show time of each system call
 - `strace -e trace=open,read -p 1000 -o debug.txt` -  log a trace of the open, read system calls to file
 
+## Process Priority and Nice Value
+
+In Linux priorities are 0 to 139 in which 100 to 139 for users. So command `top` shows `PR` (Priority) from 0 to 39.
+
+- Priority: `0 ... 39`. Priority `0` is the highest.
+- Nice: `-20 ... 19`. Process with nice `-20` has highest priority.
+
+```
+Priority = Nice + 20
+```
+
+### Start the process with the nice value
+
+```bash
+nice -n 15 bash loop.sh &
+```
+
+Process will get nice to `15`, priority will be `35` (as priority = 20 + nice). 
+As it has the least priority, it gets the least amount of CPU.
+
+### Change nice of the process
+
+```bash
+renice -n 5 -p 123
+```
+Nice value of process PID 123 will be set to `5`, priority will be 25. The CPU will be allocated accordingly.
