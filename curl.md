@@ -87,3 +87,21 @@ curl -X DELETE http://127.0.0.1:3000/users/3
 ```bash
 curl -X PUT -d 'a=1&b=2' "http://127.0.0.1:8000/users/2"
 ```
+
+## Curl Proxy
+
+```bash
+curl -vvv -x "http://user:pass@178.17.0.221:80" "http://getcomposer.org/versions"
+```
+
+Another way to use proxy with curl is to set the environment variables `http_proxy` and `https_proxy`:
+
+```bash
+export http_proxy="http://user:pass@127.0.0.1:1234"
+export https_proxy="http://user:pass@127.0.0.1:1234"
+```
+After running these two commands, run curl normally:
+
+```bash
+curl "http://httpbin.org/ip"
+```
