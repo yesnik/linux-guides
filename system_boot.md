@@ -1,38 +1,47 @@
 # System boot
 
-## Ubuntu
+## Add / Remove service to startup
 
-If you want to edit services started at system startup use following commands.
-
-**Add service to startup**
-
-```
-sudo update-rc.d apache2 defaults
-```
-
-This command will create the symlink `/etc/rc0.d/K01apache2` to `/etc/init.d/apache2`.
-
-**Remove service from startup**
-
-```
-sudo update-rc.d apache2 remove
-```
-
-This command will remove symlink from `/etc/rc0.d/K01apache2` to `/etc/init.d/apache2`.
-It means that `apache2` will no longer be booted on system startup.
-
-## Centos 7
-
-### Add service to startup
+### Ubuntu
 
 **Method 1**
 
-Enable it to start Docker automatically on boot:
+```bash
+sudo systemctl status apache2
+sudo systemctl enable apache2
+sudo systemctl disable apache2
+```
+
+**Method 2**
+
+If you want to edit services started at system startup use following commands.
+
+```
+sudo update-rc.d apache2 defaults
+
+sudo update-rc.d apache2 remove
+```
+
+This command will create / remove the symlink `/etc/rc0.d/K01apache2` to `/etc/init.d/apache2`.
+
+### Centos 7
+
+**Method 1**
+
+Start Docker automatically on boot:
 
 ```bash
 sudo systemctl enable docker
 
 # Created symlink /etc/systemd/system/multi-user.target.wants/docker.service → /usr/lib/systemd/system/docker.service.
+```
+
+Disable Docker start on boot:
+
+```bash
+sudo systemctl disable docker
+# Removed /etc/systemd/system/multi-user.target.wants/docker.service.
+
 ```
 
 **Method 2**
