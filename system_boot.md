@@ -2,6 +2,8 @@
 
 ## Add / Remove service to startup
 
+If you want to edit services started at system startup use following commands.
+
 ### Ubuntu
 
 **Method 1**
@@ -13,8 +15,6 @@ sudo systemctl disable apache2
 ```
 
 **Method 2**
-
-If you want to edit services started at system startup use following commands.
 
 ```
 sudo update-rc.d apache2 defaults
