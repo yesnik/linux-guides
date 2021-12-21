@@ -99,6 +99,11 @@ landingx pts/0    172.11.10.179     15:08    0.00s  0.16s  0.10s w
 
 - `whoami` - show current user name
 - `id` - show uid, gid, groups of current user
+- `id -u` - show user id
+
+## Show user info
+
+- `id -nu 1000` - show name of user with uid=1000
 
 ## Show user's groups
 
