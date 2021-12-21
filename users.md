@@ -99,7 +99,7 @@ landingx pts/0    172.11.10.179     15:08    0.00s  0.16s  0.10s w
 
 - `whoami` - show current user name
 - `id` - show uid, gid, groups of current user
-- `id -u` - show user id
+- `id -u`, `echo $UID` - show user id
 
 ## Show user info
 
