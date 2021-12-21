@@ -32,7 +32,8 @@
 
 - `rsync -av --delete ./dir1/ mysite:/root/dir1` - push: copy contents of local `dir1` folder to remote `dir1` folder (delete old files on remote). 
 - **Important:** Notice trailing slash on the source folder `./dir1/`. It means that we want to copy *contents* of this folder. 
-- `rsync -av --delete mysite:/root/dir1/ ./dir1/` - pull: copy contents from remote `dir1` folder to local `dir1` (delete old files on local)
+- `rsync -av --delete mysite:/root/dir1/ ./dir1/` - pull: copy *contents* from remote `dir1` folder to local `dir1` (delete old files on local)
+- `rsync -av --delete mysite:/root/dir1 ./` - copy remote `dir1` folder to local `dir1` folder in the current folder.
 - `rsync -av --delete --exclude='.git' --exclude='vendor' ./dir1/ mysite:/root/dir1` - exclude `vendor`, `.git` folders
 
 Options:
