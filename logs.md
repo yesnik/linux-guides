@@ -26,8 +26,34 @@ See [RFC 5424](https://datatracker.ietf.org/doc/html/rfc5424#section-6.2.1)
 
 ## Rsyslog
 
-*Rsyslog* is an open-source software utility used on UNIX and Unix-like computer systems for forwarding log messages in an IP network. 
-It implements the basic *syslog* protocol, extends it with content-based filtering, rich filtering capabilities, queued operations to handle offline outputs, support for different module outputs, flexible configuration options and adds features such as using TCP for transport.
+*Rsyslog* is a daemon that is capable of forwarding logs to remote servers. The configuration makes it possible to centralize log files.
+
+### Configure log host
+
+*Log host* is a server hosting log files. 
+
+1. Mount `/var/log` on a separate partition. It's critical when the server receives log files from many servers.
+2. Edit `/etc/rsyslog.conf` or file at `/etc/rsyslog.d/`. Uncomment lines to enable UDP:
+```
+# provides UDP syslog reception
+module(load="imudp")
+input(type="imudp" port="514")
+```
+3. Configure a [template](https://www.rsyslog.com/doc/v8-stable/configuration/templates.html) for incoming logs. 
+  If we don't configure a template, all of the log entries from the remote servers mix with the log host's logs.
+```
+$template DynamicFile,"/var/log/%HOSTNAME%/forwarded-logs.log" 
+*.* -?DynamicFile
+```
+4. Restart `systemctl restart rsyslog`
+5. Verify that rsyslog is listening port 514: `ss -4altunp | grep 514`
+6. Allow rsyslog through firewall: `ufw allow 514/udp`
+7. To allow specific hosts for either UDP or TCP logging, edit `rsyslog.conf`:
+    ```
+    # $AllowedSender - define which remote servers are allowed to send syslog messages to our rsyslogd
+    $AllowedSender UDP, 192.168.51.0/24, [::1]/128, *.site.org, s1.ex.com
+    $AllowedSender TCP, 192.168.52.0/24, [::1]/128, *.site.org, s2.ex.com
+    ```
 
 ## Links
 
