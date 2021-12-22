@@ -16,6 +16,8 @@
 - `sleep 1000 &` - run process in the background
 - `jobs` - show processes running in the context of the current shell
 - `watch date` - run a command repeatedly (2 seconds cycle by default)
+- `ss -4tunlp | grep 514` - check if some process is listening port 514
+- `netstat -tunlp` - show used ports
 
 ### Run a command in the background
 
