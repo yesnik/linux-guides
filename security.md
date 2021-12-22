@@ -10,6 +10,8 @@ netstat -tunlp
 
 To install netstat on Centos: `yum install net-tools`
 
+Check if some process is listening port 514: `ss -4tunlp | grep 514`
+
 Disable the unwanted services from the system using ‘chkconfig’ command and close the ports that are not needed:
 
 ```
