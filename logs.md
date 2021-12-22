@@ -24,6 +24,11 @@ See [RFC 5424](https://datatracker.ietf.org/doc/html/rfc5424#section-6.2.1)
 6 - Informational: informational messages
 7 - Debug: debug-level messages
 
+## Rsyslog
+
+*Rsyslog* is an open-source software utility used on UNIX and Unix-like computer systems for forwarding log messages in an IP network. 
+It implements the basic *syslog* protocol, extends it with content-based filtering, rich filtering capabilities, queued operations to handle offline outputs, support for different module outputs, flexible configuration options and adds features such as using TCP for transport.
+
 ## Links
 
 - The Syslog Protocol [RFC 5424](https://datatracker.ietf.org/doc/html/rfc5424)
