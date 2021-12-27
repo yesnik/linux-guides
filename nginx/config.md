@@ -1,6 +1,18 @@
-# Nginx config examples
+# Nginx config
 
-## PHP app (1)
+Official docs: https://nginx.org/en/docs/
+
+## Config options
+
+### ngx_http_core_module
+
+See [docs](https://nginx.org/en/docs/http/ngx_http_core_module.html).
+
+- `client_max_body_size 32m;` - Sets the maximum allowed size of the client request body
+
+## Nginx config examples
+
+### PHP app (1)
 
 File `/etc/nginx/conf.d/site.conf`:
 
@@ -28,7 +40,7 @@ server {
 }
 ```
 
-## PHP app (2)
+### PHP app (2)
 
 File `/etc/nginx/conf.d/horizon.conf`:
 
@@ -68,7 +80,7 @@ server {
 }
 ```
 
-## PHP app with SSL
+### PHP app with SSL
 
 File `/etc/nginx/conf.d/horizon_ssl.conf`:
 
