@@ -14,3 +14,4 @@ and in any file with the suffix `.list` under the directory
 - `sudo apt remove mongodb-org` - remove installed package by name
 - `apt search lmysqlclient` - find packages that contain phrase *lmysqlclient*
 - `sudo apt update` - update versions of packages
+- `apt-cache show nginx` - search `nginx` package in system repos
