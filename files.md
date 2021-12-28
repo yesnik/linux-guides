@@ -95,11 +95,15 @@ Options:
 
 ### chattr
 
-`chattr` changes the file attributes on a Linux file system.
+`chattr` changes the file attributes on a Linux file system. It helps to prevent all users including root from deleting a file. 
 
 - `sudo chattr +i test.txt` - secure file from modification, deletion
 - `sudo chattr -i test.txt` - remove security from modification
 - `lsattr test.txt` - show attributes for file. It will show: `----i--------e-- test.txt`
+
+Attributes:
+
+- `i` -  immutable
 
 ### File rights
 
