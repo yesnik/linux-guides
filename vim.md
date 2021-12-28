@@ -10,9 +10,8 @@
 
 ## Set nice theme
 
-```
-:colo elflord
-```
+- `:colo elflord`
+- `:colo` + `Tab` + `Space` + `Tab`
 
 ## Show CRLF as `^M`
 
