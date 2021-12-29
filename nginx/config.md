@@ -15,6 +15,7 @@ Official docs: https://nginx.org/en/docs/
 See [docs](https://nginx.org/en/docs/http/ngx_http_core_module.html).
 
 - `client_max_body_size 32m;` - Sets the maximum allowed size of the client request body
+- `listen: 80 default_server;` - The `default_server` parameter, if present, will cause the server to become the default server for the specified `address:port` pair.
 
 ## Nginx config examples
 
