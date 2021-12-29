@@ -18,6 +18,18 @@ See [docs](https://nginx.org/en/docs/http/ngx_http_core_module.html).
 
 ## Nginx config examples
 
+### Simple virtual host
+
+File `/etc/nginx/conf.d/hello.com.conf`:
+
+```
+server {
+    listen 80;
+    server_name hello.com;
+    return 200 "From hello.com";
+}
+```
+
 ### PHP app (1)
 
 File `/etc/nginx/conf.d/hello.com.conf`:
