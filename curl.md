@@ -12,6 +12,10 @@ curl "http://127.0.0.1:8000/?a=1&b=2"
 
 ## Params
 
+- **-o** Output server's response body to file:
+  ```
+  curl -o ./response.html http://google.com
+  ```
 - **-v** Show headers of request and response:
   ```
   curl -v http://127.0.0.1:8000
