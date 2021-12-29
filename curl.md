@@ -12,17 +12,18 @@ curl "http://127.0.0.1:8000/?a=1&b=2"
 
 ## Params
 
-**-v** Show headers of request and response:
-
-```
-curl -v http://127.0.0.1:8000
-```
-
-**-I** Show only headers of response, without body
-
-```
-curl -I http://127.0.0.1:8000
-```
+- **-v** Show headers of request and response:
+  ```
+  curl -v http://127.0.0.1:8000
+  ```
+- **-D** Dump response headers:
+  ```
+  curl -D - http://google.com
+  ```
+- **-I** Show only headers of response, without body:
+  ```
+  curl -I http://127.0.0.1:8000
+  ```
 
 ## POST query
 
