@@ -4,6 +4,12 @@ Official docs: https://nginx.org/en/docs/
 
 ## Config options
 
+### ngx_core_module
+
+- See [docs](https://nginx.org/en/docs/ngx_core_module.html)
+
+- `worker_processes auto;` - Defines the number of worker processes. Setting it to the number of available CPU cores would be a good start (the value "auto" will try to autodetect it).
+
 ### ngx_http_core_module
 
 See [docs](https://nginx.org/en/docs/http/ngx_http_core_module.html).
