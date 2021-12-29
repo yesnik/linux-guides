@@ -20,11 +20,12 @@ See [docs](https://nginx.org/en/docs/http/ngx_http_core_module.html).
 
 ### PHP app (1)
 
-File `/etc/nginx/conf.d/site.conf`:
+File `/etc/nginx/conf.d/hello.com.conf`:
 
 ```
 server {
     listen 80;
+    server_name hello.com;
     charset utf-8;
     index index.php index.html;
     root /app/public;
@@ -48,13 +49,13 @@ server {
 
 ### PHP app (2)
 
-File `/etc/nginx/conf.d/horizon.conf`:
+File `/etc/nginx/conf.d/qm.hello.com.conf`:
 
 ```
 server {
     listen 80;
-    server_name qm.hello.ru;
-    root /var/www/queue-manager/public;
+    server_name qm.hello.com;
+    root /var/www/qm.hello.com/public;
 
     add_header X-Frame-Options "SAMEORIGIN";
     add_header X-XSS-Protection "1; mode=block";
@@ -88,7 +89,7 @@ server {
 
 ### PHP app with SSL
 
-File `/etc/nginx/conf.d/horizon_ssl.conf`:
+File `/etc/nginx/conf.d/stage.hello.ru.conf`:
 
 ```
 server {
