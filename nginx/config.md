@@ -2,6 +2,34 @@
 
 Official docs: https://nginx.org/en/docs/
 
+## Config sections
+
+Main `/etc/nginx/nginx.conf` config file has different sections:
+
+```nginx
+# Main section
+user  nginx;
+worker_processes  auto;
+
+error_log  /var/log/nginx/error.log notice;
+pid        /var/run/nginx.pid;
+
+# Events section
+events {
+    worker_connections  1024;
+}
+
+# HTTP section
+http {
+    include       /etc/nginx/mime.types;
+    default_type  application/octet-stream;
+    access_log  /var/log/nginx/access.log  main;
+    sendfile        on;
+    keepalive_timeout  65;
+    include /etc/nginx/conf.d/*.conf;
+}
+```
+
 ## Config options
 
 ### ngx_core_module
