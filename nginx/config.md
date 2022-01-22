@@ -40,6 +40,15 @@ location <modifier> <prefix> {
 }
 ```
 
+**No modifier**
+
+```nginx
+location /upload/ {
+    # Any query beginning with /upload/ but the process continues searching.
+    # Will only be matched if regular expressions don't find a match.
+}
+```
+
 **Modifier `=`**
 
 The equal sign can be used if the location needs to match the exact request URI. When this modifier is matched, the search stops right here.
