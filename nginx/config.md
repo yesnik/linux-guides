@@ -42,6 +42,8 @@ location <modifier> <prefix> {
 
 **Modifier `=`**
 
+The equal sign can be used if the location needs to match the exact request URI. When this modifier is matched, the search stops right here.
+
 In the next example:
 
 - `/app/info` - will return 200 (exact match)
@@ -81,6 +83,20 @@ server {
   location ~ \.TXT {
     return 202;
   }
+}
+```
+
+**Modifier `~*`**
+
+It's case insensitive RegExp modifier.
+
+**Modifier `^~`**
+
+Assuming this block is the best non-RegExp match, a carat followed by a tilde modifier means that RegExp matching will not take place.
+
+```nginx
+location ^~ /assets/ {
+    # Queries beginning with /assets/ and then stops searching
 }
 ```
 
