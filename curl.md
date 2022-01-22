@@ -12,17 +12,17 @@ curl "http://127.0.0.1:8000/?a=1&b=2"
 
 ## Params
 
-- **-o** Output server's response body to file:
+- **-D** Dump response headers and body:
   ```
-  curl -o ./response.html http://google.com
+  curl -D - http://google.com
   ```
-- **-v** Show headers of request and response:
+- **-v** Verbose: show headers of the request and response:
   ```
   curl -v http://127.0.0.1:8000
   ```
-- **-D** Dump response headers:
+- **-o** Output server's response body to file:
   ```
-  curl -D - http://google.com
+  curl -o ./response.html http://google.com
   ```
 - **-I** Show only headers of response, without body:
   ```
