@@ -50,10 +50,37 @@ In the next example:
 ```nginx
 server {
   listen 80;
-  server_name hello.com;
+  server_name hi.com;
 
   location = /app/info { return  200; }
   location /app { return 201; }
+}
+```
+
+**Modifier `~`**
+
+Case insensitive RegExp. It has more priority than location without modifiers:
+
+- `/app/file.txt` - will return 200
+- `/app/info.TXT` - will return 202
+
+```nginx
+server {
+  listen 80;
+  server_name hi.com;
+
+  # It has less priority than location with modifier
+  location /app/ {
+    return 200;
+  }
+
+  location ~ \.txt$ {
+    return 201;
+  }
+
+  location ~ \.TXT {
+    return 202;
+  }
 }
 ```
 
