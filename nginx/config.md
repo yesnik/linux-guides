@@ -30,6 +30,33 @@ http {
 }
 ```
 
+### Location section
+
+General description for location:
+
+```nginx
+location <modifier> <prefix> {
+    # ...
+}
+```
+
+**Modifier `=`**
+
+In the next example:
+
+- `/app/info` - will return 200 (exact match)
+- `/app/info/1` - will return 201
+
+```nginx
+server {
+  listen 80;
+  server_name hello.com;
+
+  location = /app/info { return  200; }
+  location /app { return 201; }
+}
+```
+
 ## Config options
 
 ### ngx_core_module
