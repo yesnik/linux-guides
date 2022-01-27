@@ -1,4 +1,4 @@
-# Bash Syntax
+# Bash
 
 ## Variable
 
@@ -78,4 +78,15 @@ for key in ${!arr[*]}
 do
   printf "%4d: %s\n" $key ${arr[$key]}
 done
+```
+
+## Files and dirs
+
+### Get current script dir
+
+Script `/var/tmp/test/current_dir.sh`:
+
+```bash
+SCRIPT_DIR="$(dirname "$(realpath "$0")")"
+echo $SCRIPT_DIR; # /var/tmp/test
 ```
