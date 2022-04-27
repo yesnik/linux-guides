@@ -15,3 +15,4 @@ and in any file with the suffix `.list` under the directory
 - `apt search lmysqlclient` - find packages that contain phrase *lmysqlclient*
 - `sudo apt update` - update versions of packages
 - `apt-cache show nginx` - search `nginx` package in system repos
+- `apt-cache search open-jdk` - search for any package using the keyword related to its name or description
