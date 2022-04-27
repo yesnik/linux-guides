@@ -47,7 +47,7 @@ The child process will have the same environment as its parent, but different PI
 In Linux priorities are 0 to 139 in which 100 to 139 for users. So command `top` shows `PR` (Priority) from 0 to 39.
 
 - Priority: `0 ... 39`. Priority `0` is the highest.
-- Nice: `-20 ... 19`. Process with nice `-20` has highest priority.
+- Nice: `-20 ... 19`. Process with nice `-20` has highest priority - it struggles for the CPU, so it isn't "nice guy".
 
 ```
 Priority = Nice + 20
