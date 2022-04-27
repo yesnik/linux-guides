@@ -18,4 +18,4 @@ Main concepts:
 - Each *zNode* can be *persistent* (it stays alive all the time) or *ephemeral* (it goes away when your app disconnects)
 - Eeach *zNode* can store data
 - We can't rename *zNode*
-- Client can watch *zNode* for changes
+- Each *zNode* can be watched for changes
