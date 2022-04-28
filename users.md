@@ -36,6 +36,12 @@ Folder `/home/kenny` will be removed.
 passwd kenny
 ```
 
+## Login as user
+
+```bash
+su - kenny
+```
+
 ## Add user to group
 
 Add user *kenny* to group *nginx*:
@@ -136,7 +142,3 @@ Run command `ls /var/www/sales` as user `sales`:
 ```bash
 runuser -u sales -- ls /var/www/sales
 ```
-
-## Useful commands
-
-- `su - kenny` - login as user `kenny`
