@@ -4,12 +4,16 @@
 
 ```bash
 ssh-keygen -t ed25519 -C "your-name@mail.com"
+```
 
+This command will create 2 files: private key `id_ed25519` and public key `id_ed25519.pub`.
+
+```bash
 # On legacy system that doesn't support the Ed25519 algorithm, use:
 ssh-keygen -t rsa -b 4096 -C "your-name@mail.com"
 ```
 
-This command will create 2 files: private key *id_rsa* and public key *id_rsa.pub*.
+This command will create 2 files: private key `id_rsa` and public key `id_rsa.pub`.
 
 ## Allow SSH connections to server
 
