@@ -4,11 +4,23 @@ OS: Centos, Ubuntu
 
 ## Add user
 
-```
+### adduser
+
+```bash
 adduser kenny
 ```
 
 Folder `/home/kenny` will be created.
+
+### useradd
+
+```bash
+useradd -s /bin/bash -m kenny
+```
+
+Options:
+- `-s` - specify the new user's login shell. Default values specified in the `/etc/default/useradd` file.
+- `-m` - create the user ho*M*e directory as `/home/kenny`
 
 ## Delete user
 
