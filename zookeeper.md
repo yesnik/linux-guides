@@ -31,3 +31,13 @@ apt search zookeeper
 apt install zookeeper zookeeper-bin zookeeperd 
 ```
 *Note*: this command might install not the latest versions of ZooKeeper
+
+## Config
+
+Edit `/etc/zookeeper/conf/myid` and put `1` there, because we want to have only one node.
+
+Restart: 
+
+```
+service zookeeper restart
+```
