@@ -49,6 +49,32 @@ Options:
 - `-P` - it combines the flags `--progress` and `--partial`
 - `--exclude='.env'` - exclude local file `.env` from copying
 
+## Archive
+
+### Create archive
+
+- `tar zcvf access.tar.gz access.log` - create `tar.gz` archive of file (`z` - gzip, `c` - create)
+- `tar zcvf archive.tar.gz -C /var/www ./` - create archive in current folder *with the contents* of folder `/var/www`
+- `tar zcvf archive.tar.gz -C /var/www/. ./` - .. including dot-files: `.env`, `.git`, etc.
+- `tar zcvf archive.tar.gz -C /var/www ./ --exclude=./uploads` - ... + exclude contents of `./uploads` folder
+- `tar -zcvf ~/backups/"www-$(date '+%Y-%m-%d').tar.gz" -C /var/www ./` - create archive at `~/backups/www-2021-03-08.tar.gz` with the contents of `/var/www` folder
+- `zip -r node.zip . -x "**/node_modules/*"` - create archive `node.zip` from all files in current dir, exclude `node_modules` folders in all folders
+- `zip dump.sql.zip dump.sql` - create archive `dump.sql.zip` from file `dump.sql`
+- `gzip file.txt` - creates archive `file.txt.gz` and deletes original file. **Note:** `gzip` in Linux can only be used to compress a single file.
+    In order to compress a folder, use `tar -z` (which is tar + gzip).
+
+Options:
+- `-C DIR` - Change to DIR before performing any operations
+- `-z` - Filter the archive through `gzip` i.e. compress or decompress archive
+
+### Extract archive
+
+- `tar zxvf archive.tar.gz` - extract the content of archive to current folder (`x` - extract). Archive won't be deleted.
+- `tar zxvf archive.tar.gz -C /tmp` - extract the content of archive to `/tmp`
+- `tar xf file.tar` - extract archive's contents to the current directory. Archive won't be deleted.
+- `unzip qm.zip` - extract archive in the current directory
+- `gunzip file.gz` - extracts archive and deletes archive file
+
 ## Useful commands
 
 - `mv temp/hello.txt{,_old}` - rename file `temp/hello.txt` to `temp/hello.txt_old`
@@ -158,32 +184,6 @@ If we execute a script with SGID, it runs as if it were a member of the same gro
 
 - `chmod g+s main.py` - add SGID bit
 - `chmod g-s main.py`
-
-## Archive
-
-### Create archive
-
-- `tar zcvf access.tar.gz access.log` - create `tar.gz` archive of file (`z` - gzip, `c` - create)
-- `tar zcvf archive.tar.gz -C /var/www ./` - create archive in current folder *with the contents* of folder `/var/www`
-- `tar zcvf archive.tar.gz -C /var/www/. ./` - .. including dot-files: `.env`, `.git`, etc.
-- `tar zcvf archive.tar.gz -C /var/www ./ --exclude=./uploads` - ... + exclude contents of `./uploads` folder
-- `tar -zcvf ~/backups/"www-$(date '+%Y-%m-%d').tar.gz" -C /var/www ./` - create archive at `~/backups/www-2021-03-08.tar.gz` with the contents of `/var/www` folder
-- `zip -r node.zip . -x "**/node_modules/*"` - create archive `node.zip` from all files in current dir, exclude `node_modules` folders in all folders
-- `zip dump.sql.zip dump.sql` - create archive `dump.sql.zip` from file `dump.sql`
-- `gzip file.txt` - creates archive `file.txt.gz` and deletes original file. **Note:** `gzip` in Linux can only be used to compress a single file.
-    In order to compress a folder, use `tar -z` (which is tar + gzip).
-
-Options:
-- `-C DIR` - Change to DIR before performing any operations
-- `-z` - Filter the archive through `gzip` i.e. compress or decompress archive
-
-### Extract archive
-
-- `tar zxvf archive.tar.gz` - extract the content of archive to current folder (`x` - extract). Archive won't be deleted.
-- `tar zxvf archive.tar.gz -C /tmp` - extract the content of archive to `/tmp`
-- `tar xf file.tar` - extract archive's contents to the current directory. Archive won't be deleted.
-- `unzip qm.zip` - extract archive in the current directory
-- `gunzip file.gz` - extracts archive and deletes archive file
 
 ## File links
 
