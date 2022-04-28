@@ -19,3 +19,15 @@ Main concepts:
 - Eeach *zNode* can store data
 - We can't rename *zNode*
 - Each *zNode* can be watched for changes
+
+## Installation
+
+### With apt
+
+```bash
+# Check versions before installation
+apt search zookeeper
+
+apt install zookeeper zookeeper-bin zookeeperd 
+```
+*Note*: this command might install not the latest versions of ZooKeeper
