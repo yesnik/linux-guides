@@ -1,11 +1,12 @@
 # SSH commands
 
-## Generate new SSH key pair
+## Generate a new SSH key pair
 
-On your server execute command:
+```bash
+ssh-keygen -t ed25519 -C "your-name@mail.com"
 
-```
-ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+# On legacy system that doesn't support the Ed25519 algorithm, use:
+ssh-keygen -t rsa -b 4096 -C "your-name@mail.com"
 ```
 
 This command will create 2 files: private key *id_rsa* and public key *id_rsa.pub*.
