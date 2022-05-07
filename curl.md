@@ -93,6 +93,12 @@ curl -X DELETE http://127.0.0.1:3000/users/3
 curl -X PUT -d 'a=1&b=2' "http://127.0.0.1:8000/users/2"
 ```
 
+## PATCH query
+
+```bash
+curl -XPATCH -d '{"name": "Lara", "age": 22}' -H "Content-Type: application/json" http://127.0.0.1:3000/api/update/123
+```
+
 ## Curl Proxy
 
 ```bash
