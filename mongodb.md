@@ -10,8 +10,10 @@ GUI tool: [MongoDB Compas](https://www.mongodb.com/try/download/compass)
 
 Run MongoDb CLI in the terminal:
 
-```
+```bash
 mongosh
+
+mongosh mongodb://127.0.0.1:27017/mydb
 ```
 
 Commands:
