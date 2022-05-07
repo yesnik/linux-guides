@@ -4,6 +4,8 @@
 
 See [docs](https://www.mongodb.com/docs/manual/installation/)
 
+GUI tool: [MongoDB Compas](https://www.mongodb.com/try/download/compass)
+
 ## Console Commands
 
 Run MongoDb CLI in the terminal:
