@@ -18,3 +18,13 @@
   tar zxvf kafka-3.1.0-src.tgz
   ```
 
+## Config
+
+File: `kafka/config/server.properties`:
+
+- `broker.id=0` - The id of the broker. This must be set to a unique integer for each broker.
+- `log.dirs=/tmp/kafka-logs` - A comma separated list of directories under which to store log files.
+- `num.partitions=1` - The default number of log partitions per topic
+- `log.retention.hours=168` -  The minimum age of a log file to be eligible for deletion due to age. 168 hours is 7 days.
+- `log.segment.bytes=1073741824` -  The maximum size of a log segment file. When this size is reached a new log segment will be created.
+- `zookeeper.connect=localhost:2181` - Zookeeper connection string
