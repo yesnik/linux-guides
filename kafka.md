@@ -4,6 +4,8 @@
 
 ## Installation
 
+See [official docs](https://kafka.apache.org/quickstart)
+
 1. Create kafka user:
   ```
   useradd -s /bin/bash -m kafka
