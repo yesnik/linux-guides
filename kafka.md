@@ -6,7 +6,9 @@
 
 See [official docs](https://kafka.apache.org/quickstart).
 
-*Note*: Your local environment must have Java 8+ installed.
+*Note*: Your local environment must have Java 8+ installed:
+- check java version: `java -version`
+- install java 11: `apt install openjdk-11-jdk`
 
 1. Create `kafka` user:
     ```
