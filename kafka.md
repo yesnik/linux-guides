@@ -8,30 +8,35 @@ See [official docs](https://kafka.apache.org/quickstart).
 
 *Note*: Your local environment must have Java 8+ installed.
 
-1. Create kafka user:
-  ```
-  useradd -s /bin/bash -m kafka
-  ```
-2. Login as user kafka: `su - kafka`
-3. Download .tgz archive from the [official site](https://kafka.apache.org/downloads)
-  ```
-  wget https://dlcdn.apache.org/kafka/3.1.0/kafka-3.1.0-src.tgz
-  ```
-4. Unpack the archive:
-  ```
-  tar zxvf kafka-3.1.0-src.tgz
-  ```
-5. Run the following commands in order to start all services in the correct order:
-  ```
-  # Start the ZooKeeper service
-  # Note: Soon, ZooKeeper will no longer be required by Apache Kafka.
-  ./bin/zookeeper-server-start.sh config/zookeeper.properties
-  ```
-6. Open another terminal session and run:
-  ```
-  # Start the Kafka broker service
-  ./bin/kafka-server-start.sh config/server.properties
-  ```
+1. Create `kafka` user:
+    ```
+    useradd -s /bin/bash -m kafka
+    ```
+2. Add `kafka` user to `sudo` group:
+    ```
+    adduser kafka sudo
+    ```
+3. Login as user kafka: `su - kafka`. 
+   Now that we've created a Kafka-specific user, we are ready to download and extract the Kafka binaries.
+4. Download .tgz archive from the [official site](https://kafka.apache.org/downloads)
+    ```
+    wget https://dlcdn.apache.org/kafka/3.1.0/kafka-3.1.0-src.tgz
+    ```
+5. Unpack the archive:
+    ```
+    tar zxvf kafka-3.1.0-src.tgz
+    ```
+6. Run the following commands in order to start all services in the correct order:
+    ```
+    # Start the ZooKeeper service
+    # Note: Soon, ZooKeeper will no longer be required by Apache Kafka.
+    ./bin/zookeeper-server-start.sh config/zookeeper.properties
+    ```
+7. Open another terminal session and run:
+    ```
+    # Start the Kafka broker service
+    ./bin/kafka-server-start.sh config/server.properties
+    ```
 
 ## Config
 
