@@ -64,3 +64,13 @@ Before we can write our events, we must create a topic:
 ```
 ./bin/kafka-topics.sh --list --bootstrap-server localhost:9092
 ```
+
+## Show info about topic
+
+```bash
+./bin/kafka-topics.sh --describe --topic quickstart-events --bootstrap-server localhost:9092
+# Topic: quickstart-events        TopicId: nWHfsN6LQgOr3q_2fY9aMQ PartitionCount:
+# 1       ReplicationFactor: 1    Configs: segment.bytes=1073741824
+#         Topic: quickstart-events        Partition: 0    Leader: 0       Replicas
+# : 0     Isr: 0
+```
