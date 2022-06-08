@@ -20,7 +20,7 @@ See [official docs](https://kafka.apache.org/quickstart).
    Now that we've created a Kafka-specific user, we are ready to download and extract the Kafka binaries.
 4. Download binary from the [official site](https://kafka.apache.org/downloads). 
     ```
-    wget wget https://dlcdn.apache.org/kafka/3.2.0/kafka_2.13-3.2.0.tgz
+    wget https://dlcdn.apache.org/kafka/3.2.0/kafka_2.13-3.2.0.tgz
     ```
     **Important**: Download binary (kafka_2.13-3.2.0.tgz), not source files (kafka-3.1.0-src.tgz)
 5. Unpack the archive:
