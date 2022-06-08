@@ -74,3 +74,19 @@ Before we can write our events, we must create a topic:
 #         Topic: quickstart-events        Partition: 0    Leader: 0       Replicas
 # : 0     Isr: 0
 ```
+
+## Write event to topic
+
+By default, each line you enter will result in a separate event being written to the topic.
+
+```bash
+bin/kafka-console-producer.sh --topic quickstart-events --bootstrap-server localhost:9092
+This is event 1
+This is event 2
+```
+
+## Read events from topic
+
+```bash
+bin/kafka-console-consumer.sh --topic quickstart-events --from-beginning --bootstrap-server localhost:9092
+```
