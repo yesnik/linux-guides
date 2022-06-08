@@ -25,19 +25,18 @@ See [official docs](https://kafka.apache.org/quickstart).
     **Important**: Download binary (kafka_2.13-3.2.0.tgz), not source files (kafka-3.1.0-src.tgz)
 5. Unpack the archive:
     ```
-    tar zxvf kafka-3.1.0-src.tgz
+    tar zxvf kafka_2.13-3.2.0.tgz
     ```
-6. Run the following commands in order to start all services in the correct order:
+6. Start the ZooKeeper service:
     ```
-    # Start the ZooKeeper service
     # Note: Soon, ZooKeeper will no longer be required by Apache Kafka.
-    ./bin/zookeeper-server-start.sh config/zookeeper.properties
+    ./bin/zookeeper-server-start.sh -daemon config/zookeeper.properties
     ```
-7. Open another terminal session and run:
+7. Start the Kafka broker service:
     ```
-    # Start the Kafka broker service
-    ./bin/kafka-server-start.sh config/server.properties
+    ./bin/kafka-server-start.sh -daemon config/server.properties
     ```
+    Note: We can ommit `-daemon` flag to see logs in the console.
 
 ## Config
 
@@ -56,4 +55,10 @@ Before we can write our events, we must create a topic:
 
 ```
 ./bin/kafka-topics.sh --create --topic quickstart-events --bootstrap-server localhost:9092
+```
+
+## List topics
+
+```
+./bin/kafka-topics.sh --list --bootstrap-server localhost:9092
 ```
