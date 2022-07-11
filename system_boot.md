@@ -55,3 +55,23 @@ chkconfig php-fpm on
 # Created symlink from /etc/systemd/system/multi-user.target.wants/php-fpm.service 
 # to /usr/lib/systemd/system/php-fpm.service.
 ```
+
+**Method 3**
+
+Create file `/usr/lib/systemd/system/email-kafka.service`:
+
+```
+[Unit]
+Description=Send emails from Kafka
+After=network.target
+
+[Service]
+User=nginx
+Group=mysite
+Restart=always
+RestartSec=100
+ExecStart=/usr/bin/php /var/www/mysite/current/protected/yiic.php kafkaMessagesListener
+
+[Install]
+WantedBy=multi-user.target
+```
