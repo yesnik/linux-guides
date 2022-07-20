@@ -53,24 +53,28 @@ Options:
 
 ### Create archive
 
-- `tar zcvf access.tar.gz access.log` - create `tar.gz` archive of file (`z` - gzip, `c` - create)
-- `tar zcvf archive.tar.gz -C /var/www ./` - create archive in current folder *with the contents* of folder `/var/www`
-- `tar zcvf archive.tar.gz -C /var/www/. ./` - .. including dot-files: `.env`, `.git`, etc.
-- `tar zcvf archive.tar.gz -C /var/www ./ --exclude=./uploads` - ... + exclude contents of `./uploads` folder
-- `tar -zcvf ~/backups/"www-$(date '+%Y-%m-%d').tar.gz" -C /var/www ./` - create archive at `~/backups/www-2021-03-08.tar.gz` with the contents of `/var/www` folder
+- `tar czvf bin-backup.tar.gz /home/nik/bin` - create `tar.gz` archive of the directory `/home/nik/bin`. Extracting this archive  
+   will place files at `/home nik/bin`
+- `tar czvf archive.tar.gz -C /var/www ./` - create archive in current folder *with the contents* of folder `/var/www`
+- `tar czvf archive.tar.gz -C /var/www/. ./` - .. including dot-files: `.env`, `.git`, etc.
+- `tar czvf archive.tar.gz -C /var/www ./ --exclude=./uploads` - ... + exclude contents of `./uploads` folder
+- `tar czvf ~/backups/"www-$(date '+%Y-%m-%d').tar.gz" -C /var/www ./` - create archive at `~/backups/www-2021-03-08.tar.gz` with the contents of `/var/www` folder
 - `zip -r node.zip . -x "**/node_modules/*"` - create archive `node.zip` from all files in current dir, exclude `node_modules` folders in all folders
 - `zip dump.sql.zip dump.sql` - create archive `dump.sql.zip` from file `dump.sql`
 - `gzip file.txt` - creates archive `file.txt.gz` and deletes original file. **Note:** `gzip` in Linux can only be used to compress a single file.
     In order to compress a folder, use `tar -z` (which is tar + gzip).
 
 Options:
-- `-C DIR` - Change to DIR before performing any operations
-- `-z` - Filter the archive through `gzip` i.e. compress or decompress archive
+- `-c` - create archive
+- `-C DIR` - change to DIR before performing any operations
+- `-f` - archive file name
+- `-v` - verbose (display progress while creating archive)
+- `-z` - filter the archive through `gzip` i.e. compress or decompress archive
 
 ### Extract archive
 
-- `tar zxvf archive.tar.gz` - extract the content of archive to current folder (`x` - extract). Archive won't be deleted.
-- `tar zxvf archive.tar.gz -C /tmp` - extract the content of archive to `/tmp`
+- `tar xzvf archive.tar.gz` - extract the content of archive to current folder (`x` - extract). Archive won't be deleted.
+- `tar xzvf archive.tar.gz -C /tmp` - extract the content of archive to `/tmp`
 - `tar xf file.tar` - extract archive's contents to the current directory. Archive won't be deleted.
 - `unzip qm.zip` - extract archive in the current directory
 - `gunzip file.gz` - extracts archive and deletes archive file
