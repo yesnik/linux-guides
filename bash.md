@@ -80,6 +80,18 @@ do
 done
 ```
 
+## Program's parameters
+
+We want to get arguments in this program call: `./hey a=1 b`
+
+Edit file `hey`:
+```bash
+echo "== ARGS =="
+for i in "$@"; do
+  echo $i
+done
+```
+
 ## Files and dirs
 
 ### Get current script dir
