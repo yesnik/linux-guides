@@ -6,6 +6,9 @@
 - `ifconfig venet0:2 down` - disable interface named `venet0:2`
 - `route -n` - show IP routing table
 - `traceroute google.com` - elicit a response from the router at each hop from your computer to the destination
+- `telnet 127.0.0.1 3000` - check connection to host and port
+- `nc -v 127.0.0.1 3000` - check connection to host and port
+- `netstat -tnlp` - show open ports
 
 ## tcpdump
 
