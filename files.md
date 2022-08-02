@@ -55,7 +55,8 @@ Options:
 
 - `tar czvf bin-backup.tar.gz /home/nik/bin` - create `tar.gz` archive of the directory `/home/nik/bin`. Extracting this archive  
    will place files at `/home nik/bin`
-- `tar czvf archive.tar.gz /var/www` - create archive in current folder *with the contents* of folder `/var/www`
+- `tar czvf archive.tar.gz -C /var/www ./` - create archive in current folder *with the contents* of folder `/var/www`
+- `tar czvf archive.tar.gz /var/www` - create archive in current folder of folder `/var/www`. Archive has files with full path: `/var/www/...`
 - `tar czvf archive.tar.gz -C /var/www/. ./` - .. including dot-files: `.env`, `.git`, etc.
 - `tar czvf archive.tar.gz -C /var/www ./ --exclude=./uploads` - ... + exclude contents of `./uploads` folder
 - `tar czvf ~/backups/"www-$(date '+%Y-%m-%d').tar.gz" -C /var/www ./` - create archive at `~/backups/www-2021-03-08.tar.gz` with the contents of `/var/www` folder
