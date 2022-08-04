@@ -58,7 +58,7 @@ Options:
 - `tar czvf archive.tar.gz -C /var/www ./` - create archive in current folder *with the contents* of folder `/var/www`
 - `tar czvf archive.tar.gz /var/www` - create archive in current folder of folder `/var/www`. Archive has files with full path: `/var/www/...`
 - `tar czvf archive.tar.gz -C /var/www/. ./` - .. including dot-files: `.env`, `.git`, etc.
-- `tar czvf archive.tar.gz -C /var/www ./ --exclude=./uploads` - ... + exclude contents of `./uploads` folder
+- `tar --exclude=.git --exclude=.idea -czvf site.tar.gz -C /var/www/site/ ./` - ...exclude folders `.git`, `.idea`
 - `tar czvf ~/backups/"www-$(date '+%Y-%m-%d').tar.gz" -C /var/www ./` - create archive at `~/backups/www-2021-03-08.tar.gz` with the contents of `/var/www` folder
 - `zip -r node.zip . -x "**/node_modules/*"` - create archive `node.zip` from all files in current dir, exclude `node_modules` folders in all folders
 - `zip dump.sql.zip dump.sql` - create archive `dump.sql.zip` from file `dump.sql`
