@@ -37,6 +37,7 @@ The child process will have the same environment as its parent, but different PI
 ### strace
 
 - `strace ls` - trace command
+- `strace -e trace=open -f ping -c1 google.com` - trace `ping -c1 google.com` command
 - `strace -p 1000` - trace process by PID
 - `strace -c -p 1000` - show all system calls for PID
 - `strace -t df -h` - show time of each system call
