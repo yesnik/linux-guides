@@ -10,6 +10,12 @@
 - `nc -v 127.0.0.1 3000` - check connection to host and port
 - `netstat -tnlp` - show open ports
 
+## Restart network
+
+```
+systemctl restart NetworkManager
+```
+
 ## tcpdump
 
 - `tcpdump -n host google.com` - capture connections to host
