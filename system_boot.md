@@ -75,3 +75,9 @@ ExecStart=/usr/bin/php /var/www/mysite/current/protected/yiic.php kafkaMessagesL
 [Install]
 WantedBy=multi-user.target
 ```
+
+Commands:
+```bash
+service email-kafka start
+service email-kafka status
+```
