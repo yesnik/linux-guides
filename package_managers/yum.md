@@ -11,4 +11,5 @@
 - `yum install /path/to/package.rpm` - install package from RPM-file
 - `yum remove mc` - uninstall package
 - `yum list installed | grep php` - show installed php packages
+- `yum --showduplicates list php-pecl-rdkafka` - show available versions of the package
 - `yum -y remove php*` - remove all php packages
