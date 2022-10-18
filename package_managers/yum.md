@@ -4,6 +4,7 @@
 - `yum repolist` - list the enabled repositories
 - `yum repolist all` - list all repositories
 - `yum-config-manager --add-repo https://example.com/docker-ce.repo` - add repository
+- `yum-config-manager --disable remi-safe` - remove repo
 - `yum search php-mbstring` - search repos which name contains substring "php-mbstring"
 - `yum search netstat` - search repos that provide command "netstat"
 - `yum install php-mbstring.x86_64` - install package by name
