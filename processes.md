@@ -12,6 +12,8 @@
   * `-e` - extended info with all args for each process
 - `ps aux | head -1; ps aux | sort -rnk 4 | head -5` - show top 5 processes with highest memory usage
 - `pstree` - show tree of processes
+- `top -U sales` - show CPU, memory for processes of user sales
+- `sudo pmap 155` - how much memory the process with PID 155 is using
 - `kill -9 500` - kill process with PID = 500
 - `sleep 1000 &` - run process in the background
 - `jobs` - show processes running in the context of the current shell
