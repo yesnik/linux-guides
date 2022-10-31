@@ -21,6 +21,18 @@
 - `ss -4tunlp | grep 514` - check if some process is listening port 514
 - `netstat -tunlp` - show used ports
 
+### Command `top`
+
+- `e` - switch units - kB, Mb, Gb...
+- `Shift + e` - switch units in the header
+- `1` - show CPU load info
+- `t` - swap the CPU displays to simple ASCII graphs that show the percentage of usage for each CPU
+- `m` - display memory, swap in diffetent formats
+- `y` - highlight running tasks in the process list
+- `x` - highlight the column used to sort the process list.
+- `u` - see the processes for a single user
+- `i` - see only active tasks. Tasks that haven't consumed any CPU since the last update won't be shown
+
 ### Run a command in the background
 
 ```bash
