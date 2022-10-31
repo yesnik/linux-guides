@@ -33,6 +33,10 @@
 - `u` - see the processes for a single user
 - `i` - see only active tasks. Tasks that haven't consumed any CPU since the last update won't be shown
 
+*virtual* is maximum amount of memory the process could theoretically use if it were the only process (never so), used every single page it allocated (never happens) and didn't map or unmap any pages (unlikely). 
+
+While *resident* memory shows how much virtual memory is mapped to physical right now. Typically `virt > usage > res`.
+
 ### Run a command in the background
 
 ```bash
