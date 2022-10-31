@@ -33,9 +33,12 @@
 - `u` - see the processes for a single user
 - `i` - see only active tasks. Tasks that haven't consumed any CPU since the last update won't be shown
 
-*virtual* is maximum amount of memory the process could theoretically use if it were the only process (never so), used every single page it allocated (never happens) and didn't map or unmap any pages (unlikely). 
+*top* provides some fields:
 
-While *resident* memory shows how much virtual memory is mapped to physical right now. Typically `virt > usage > res`.
+- `VIRT` -- Virtual Image (kb): The total amount of virtual memory used by the task. *Virtual* is maximum amount of memory the process could theoretically use if it were the only process (never so), used every single page it allocated (never happens) and didn't map or unmap any pages (unlikely).
+- `RES` -- Resident size (kb): The non-swapped physical memory a task has used ; RES = CODE + DATA.
+- `DATA` -- Data+Stack size (kb): The amount of physical memory devoted to other than executable code, also known as the 'data resident set' size or DRS.
+- `SHR` -- Shared Mem size (kb): The amount of shared memory used by a task. It simply reflects memory that could be potentially shared with other processes.
 
 ### Run a command in the background
 
