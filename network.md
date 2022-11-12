@@ -8,7 +8,7 @@
 - `traceroute google.com` - elicit a response from the router at each hop from your computer to the destination
 - `telnet 127.0.0.1 3000` - check connection to host and port
 - `nc -v 127.0.0.1 3000` - check connection to host and port
-- `netstat -tnlp` - show open ports
+- `netstat -tnlp` - show open ports. Install package: `apt install net-tools`
 
 ## Restart network
 
