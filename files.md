@@ -78,6 +78,7 @@ Options:
 - `tar xzvf archive.tar.gz -C /tmp` - extract the content of archive to `/tmp`
 - `tar xf file.tar` - extract archive's contents to the current directory. Archive won't be deleted.
 - `unzip qm.zip` - extract archive in the current directory
+- `unzip esia.zip -d ./esia` - extract in the folder `./esia` (will be created if doesn't exist)
 - `gunzip file.gz` - extracts archive and deletes archive file
 
 ## Useful commands
