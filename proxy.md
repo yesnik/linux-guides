@@ -14,7 +14,13 @@ If it doesn't work edit file `/etc/environment`:
 export http_proxy=http://username:password@proxyserver.com:port
 export https_proxy=http://username:password@proxyserver.com:port
 export no_proxy=127.0.0.1,localhost
+
+export HTTP_PROXY=http://username:password@proxyserver.com:port
+export HTTPS_PROXY=http://username:password@proxyserver.com:port
+export NO_PROXY=127.0.0.1,localhost
 ```
+
+Uppercase variables (`HTTP_PROXY`, `HTTPS_PROXY`) may be required by some programms (e.g. Docker). 
 
 To apply changes, **reboot** your PC.
 
@@ -45,6 +51,13 @@ Building fpm
 Step 1/5 : FROM php:fpm
 ERROR: Service 'fpm' failed to build: Get https://registry-1.docker.io/v2/: Proxy Authentication Required
 ```
+
+### Way 1
+
+- Edit `/etc/environment` file and define there uppercase variables `HTTP_PROXY`, `HTTPS_PROXY`, `NO_PROXY`
+- Reboot PC
+
+### Way 2
 
 1. Create or edit file `/etc/systemd/system/docker.service.d/http-proxy.conf`:
 
