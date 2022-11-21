@@ -97,3 +97,10 @@ npm config rm proxy
 npm config rm https-proxy
 npm config set registry http://registry.npmjs.org/
 ```
+
+## Git proxy settings
+
+By default GIT will use system proxy settings defined in `/etc/environment`.
+
+Ensure that your GIT don't override these settings: `~/.gitconfig`
+
