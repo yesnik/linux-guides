@@ -15,3 +15,8 @@
 - `yum list librdkafka` - show installed and available package by name `librdkafka`
 - `yum --showduplicates list php-pecl-rdkafka` - show available versions of the package
 - `yum -y remove php*` - remove all php packages
+
+## Config
+
+- `/etc/yum.conf`
+- `/etc/yum.repos.d` - folder for `.repo` files, e.g. `remi-php82.repo`
