@@ -66,3 +66,13 @@ Kernel params description:
 - `net.core.netdev_max_backlog = 65535` - the maximum number of packets, queued on the INPUT side, when the interface receives packets faster than kernel can process them.
 - `net.ipv4.tcp_max_orphans = 2048` - maximum number of TCP sockets not attached to any user file handle, held by system. If this number is exceeded orphaned connections are reset immediately and warning is printed. This limit exists only to prevent simple DoS attacks, you must not rely on this or lower the limit artificially, but rather increase it (probably, after increasing installed memory), if network conditions require more than default value, and tune network services to linger and kill such states more aggressively. Note: each orphan eats up to ~64K of unswappable memory.
 - `net.ipv4.tcp_max_syn_backlog = 65535` - maximum number of remembered connection requests, which are still did not receive an acknowledgment from connecting client. Default 1024 (if RAM 128Mb), 128 (if RAM < 128Mb).
+
+## CIDR
+
+**CIDR** is the short for Classless Inter-Domain Routing, an IP addressing scheme. A single IP address can be used to designate many unique IP addresses with CIDR. A CIDR IP address looks like a normal IP address except that it ends with a slash followed by a number, called the IP network prefix. CIDR addresses reduce the size of routing tables.
+
+- `10.0.0.0/24` - First IP `10.0.0.0`, Last IP `10.0.0.255`
+- `172.16.0.0/12` - First IP `172.16.0.0`, Last IP `172.31.255.255`
+- `177.17.0.0/21` - First IP `177.17.0.0`, Last IP `177.17.7.255`
+
+See: [CIDR to IPv4 Convertor](https://www.ipaddressguide.com/cidr)
