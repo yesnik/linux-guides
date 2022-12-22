@@ -58,16 +58,16 @@ chkconfig php-fpm on
 
 **Method 3**
 
-Create file `/usr/lib/systemd/system/email-kafka.service`:
+Create file `/usr/lib/systemd/system/kafka-update-crm-status.service`:
 
 ```
 [Unit]
-Description=Send emails from Kafka
+Description=Kafka Update CRM status
 After=network.target
 
 [Service]
 User=nginx
-Group=mysite
+Group=sales
 Restart=always
 RestartSec=100
 ExecStart=/usr/bin/php /var/www/mysite/current/protected/yiic.php kafkaMessagesListener
@@ -76,8 +76,14 @@ ExecStart=/usr/bin/php /var/www/mysite/current/protected/yiic.php kafkaMessagesL
 WantedBy=multi-user.target
 ```
 
+**Note:** Ensure that you defined correct values for `User`, `Group`.
+
 Commands:
+
 ```bash
-service email-kafka start
-service email-kafka status
+service kafka-update-crm-status start
+service kafka-update-crm-status status
+
+# Read logs
+journalctl -u kafka-update-crm-status
 ```
