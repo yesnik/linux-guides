@@ -81,6 +81,9 @@ WantedBy=multi-user.target
 Commands:
 
 ```bash
+# Reload config. It's safe to run on production
+systemctl daemon-reload
+
 service kafka-update-crm-status start
 service kafka-update-crm-status status
 
