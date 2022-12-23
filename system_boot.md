@@ -87,6 +87,9 @@ systemctl daemon-reload
 service kafka-update-crm-status start
 service kafka-update-crm-status status
 
+# Add script to autoload
+systemctl enable kafka-update-crm-status
+
 # Read logs
 journalctl -u kafka-update-crm-status
 ```
