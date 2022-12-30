@@ -6,13 +6,26 @@ OS: Centos, Ubuntu
 
 ### adduser
 
+It's a friendlier front end to the low level tool `useradd`.
+
 ```bash
 adduser kenny
 ```
 
 Folder `/home/kenny` will be created.
 
+**Add group 'app' and user 'app':**
+
+```bash
+# -G GRP	Group
+# -D		  Don't assign a password
+# -H		  Don't create home directory
+addgroup app && adduser -DH -G app app
+```
+
 ### useradd
+
+`useradd` is native binary compiled with the system.
 
 ```bash
 useradd -s /bin/bash -m kenny
@@ -118,6 +131,7 @@ landingx pts/0    172.11.10.179     15:08    0.00s  0.16s  0.10s w
 - `whoami` - show current user name
 - `id` - show uid, gid, groups of current user
 - `id -u`, `echo $UID` - show user id
+- `id -g` - show user's group id
 
 ## Show user info
 
