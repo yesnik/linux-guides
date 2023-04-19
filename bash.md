@@ -102,3 +102,16 @@ Script `/var/tmp/test/current_dir.sh`:
 SCRIPT_DIR="$(dirname "$(realpath "$0")")"
 echo $SCRIPT_DIR; # /var/tmp/test
 ```
+
+## Return code
+
+Script `/tmp/script.sh`:
+```bash
+exit 4
+```
+
+Run:
+```bash
+sh script.sh
+echo $? #=> 4
+```
