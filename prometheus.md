@@ -56,3 +56,21 @@ Visit http://your-site:9090/ to see Prometheus Admin
 - `prometheus` - Prometheus binary file, size: 118 Mb
 - `prometheus.yml` - config file
 - `promtool` - util for check config, working with TSDB (time series DB), receiving metrics
+
+## Config params
+
+We can run `./prometheus` binary with these params:
+
+- `--config.file="prometheus.yml"` - path to config file
+- `--web.listen-address="0.0.0.0:9090"` - address and port for internal web server
+- `--web.enable-admin-api` - enable admin API from web interface
+- `--web.console.templates="consoles"` - path to html templates
+- `--web.console.libraries="console_libraries"` - path to libs for html templates
+- `--web.page-title` - web page title
+- `--web.cors.origin=".*"` - CORS config for web interface
+- `--storage.tsdb.path="data/"` - path for storing time series database data
+- `--storage.tsdb.retention.time` - time for storing metrics. Default is 15 days. Expired data will be deleted
+- `--storage.tsdb.retention.size` - max size of TSDB. After reaching this value Prometheus will delete old data
+- `--query.timeout=4m` - max execution time of one query
+- `--enable-feature` - enable [features](https://prometheus.io/docs/prometheus/latest/feature_flags/)
+- `--log.level` - logging level
