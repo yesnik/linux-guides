@@ -61,7 +61,13 @@ Visit http://your-site:9090/ to see Prometheus Admin
 
 ## Config params
 
-We can run `./prometheus` binary with these params:
+We can run `./prometheus` binary with different params:
+
+```
+./prometheus --help
+```
+
+For example:
 
 - `--config.file="prometheus.yml"` - path to config file
 - `--web.listen-address="0.0.0.0:9090"` - address and port for internal web server
