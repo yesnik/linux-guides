@@ -43,12 +43,17 @@ su - kenny
 `useradd` is native binary compiled with the system.
 
 ```bash
+# Way 1
 useradd -s /bin/bash -m kenny
+
+# Way 2. Create a Non-login User
+useradd -s /sbin/nologin -d /opt/prometheus prometheus
 ```
 
 Options:
 - `-s` - specify the new user's login shell. Default values specified in the `/etc/default/useradd` file.
-- `-m` - create the user ho*M*e directory as `/home/kenny`
+- `-m` - create the user home directory as `/home/kenny`
+- `-d` - home directory of the new account
 
 ## Delete user
 
