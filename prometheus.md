@@ -6,6 +6,16 @@
 
 See [docs](https://prometheus.io/docs/prometheus/latest/getting_started/)
 
+### Install via Docker
+
+```
+mkdir data
+chmod 777 data
+docker run --rm -p 9090:9090 -v ./data:/prometheus prom/prometheus
+```
+
+### Install binary
+
 ```bash
 cd /opt/
 wget https://github.com/prometheus/prometheus/releases/download/v2.46.0/prometheus-2.46.0.linux-amd64.tar.gz
@@ -84,3 +94,16 @@ For example:
 - `--log.level` - logging level
 
 Actual config params we can see in Prometheus Web Interface, at menu *Status - Command-Line Flags*
+
+## Metrics
+
+Access Prometheus server metrics from localhost:
+
+- Open Web Browser: http://123.123.123.123:9090/metrics
+- Use curl: `curl localhost:9090/metrics`
+
+### Examples
+
+- `go_info`
+- `up`
+- Filter metrics by job name: `up{job="prometheus"}`
