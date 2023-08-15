@@ -82,3 +82,5 @@ For example:
 - `--query.timeout=4m` - max execution time of one query
 - `--enable-feature` - enable [features](https://prometheus.io/docs/prometheus/latest/feature_flags/)
 - `--log.level` - logging level
+
+Actual config params we can see in Prometheus Web Interface, at menu *Status - Command-Line Flags*
