@@ -23,6 +23,21 @@ Folder `/home/kenny` will be created.
 addgroup app && adduser -DH -G app app
 ```
 
+**Create a Non-login User**
+
+```bash
+# Way 1. Home directory '/home/prometheus' will be created
+sudo adduser kenny --system
+# Way 2. Create home dir, user, group, Full Name, Room number, etc.
+sudo adduser kenny --shell /usr/sbin/nologin
+```
+After this we cannot login as this user:
+
+```bash
+su - kenny
+# This account is currently not available.
+```
+
 ### useradd
 
 `useradd` is native binary compiled with the system.
