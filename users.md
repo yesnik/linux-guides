@@ -145,9 +145,18 @@ landingx pts/0    172.11.10.179     15:08    0.00s  0.16s  0.10s w
 
 ## Show all users
 
-- `getent passwd | cut -d: -f1` - method 1
-- `awk -F: '{ print $1}' /etc/passwd` - method 2
-- `cut -d: -f1 /etc/passwd` - method 3
+```
+# Way 1
+cat /etc/passwd
+# Way 2
+getent passwd | cut -d: -f1
+# Way 3
+awk -F: '{ print $1}' /etc/passwd
+# Way 4
+cut -d: -f1 /etc/passwd
+```
+
+*Note*: Users with shell `/usr/sbin/nologin` are restricted from logging into our server.
 
 ## Run command as another user
 
