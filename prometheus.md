@@ -1,6 +1,6 @@
 # Prometheus
 
-[Prometheus](https://github.com/prometheus/prometheus) is a systems and service monitoring system written on Go Lang. It collects metrics from configured targets at given intervals, evaluates rule expressions, displays the results, and can trigger alerts when specified conditions are observed.
+[Prometheus](https://github.com/prometheus/prometheus) is a systems and service monitoring system written in Go Lang. It collects metrics from configured targets at given intervals, evaluates rule expressions, displays the results, and can trigger alerts when specified conditions are observed.
 
 ## Installation
 
