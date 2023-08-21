@@ -86,6 +86,8 @@ Here:
 
 ### Deny outgoing connections to domain
 
+Prevent outgoing connections from our server to mysite.hi.com:
+
 ```
 iptables -A OUTPUT -m string --algo bm --string "mysite.hi.com" -j DROP
 ```
