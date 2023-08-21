@@ -47,6 +47,16 @@ sudo systemctl restart iptables
 iptables -L -v -n --line-num
 ```
 
+`num` will help us to delete rule.
+
+### Delete rule by num
+
+Delete rule 3 in the chain `OUTPUT`:
+
+```
+iptables -D OUTPUT 3
+```
+
 ### Deny connections from IP
 
 ```bash
@@ -73,3 +83,31 @@ iptables -I OUTPUT -p tcp -m tcp --dport 80 -j ACCEPT
 Here:
 - `-I` - insert to the beginning of the list of rules
 - `-A` - append to the end
+
+### Deny outgoing connections to domain
+
+```
+iptables -A OUTPUT -m string --algo bm --string "mysite.hi.com" -j DROP
+```
+
+### Flush All Rules, Delete All Chains, Accept All
+
+First, set the default policies for each of the built-in chains to `ACCEPT`. 
+The main reason to do this is to ensure that you won't be locked out from your server via SSH:
+
+```
+sudo iptables -P INPUT ACCEPT
+sudo iptables -P FORWARD ACCEPT
+sudo iptables -P OUTPUT ACCEPT
+```
+
+Then flush the `nat` and `mangle` tables, flush all chains (`-F`), and delete all non-default chains (`-X`):
+
+```
+sudo iptables -t nat -F
+sudo iptables -t mangle -F
+sudo iptables -F
+sudo iptables -X
+```
+
+Your firewall will now allow all network traffic. If you list your rules now, you will see there are none, and only the three default chains (`INPUT`, `FORWARD`, and `OUTPUT`) remain.
