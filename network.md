@@ -9,6 +9,7 @@
 - `telnet 127.0.0.1 3000` - check connection to host and port
 - `nc -v 127.0.0.1 3000` - check connection to host and port
 - `netstat -tnlp` - show open ports. Install package: `apt install net-tools`
+- `ss -rt` - show opened TCP sockets.
 
 ## Restart network
 
