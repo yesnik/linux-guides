@@ -116,7 +116,9 @@ Access Prometheus server metrics from localhost:
 
 [node_exporter](https://github.com/prometheus/node_exporter) is a Prometheus exporter for hardware and OS metrics exposed by *NIX kernels, written in Go with pluggable metric collectors.
 
-Installation:
+**Installation**
+
+Current version at [download page](https://prometheus.io/download/#node_exporter)
 
 ```bash
 cd /opt
