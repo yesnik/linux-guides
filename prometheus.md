@@ -102,11 +102,12 @@ Access Prometheus server metrics from localhost:
 - Open Web Browser: http://123.123.123.123:9090/metrics
 - Use curl: `curl localhost:9090/metrics`
 
-### Examples
+### PromQL Examples
 
 - `go_info`
 - `up`
-- Filter metrics by job name: `up{job="prometheus"}`
+- `up{job="prometheus"}` - filter metrics by job name
+- `node_disk_written_bytes_total{env="dev"}[5m]` - with tag `env="dev"` for last 5 minutes
 
 ## Exporters
 
