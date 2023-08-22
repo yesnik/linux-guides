@@ -95,6 +95,14 @@ For example:
 
 Actual config params we can see in Prometheus Web Interface, at menu *Status - Command-Line Flags*
 
+### Check syntax of prometheus.yml
+
+```bash
+./promtool check config prometheus.yml
+# Checking prometheus.yml
+#  SUCCESS: prometheus.yml is valid prometheus config file syntax
+```
+
 ## Metrics
 
 Access Prometheus server metrics from localhost:
