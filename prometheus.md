@@ -177,3 +177,24 @@ ExecStart=/opt/node_exporter/node_exporter
 [Install]
 WantedBy=multi-user.target
 ```
+
+#### Connect Prometheus to node_exporter
+
+Edit `prometheus.yml`:
+
+```yml
+global:
+  scrape_interval:     15s
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+    - targets: ['localhost:9090']
+
+  - job_name: 'node'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['localhost:9100']
+        labels:
+          env: 'dev'
+```
