@@ -173,7 +173,8 @@ After=network-online.target
 User=root
 Group=root
 Type=simple
-ExecStart=/opt/node_exporter/node_exporter
+ExecStart=/opt/node_exporter/node_exporter \
+    --collector.interrupts
 
 [Install]
 WantedBy=multi-user.target
