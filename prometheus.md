@@ -140,6 +140,7 @@ Example Options:
 
 - `--web.listen-address=":9100` - Addresses on which to expose metrics and web interface. Repeatable for multiple addresses.
 - `--web.telemetry-path="/metrics"` - Path under which to expose metrics.
+- `--collector.interrupts` - Enable the interrupts collector (default: disabled)
 
 Visit URL http://123.123.12.11:9100/metrics to see all metrics of the OS.
 
