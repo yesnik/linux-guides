@@ -224,7 +224,10 @@ mv redis_exporter-v1.52.0.linux-amd64 redis_exporter
 
 Start exporter:
 
-```
+```bash
+./redis_exporter
+
+# Or with config params
 ./redis_exporter -redis.addr redis://localhost:6379 -web.listen-address=:9121 -web.telemetry-path=/metrics
 ```
 URL for Redis metrics: http://123.123.23.44:9121/metrics
