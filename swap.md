@@ -22,3 +22,16 @@ Add this line at the end of `/etc/fstab` file:
 ```
 /swapfile none swap sw 0 0
 ```
+
+### Disable swap
+
+Show swap file: `cat /proc/swaps`
+
+Edit file `/etc/fstab`. Comment out swap file:
+
+```
+# ...
+# /swap.img    none    swap    sw    0    0
+```
+
+Reboot PC: `shutdown -r now`
