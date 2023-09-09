@@ -1,5 +1,17 @@
 # System boot
 
+## Run a command on startap in Linux
+
+### Crontab
+
+Put the command in your crontab file. Run command `sudo crontab -e` to open your crontab file.
+At the first available line, type "@reboot xxxx", where "xxxx" is the command you wish to run. Save the file and exit.
+
+### Use `/etc/init.d/` directory
+
+Create a script "/etc/init.d/mystartup.sh". Make script executable: `chmod +x /etc/init.d/mystartup.sh`.
+The command will run after the next startup.
+
 ## Add / Remove service to startup
 
 If you want to edit services started at system startup use following commands.
