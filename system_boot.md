@@ -15,11 +15,17 @@ Add file `/etc/systemd/system/restore-iptables-rules.service`
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=iptables-restore < /etc/sysconfig/iptables
+ExecStart=/bin/bash /home/nik/scripts/restore-iptables-rules.service
 
 [Install]
 WantedBy=multi-user.target
 ```
+File `/home/nik/scripts/restore-iptables-rules.service`:
+
+```
+sudo /usr/sbin/iptables-restore < /etc/sysconfig/iptables
+```
+
 Enable this service:
 
 ```bash
