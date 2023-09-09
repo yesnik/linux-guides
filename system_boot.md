@@ -1,16 +1,30 @@
 # System boot
 
-## Run a command on startap in Linux
+## Run a command on startup in Linux
 
 ### Crontab
 
 Put the command in your crontab file. Run command `sudo crontab -e` to open your crontab file.
 At the first available line, type "@reboot xxxx", where "xxxx" is the command you wish to run. Save the file and exit.
 
-### Use `/etc/init.d/` directory
+### Add systemd service
 
-Create a script "/etc/init.d/mystartup.sh". Make script executable: `chmod +x /etc/init.d/mystartup.sh`.
-The command will run after the next startup.
+Add file `/etc/systemd/system/restore-iptables-rules.service`
+
+```
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=iptables-restore < /etc/sysconfig/iptables
+
+[Install]
+WantedBy=multi-user.target
+```
+Enable this service:
+
+```bash
+systemctl enable restore-iptables-rules.service
+```
 
 ## Add / Remove service to startup
 
