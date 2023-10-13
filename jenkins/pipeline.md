@@ -9,12 +9,12 @@ pipeline {
     agent any
     
     stages {
-        stage("One") {
+        stage('One') {
             steps {
                 sh "sleep 3"
             }
         }
-        stage("Two") {
+        stage('Two') {
             steps {
                 sh "sleep 1"
             }
@@ -22,3 +22,8 @@ pipeline {
     }
 }
 ```
+
+Syntax:
+
+- `agent any` statement is a declarative syntax that tells Jenkins to allocate an executor on a node and create a workspace for the pipeline.
+- `steps` is a declarative syntax that describes the steps to be run in this stage.
