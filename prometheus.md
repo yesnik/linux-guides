@@ -28,7 +28,7 @@ cd prometheus
 mkdir data
 
 # Create user "prometheus" and service for systemd
-useradd -s /sbin/nologin -d /opt/prometheus prometheus
+useradd -s /sbin/nologin prometheus
 chown -R prometheus:prometheus /opt/prometheus
 ```
 
