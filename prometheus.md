@@ -4,7 +4,7 @@
 
 ## Installation
 
-See [docs](https://prometheus.io/docs/prometheus/latest/getting_started/)
+See [official documentation](https://prometheus.io/docs/prometheus/latest/getting_started/)
 
 ### Install via Docker
 
@@ -16,11 +16,13 @@ docker run --rm -p 9090:9090 -v ./data:/prometheus prom/prometheus
 
 ### Install binary
 
+Latest binary: https://prometheus.io/download/
+
 ```bash
 cd /opt/
-wget https://github.com/prometheus/prometheus/releases/download/v2.46.0/prometheus-2.46.0.linux-amd64.tar.gz
-tar xzvf prometheus-2.46.0.linux-amd64.tar.gz
-mv prometheus-2.46.0.linux-amd64 prometheus
+wget https://github.com/prometheus/prometheus/releases/download/v2.48.0/prometheus-2.48.0.linux-amd64.tar.gz
+tar xzvf prometheus-2.48.0.linux-amd64.tar.gz
+mv prometheus-2.48.0.linux-amd64 prometheus
 cd prometheus
 # Create folder for Time Series Database
 mkdir data
@@ -65,9 +67,9 @@ Visit http://your-site:9090/ to see Prometheus Admin
 
 - `console_libraries` - contains libs for HTML templates
 - `consoles` - contains HTML templates for web pages
-- `prometheus` - Prometheus binary file, size: 118 Mb
+- `prometheus` - Prometheus binary file (size ~120 Mb)
 - `prometheus.yml` - config file
-- `promtool` - util for check config, working with TSDB (time series DB), receiving metrics
+- `promtool` - util (size ~120 Mb) for check config, working with TSDB (time series DB), receiving metrics
 
 ## Config params
 
