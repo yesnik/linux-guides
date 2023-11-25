@@ -163,14 +163,17 @@ Visit URL http://123.123.12.11:9100/metrics to see all metrics of the OS.
 
 #### Metrics Format
 
-*Prometheus metric* is just a string with metric's name, tags and value.
+*Prometheus metric* is just a string with metric's name, tags and value:
 
 ```
-metric_name{tag1="key1", tag2="key2"} Value
-# Example:
 node_cpu_seconds_total{cpu="0",mode="user"} 54.15
 ```
-We can add tag `{env="prod"}` or `{env="dev"}` to filter metrics of Test and Prod environments.
+
+Here:
+
+- n`ode_cpu_seconds_total` - metric name
+- `cpu="0", mode="user"` - tags. We can add tag `{env="prod"}` or `{env="dev"}` to filter metrics of Test and Prod environments
+- `54.15` - metric value
 
 #### Create service for systemd
 
