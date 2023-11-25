@@ -159,6 +159,7 @@ Visit URL http://123.123.12.11:9100/metrics to see all metrics of the OS.
 
 - `node_disk_read_bytes_total` - bytes that were read from the disk
 - `node_disk_read_time_seconds_total`
+- `node_disk_reads_completed_total` - disk reads count
 
 #### Metrics Format
 
