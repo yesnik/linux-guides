@@ -112,6 +112,26 @@ Access Prometheus server metrics from localhost:
 - Open Web Browser: http://123.123.123.123:9090/metrics
 - Use curl: `curl localhost:9090/metrics`
 
+### Metrics Examples
+
+- `node_disk_read_bytes_total` - bytes that were read from the disk
+- `node_disk_read_time_seconds_total`
+- `node_disk_reads_completed_total` - disk reads count
+
+### Metrics Format
+
+*Prometheus metric* is just a string with metric's name, tags and value:
+
+```
+node_cpu_seconds_total{cpu="0",mode="user"} 54.15
+```
+
+Here:
+
+- `node_cpu_seconds_total` - metric name
+- `cpu="0", mode="user"` - tags. We can add tag `{env="prod"}` or `{env="dev"}` to filter metrics of Test and Prod environments
+- `54.15` - metric value
+
 ### PromQL Examples
 
 - `go_info`
@@ -134,46 +154,11 @@ Current version at [download page](https://prometheus.io/download/#node_exporter
 
 ```bash
 cd /opt
-wget https://github.com/prometheus/node_exporter/releases/download/v1.6.1/node_exporter-1.6.1.linux-amd64.tar.gz
-tar xzvf node_exporter-1.6.1.linux-amd64.tar.gz
-mv node_exporter-1.6.1.linux-amd64 node_exporter
+wget https://github.com/prometheus/node_exporter/releases/download/v1.7.0/node_exporter-1.7.0.linux-amd64.tar.gz
+tar xzvf node_exporter-1.7.0.linux-amd64.tar.gz
+mv node_exporter-1.7.0.linux-amd64.tar.gz node_exporter
 cd node_exporter
-./node_exporter
 ```
-
-We can activate required collectors during the start of `node_exporter`. Look at all available options:
-
-```
-./node_exporter --help
-```
-
-Example Options:
-
-- `--web.listen-address=":9100` - Addresses on which to expose metrics and web interface. Repeatable for multiple addresses.
-- `--web.telemetry-path="/metrics"` - Path under which to expose metrics.
-- `--collector.interrupts` - Enable the interrupts collector (default: disabled)
-
-Visit URL http://123.123.12.11:9100/metrics to see all metrics of the OS.
-
-#### Metrics Examples
-
-- `node_disk_read_bytes_total` - bytes that were read from the disk
-- `node_disk_read_time_seconds_total`
-- `node_disk_reads_completed_total` - disk reads count
-
-#### Metrics Format
-
-*Prometheus metric* is just a string with metric's name, tags and value:
-
-```
-node_cpu_seconds_total{cpu="0",mode="user"} 54.15
-```
-
-Here:
-
-- `node_cpu_seconds_total` - metric name
-- `cpu="0", mode="user"` - tags. We can add tag `{env="prod"}` or `{env="dev"}` to filter metrics of Test and Prod environments
-- `54.15` - metric value
 
 #### Create service for systemd
 
@@ -195,6 +180,26 @@ ExecStart=/opt/node_exporter/node_exporter \
 [Install]
 WantedBy=multi-user.target
 ```
+
+We can activate required collectors during the start of `node_exporter`. Look at all available options:
+
+```
+./node_exporter --help
+```
+
+Example Options:
+
+- `--web.listen-address=":9100` - Addresses on which to expose metrics and web interface. Repeatable for multiple addresses.
+- `--web.telemetry-path="/metrics"` - Path under which to expose metrics.
+- `--collector.interrupts` - Enable the interrupts collector (default: disabled)
+
+#### Run node_exporter
+
+```bash
+service node_exporter start
+```
+
+Visit URL http://123.123.12.11:9100/metrics to see all metrics of the OS.
 
 #### Connect Prometheus to node_exporter
 
