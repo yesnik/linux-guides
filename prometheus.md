@@ -222,6 +222,26 @@ scrape_configs:
           env: 'dev'
 ```
 
+Restart services:
+
+```bash
+service node_exporter restart
+service prometheus restart
+```
+
+#### Check status of exporters
+
+Visit web interface at http://some-domain:9090/graph and check metric `up`
+
+Or use `promtool` utility:
+
+```bash
+./promtool query instant http://localhost:9090 up
+# up{env="dev", instance="localhost:9100", job="node"} => 1 @[1700918687.859]
+# up{instance="localhost:9090", job="prometheus"} => 1 @[1700918687.859]
+```
+Value `1` means that exporter is available for Prometheus.
+
 ### `redis-exporter`
 
 Link: https://github.com/oliver006/redis_exporter
