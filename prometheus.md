@@ -171,7 +171,7 @@ node_cpu_seconds_total{cpu="0",mode="user"} 54.15
 
 Here:
 
-- n`ode_cpu_seconds_total` - metric name
+- `node_cpu_seconds_total` - metric name
 - `cpu="0", mode="user"` - tags. We can add tag `{env="prod"}` or `{env="dev"}` to filter metrics of Test and Prod environments
 - `54.15` - metric value
 
