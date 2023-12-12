@@ -84,6 +84,12 @@ Here:
 - `-I` - insert to the beginning of the list of rules
 - `-A` - append to the end
 
+### Allow outgoing connections to IP
+
+```
+iptables -A OUTPUT -p tcp -m state --state NEW -m tcp -d 194.88.12.253 -j ACCEPT
+```
+
 ### Deny outgoing connections to domain
 
 Prevent outgoing connections from our server to mysite.hi.com:
