@@ -3,7 +3,7 @@
 ## Ubuntu
 
 - Install php-fpm: `sudo apt install php-fpm`
-- Check status: `service php8.1-fpm status`
+- Check status: `sudo service php8.2-fpm status`
 
 ## Centos
 
