@@ -61,11 +61,31 @@ In the next example:
 ```nginx
 server {
   listen 80;
-  server_name hi.com;
+  server_name hello.com;
 
-  location = /app/info { return  200; }
-  location /app { return 201; }
+  location = /app/info {
+    return  200;
+  }
+  location /app {
+    return 201;
+  }
 }
+```
+
+Test:
+
+```bash
+# Will return 200
+curl -v http://hello.com/app/info
+
+# Will return 201
+curl -v http://hello.com/app/info/some
+curl -v http://hello.com/app/hey
+curl -v http://hello.com/appa
+
+# Will return 404
+curl -v http://hello.com/some/app
+curl -v http://hello.com/some/APP
 ```
 
 **Modifier `~`**
@@ -78,7 +98,7 @@ Case insensitive RegExp. It has more priority than location without modifiers:
 ```nginx
 server {
   listen 80;
-  server_name hi.com;
+  server_name hello.com;
 
   # It has less priority than location with modifier
   location /app/ {
@@ -93,6 +113,20 @@ server {
     return 202;
   }
 }
+```
+
+Test:
+
+```bash
+# Will return 404
+curl -v -H "Host: hello.com" http://95.91.69.190/app
+curl -v -H "Host: hello.com" http://95.91.69.190/some.Txt
+# Will return 200
+curl -v -H "Host: hello.com" http://95.91.69.190/app/
+# Will return 201
+curl -v -H "Host: hello.com" http://95.91.69.190/some.txt
+# Will return 202
+curl -v -H "Host: hello.com" http://95.91.69.190/some.TXT
 ```
 
 **Modifier `~*`**
@@ -130,19 +164,24 @@ See [docs](https://nginx.org/en/docs/http/ngx_http_core_module.html).
 
 File `/etc/nginx/conf.d/hello.com.conf`:
 
-```
+```nginx
 server {
     listen 80;
     server_name hello.com;
     return 200 "From hello.com";
 }
 ```
+Test:
+
+```
+curl -v -H "Host: hello.com" http://95.91.69.190/
+```
 
 ### PHP app (1)
 
 File `/etc/nginx/conf.d/hello.com.conf`:
 
-```
+```nginx
 server {
     listen 80;
     server_name hello.com;
