@@ -6,8 +6,6 @@ OS: Centos, Ubuntu
 
 ### adduser
 
-It's a friendlier front end to the low level tool `useradd`.
-
 ```bash
 adduser kenny
 ```
@@ -26,11 +24,13 @@ addgroup app && adduser -DH -G app app
 **Create a Non-login User**
 
 ```bash
-# Way 1. Home directory '/home/prometheus' will be created
-sudo adduser kenny --system
+# Way 1. Home directory '/home/jenny' will be created
+adduser jenny --system
+
 # Way 2. Create home dir, user, group, Full Name, Room number, etc.
-sudo adduser kenny --shell /usr/sbin/nologin
+adduser kenny --shell /usr/sbin/nologin
 ```
+
 After this we cannot login as this user:
 
 ```bash
@@ -40,7 +40,7 @@ su - kenny
 
 ### useradd
 
-`useradd` is native binary compiled with the system.
+It's native binary compiled with the system.
 
 ```bash
 # Way 1
@@ -54,6 +54,21 @@ Options:
 - `-s` - specify the new user's login shell. Default values specified in the `/etc/default/useradd` file.
 - `-m` - create the user home directory as `/home/kenny`
 - `-d` - home directory of the new account
+
+## Show all users
+
+```
+# Way 1
+cat /etc/passwd
+# Way 2
+getent passwd | cut -d: -f1
+# Way 3
+awk -F: '{ print $1}' /etc/passwd
+# Way 4
+cut -d: -f1 /etc/passwd
+```
+
+*Note*: Users with shell `/usr/sbin/nologin` are restricted from logging into our server.
 
 ## Delete user
 
@@ -77,17 +92,17 @@ su - kenny
 
 ## Add user to group
 
-Add user *kenny* to group *nginx*:
+Add user *kenny* to group *wheel*:
 
 ```
-sudo usermod -aG nginx kenny
+sudo usermod -aG wheel kenny
 ```
 
 **Important:** If the group was just created the user must re-login in order for the group's permissions to be applied.
 
 ## Add user to sudoers
 
-To do so you need to edit the `/etc/sudoers` this editor:
+Run `/etc/sudoers` file editor:
 
 ```
 sudo visudo
@@ -162,21 +177,6 @@ landingx pts/0    172.11.10.179     15:08    0.00s  0.16s  0.10s w
 - `getent group | cut -d: -f1` - show all groups
 - `groups` - show groups for current user
 - `groups nginx` - show groups of user nginx
-
-## Show all users
-
-```
-# Way 1
-cat /etc/passwd
-# Way 2
-getent passwd | cut -d: -f1
-# Way 3
-awk -F: '{ print $1}' /etc/passwd
-# Way 4
-cut -d: -f1 /etc/passwd
-```
-
-*Note*: Users with shell `/usr/sbin/nologin` are restricted from logging into our server.
 
 ## Run command as another user
 
