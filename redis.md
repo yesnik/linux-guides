@@ -18,6 +18,24 @@
 - `MEMORY PURGE` - attempt to purge dirty pages so these can be reclaimed by the allocator
 - `FLUSHDB` - delete all the keys of the currently selected DB
 
+### HMSET
+
+It is used to set the specified fields to their respective values in the hash stored at the key. 
+This command overwrites any existing fields in the hash. 
+If the key does not exist, a new key holding a hash is created.
+
+```bash
+HMSET task:123 id 123 name "A task" desc "Some desc" timestamp 1645275972000
+```
+
+To get values use `HGETALL`.
+
+### HGETALL
+
+```bash
+HGETALL task:123
+```
+
 ### ZADD
 
 This command is used to add one or more members to a sorted set, or to update the score for members that already exist in the sorted set.
