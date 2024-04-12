@@ -128,6 +128,20 @@ curl -v -H "Host: hello.com" http://95.91.69.190/some.txt
 # Will return 202
 curl -v -H "Host: hello.com" http://95.91.69.190/some.TXT
 ```
+Example with PHP files:
+
+```nginx
+location ~ \.php$ {
+    try_files $uri /index.php =404;
+    fastcgi_pass unix:/var/run/php-fpm/php-fpm.sock;
+    fastcgi_index index.php;
+    fastcgi_buffers 16 16k;
+    fastcgi_buffer_size 32k;
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    fastcgi_read_timeout 600;
+    include fastcgi_params;
+}
+```
 
 **Modifier `~*`**
 
@@ -140,6 +154,10 @@ Assuming this block is the best non-RegExp match, a carat followed by a tilde mo
 ```nginx
 location ^~ /assets/ {
     # Queries beginning with /assets/ and then stops searching
+}
+
+location ^~ /api/v1/products {
+    proxy_pass http://k8s-prod.site.com:30130/api/v1/products;
 }
 ```
 
