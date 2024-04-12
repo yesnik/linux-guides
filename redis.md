@@ -7,8 +7,9 @@
 ## Commands
 
 - `SET age 22` - set key `age` value `22`
+- `SET age 22 EX 10` - set the value of the key `age`, in 10 sec. this key will be deleted
 - `GET age` - get key `age` value. Returns: `"22"`
-- `SET name Kenny EX 10` - set the value of the key `name`, in 10 sec. this key will be deleted
+- `DEL age` - delete any key from Redis database, regardless of the datatype associated with it
 - `KEYS app:claim:2957*` - find keys by pattern
 - `DEBUG object <key>` - show the size of the key in bytes - see param `serializedlength` in the output. It is the size an objects would take when save to a RDB file on disk.
 - `MEMORY USAGE <key>` - the number of bytes that a key and its value require to be stored in RAM
@@ -73,6 +74,14 @@ ZRANGE scores 0 -1 WITHSCORES
 # 4) "59"
 # 5) "user2"
 # 6) "90"
+```
+
+### ZREM
+
+Removes members from the set:
+
+```bash
+ZREM tasks user1 user2
 ```
 
 ### Get key value
