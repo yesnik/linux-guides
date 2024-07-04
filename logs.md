@@ -57,7 +57,8 @@ $template DynamicFile,"/var/log/%HOSTNAME%/forwarded-logs.log"
 
 ## Log Rotate
 
-`logrotat`e is a log managing command-line tool in Linux. 
+`logrotate` is a log managing command-line tool in Linux. 
+
 The administrators write the rules and policies for handling different log files into configuration files. 
 Through the configuration file, logrotate will execute the appropriate function to manage the matching log files.
 
