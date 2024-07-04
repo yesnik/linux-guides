@@ -55,6 +55,39 @@ $template DynamicFile,"/var/log/%HOSTNAME%/forwarded-logs.log"
     $AllowedSender TCP, 192.168.52.0/24, [::1]/128, *.site.org, s2.ex.com
     ```
 
+## Log Rotate
+
+`logrotat`e is a log managing command-line tool in Linux. 
+The administrators write the rules and policies for handling different log files into configuration files. 
+Through the configuration file, logrotate will execute the appropriate function to manage the matching log files.
+
+Configs: `/etc/logrotate.conf`, `/etc/logrotate.d/*`
+
+```bash
+logrotate --help
+```
+
+Example of config file `/etc/logrotate.d/bootlog`:
+
+```
+/var/log/boot.log
+{
+    missingok
+    daily
+    copytruncate
+    rotate 7
+    notifempty
+}
+```
+
+- `missingok` - If the log file is missing, go on to the next one without issuing an error message. 
+- `daily` - Log files are rotated every day.
+- `copytruncate` - Truncate the original log file in place after creating a copy, instead of moving the old log file and optionally creating a new one.
+- `rotate 7` - Log files are rotated 7 times before being removed or mailed to the address specified in a mail directive.
+- `notifempty` - Do not rotate the log if it is empty
+
+See another [options](https://linux.die.net/man/8/logrotate)
+
 ## Links
 
 - The Syslog Protocol [RFC 5424](https://datatracker.ietf.org/doc/html/rfc5424)
