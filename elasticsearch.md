@@ -26,6 +26,32 @@ services:
 
 ## Example
 
+### Get info about Elasticearch
+
+URL: http://127.0.0.1:9200/
+
+Response:
+
+```json
+{
+   "name":"7ebf95a384c1",
+   "cluster_name":"docker-cluster",
+   "cluster_uuid":"Co3ah38FTkSIjo5wPPHOSA",
+   "version":{
+      "number":"8.14.1",
+      "build_flavor":"default",
+      "build_type":"docker",
+      "build_hash":"93a57a1a76f556d8aee6a90d1a95b06187501310",
+      "build_date":"2024-06-10T23:35:17.114581191Z",
+      "build_snapshot":false,
+      "lucene_version":"9.10.0",
+      "minimum_wire_compatibility_version":"7.17.0",
+      "minimum_index_compatibility_version":"7.0.0"
+   },
+   "tagline":"You Know, for Search"
+}
+```
+
 ### Create index
 
 Create index `products`: 
