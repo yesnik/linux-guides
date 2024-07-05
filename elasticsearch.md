@@ -26,6 +26,8 @@ services:
 
 ## Example
 
+Use *Management / Dev Tools* to play with API Requests: http://127.0.0.1:5601/app/dev_tools#/console
+
 ### Get info about Elasticearch
 
 URL: http://127.0.0.1:9200/
