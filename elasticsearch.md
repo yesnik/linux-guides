@@ -72,6 +72,12 @@ Response:
 }
 ```
 
+### Show indices
+
+```bash
+curl -X GET http://localhost:9200/_cat/indices
+```
+
 ### Write to index
 
 Let's index a sample product into the *products* index:
