@@ -1,6 +1,6 @@
 # Elasticsearch
 
-Elasticsearch is a distributed, RESTful search and analytics engine.
+[Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html) is a distributed, RESTful search and analytics engine.
 As the heart of the free and open ELK or Elastic Stack, it securely stores your data for lightning fast search, 
 fine‑tuned relevancy, and powerful analytics that scale with ease.
 
@@ -19,10 +19,23 @@ services:
         environment:
             - discovery.type=single-node
             - xpack.security.enabled=false
+            - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
         ports:
             - '9200:9200'
             - '9300:9300'
 ```
+
+## Console commands
+
+- Reset Elasticsearch password:
+    ```
+    /usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic
+    ```
+
+- Create token for Kibana:
+    ```
+    /usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana
+    ```
 
 ## Example
 
