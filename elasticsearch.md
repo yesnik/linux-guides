@@ -133,46 +133,29 @@ curl -X POST "localhost:9200/_bulk?pretty" -H 'Content-Type: application/json' -
 
 ```
 
+### Show all documents in the index
+
+```bash
+curl -X GET "http://localhost:9200/products/_search?pretty"
+```
+
 ### Search in the index
 
-Issue the following command to search for products containing the term "book" in their name:
+#### match
+
+We can use the `match` query to search for documents that contain a specific value in a specific field. 
+This is the standard query for performing full-text search, including fuzzy matching and phrase searches.
+
+Let's search for products containing the term "book" in their name:
 
 ```bash
 curl -X GET "http://localhost:9200/products/_search?pretty" -H 'Content-Type: application/json' -d' { "query": { "match": { "name": "book" } } }'
 ```
 
-Response:
+#### range
 
-```json
-{
-  "took" : 211,
-  "timed_out" : false,
-  "_shards" : {
-    "total" : 1,
-    "successful" : 1,
-    "skipped" : 0,
-    "failed" : 0
-  },
-  "hits" : {
-    "total" : {
-      "value" : 4,
-      "relation" : "eq"
-    },
-    "max_score" : 0.11474907,
-    "hits" : [
-      {
-        "_index" : "products",
-        "_id" : "Ck2WgpABCr4ftKxEa4M3",
-        "_score" : 0.11474907,
-        "_source" : {
-          "name" : "A book",
-          "description" : "This is a book about PHP",
-          "price" : 2.99,
-          "category" : "PHP"
-        }
-      },
-      // ...
-    ]
-  }
-}
+Search products with `price >= 1` and `price <= 3`:
+
+```bash
+curl -X GET "http://localhost:9200/products/_search?pretty" -H 'Content-Type: application/json' -d' { "query": { "range": { "price": { "gte": 1, "lte": 3 }  } } }'
 ```
