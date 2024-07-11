@@ -96,8 +96,7 @@ curl -X GET http://localhost:9200/_cat/indices
 Let's index a sample product into the *products* index:
 
 ```bash
-curl -X POST -H 'Content-Type: application/json' -d '{ "name": "A book",
-"description": "This is a book about PHP", "price": 2.99, "category": "PHP" }' http://localhost:9200/products/_doc
+curl -X POST -H 'Content-Type: application/json' -d '{"name": "A book", "price": 2.99}' http://localhost:9200/products/_doc
 ```
 
 Response: 
