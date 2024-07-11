@@ -93,7 +93,9 @@ curl -X GET http://localhost:9200/_cat/indices
 
 ### Write to index
 
-Let's index a sample product into the *products* index:
+#### One write
+
+Let's add a product into the *products* index:
 
 ```bash
 curl -X POST -H 'Content-Type: application/json' -d '{"name": "A book", "price": 2.99}' http://localhost:9200/products/_doc
@@ -115,6 +117,20 @@ Response:
    "_seq_no":0,
    "_primary_term":1
 }
+```
+
+#### Bulk write
+
+```bash
+curl -X POST "localhost:9200/_bulk?pretty" -H 'Content-Type: application/json' -d'
+{ "index" : { "_index" : "products" } }
+{"name": "Pencil", "price": 4.50}
+{ "index" : { "_index" : "products" } }
+{"name": "Pen", "price": 1.30}
+{ "index" : { "_index" : "products" } }
+{"name": "Car", "price": 7000}
+'
+
 ```
 
 ### Search in the index
