@@ -195,6 +195,35 @@ Test:
 curl -v -H "Host: hello.com" http://95.91.69.190/
 ```
 
+### 2 sites on one domain
+
+File `/etc/nginx/conf.d/site.conf`:
+
+```nginx
+server {
+    listen 80;
+    index index.html;
+    server_name mysite.com;
+    root /var/www/html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+```
+
+Create 2 files:
+
+```
+echo "site1" > /var/www/html/site1/index.html
+echo "site2" > /var/www/html/site2/index.html
+```
+
+Visit:
+
+- `http://mysite.com/site1` - result: mysite1
+- `http://mysite.com/site2` - result: mysite2
+
 ### PHP app (1)
 
 File `/etc/nginx/conf.d/hello.com.conf`:
@@ -228,7 +257,7 @@ server {
 
 File `/etc/nginx/conf.d/qm.hello.com.conf`:
 
-```
+```nginx
 server {
     listen 80;
     server_name qm.hello.com;
@@ -268,7 +297,7 @@ server {
 
 File `/etc/nginx/conf.d/stage.hello.ru.conf`:
 
-```
+```nginx
 server {
     listen 80;
 
