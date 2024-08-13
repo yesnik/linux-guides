@@ -195,17 +195,17 @@ Test:
 curl -v -H "Host: hello.com" http://95.91.69.190/
 ```
 
-### 2 sites on one domain
+### Two sites on a single domain
 
 File `/etc/nginx/conf.d/site.conf`:
 
 ```nginx
 server {
     listen 80;
+    root /var/www/html;
     index index.html;
     server_name mysite.com;
-    root /var/www/html;
-
+    
     location / {
         try_files $uri $uri/ =404;
     }
@@ -223,6 +223,38 @@ Visit:
 
 - `http://mysite.com/site1` - result: mysite1
 - `http://mysite.com/site2` - result: mysite2
+
+### Two domains on a single Nginx server
+
+File `mysite1.conf`:
+
+```nginx
+server {
+   listen 80;
+   root /var/www/html/mysite1.com;
+   index index.html;
+   server_name mysite1.com;
+
+   location / {
+       try_files $uri $uri/ =404;
+   }
+}
+```
+
+File `mysite2.conf`:
+
+```nginx
+server {
+   listen 80;
+   root /var/www/html/mysite2.com;
+   index index.html;
+   server_name mysite2.com;
+
+   location / {
+       try_files $uri $uri/ =404;
+   }
+}
+```
 
 ### PHP app (1)
 
