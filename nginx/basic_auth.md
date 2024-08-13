@@ -58,3 +58,39 @@ Visit:
 
 - `http://mysite.com/site1` - browser will show auth popup, because server sends `401 Unauthorized`
 - `http://mysite.com/site2` - no auth for this URL
+
+## Add basic auth to all site except one URL
+
+```nginx
+server {
+    listen 80;
+
+    server_name mysite.com;
+
+    index index.html;
+
+    auth_basic "Administrator Login";
+    auth_basic_user_file /etc/nginx/.htpasswd;
+
+    root /var/www/html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location /public {
+        auth_basic off;
+    }
+}
+```
+Create files:
+
+- `echo "site A" > /var/www/html/a/index.html`
+- `echo "site B" > /var/www/html/b/index.html`
+- `echo "site Public" > /var/www/html/public/index.html`
+
+Visit:
+
+- `http://mysite.com/public` - will return "public"
+- `http://mysite.com/a` - browser will show auth popup
+- `http://mysite.com/b` - browser will show auth popup
