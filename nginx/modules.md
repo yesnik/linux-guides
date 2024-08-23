@@ -2,6 +2,11 @@
 
 Modules list: see "Modules reference" on the page: https://nginx.org/en/docs/
 
+Show installed nginx modules: 
+
+- `nginx -V`
+- `dpkg -l | grep nginx`
+
 ## ngx_http_geoip_module
 
 See [docs](https://nginx.org/en/docs/http/ngx_http_geoip_module.html)
@@ -23,7 +28,28 @@ server {
     
     location / {
         add_header X-Country $geoip_country_code always;
+        add_header X-Country3 $geoip_country_code3;
+        add_header X-CountryName $geoip_country_name;
+
         return 200;
     }
 }
 ```
+Test: `curl -vvv http://site.com/`
+
+In the response we will see headers:
+
+```
+X-Country: RU
+X-Country3: RUS
+X-CountryName: Russian Federation
+```
+
+## brotli
+
+See https://github.com/google/ngx_brotli
+
+Helps to compress js, css.
+
+
+
