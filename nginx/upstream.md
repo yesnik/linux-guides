@@ -46,3 +46,9 @@ server {
     }
 }
 ```
+Ensure that Nginx returns responses from 2 backend servers:
+
+```bash
+curl -D - http://example.com/internal
+```
+
