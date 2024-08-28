@@ -1,18 +1,19 @@
 # Upstream Nginx
 
+See [upstream docs](https://nginx.org/ru/docs/http/ngx_http_upstream_module.html)
+
 Nginx can proxy requests to several servers:
 
 ```nginx
 upstream backend {
-    server app1.example.com weight=1;
-    server app2.example.com weight=2;
-    
-    server app3.example.com backup;
+    server 127.0.0.1:8085;
+    server 127.0.0.1:8086;
 }
 
 server {
     listen 80;
-    
+    server_name example.com;
+
     location / {
         proxy_pass http://backend;
 
@@ -22,6 +23,26 @@ server {
         proxy_connect_timeout 60s;
         proxy_read_timeout 60s;
         proxy_send_timeout 60s;
+    }
+}
+
+server {
+    listen 127.0.0.1:8085;
+
+    server_name _;
+
+    location / {
+        return 200 "8085";
+    }
+}
+
+server {
+    listen 127.0.0.1:8086;
+
+    server_name _;
+
+    location / {
+        return 200 "8086";
     }
 }
 ```
