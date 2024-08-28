@@ -46,9 +46,26 @@ server {
     }
 }
 ```
+
+### Test
+
 Ensure that Nginx returns responses from 2 backend servers:
 
 ```bash
 curl -D - http://example.com/internal
 ```
 
+### Server offline
+
+If one of the servers in the backend upstream offline, Nginx will route all requests to available server.
+
+## weight
+
+From 3 requests we can ask Nginx to pass two requests to server 1 and one request to server 2:
+
+```nginx
+upstream backend {
+    server 127.0.0.1:8085 weight=2;
+    server 127.0.0.1:8086 weight=1;
+}
+```
