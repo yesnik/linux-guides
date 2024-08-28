@@ -47,9 +47,18 @@ X-CountryName: Russian Federation
 
 ## brotli
 
-See https://github.com/google/ngx_brotli
-
 Helps to compress js, css.
 
+See https://github.com/google/ngx_brotli
 
+## vts
 
+Nginx virtual host traffic status module. 
+
+See https://github.com/vozlt/nginx-module-vts
+
+## nginx-auth-ldap
+
+LDAP authentication module for nginx.
+
+See https://github.com/kvspb/nginx-auth-ldap
