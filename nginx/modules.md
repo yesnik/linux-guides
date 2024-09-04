@@ -62,3 +62,9 @@ See https://github.com/vozlt/nginx-module-vts
 LDAP authentication module for nginx.
 
 See https://github.com/kvspb/nginx-auth-ldap
+
+## nginx_upstream_check_module
+
+It adds health checks for servers in upstreams.
+
+See https://github.com/yaoweibin/nginx_upstream_check_module
