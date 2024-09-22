@@ -176,6 +176,35 @@ See [docs](https://nginx.org/en/docs/http/ngx_http_core_module.html).
 - `client_max_body_size 32m;` - Sets the maximum allowed size of the client request body
 - `listen: 80 default_server;` - The `default_server` parameter, if present, will cause the server to become the default server for the specified `address:port` pair.
 
+### ngx_http_log_module
+
+See [docs](https://nginx.org/en/docs/http/ngx_http_log_module.html)
+
+It writes request logs in the specified format.
+
+We can define our own log format with name "combined":
+
+```nginx
+log_format combined '$remote_addr - $remote_user [$time_local] '
+                    '"$request" $status $body_bytes_sent '
+                    '"$http_referer" "$http_user_agent"';
+```
+After that we can use it:
+
+```nginx
+location / {
+    access_log /var/log/nginx/access.index.log combined;
+}
+```
+
+We can define logging level in the error log:
+
+```nginx
+location / {
+    error_log /var/log/nginx/error.index.log debug;
+}
+```
+
 ## Nginx config examples
 
 ### Simple virtual host
