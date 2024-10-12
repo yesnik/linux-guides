@@ -27,6 +27,17 @@ server {
 - You'll see the contents of page http://another.com/path
 - Browser's address bar still shows http://mysite.com/hello
 
+### Prevent passing header
+
+To prevent a header field from being passed to the proxied server, set it to an empty string as follows:
+
+```nginx
+location /some/path/ {
+    proxy_set_header Accept-Encoding "";
+    proxy_pass http://localhost:8000;
+}
+```
+
 ## Proxy to many servers
 
 ```nginx
