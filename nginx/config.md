@@ -260,7 +260,28 @@ curl -v http://some.example.com/
 ```
 Server will return header `X-Sub-Domain: some`. 
 
-## Directive `if`
+### Directive `map`
+
+```nginx
+map $remote_addr $remote_access {
+    default block;
+
+    10.0.0.1 allow;
+    10.0.0.2 allow;
+}
+
+server {
+    if ($remote_access = block) {
+        return 403;
+    }
+    
+    location / {
+        return 200;
+    }
+}
+```
+
+### Directive `if`
 
 ```nginx
 server {
