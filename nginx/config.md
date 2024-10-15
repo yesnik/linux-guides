@@ -230,11 +230,35 @@ server {
 Test:
 
 ```
-curl -H "X-My-Request: hey" -v http:/example.com/
+curl -H "X-My-Request: hey" -v http://example.com/
 # < X-Remote-addr: 122.22.33.44
 # < X-My-New-Request: hey
 ```
 As we can see nginx copied value from `X-My-Request` to `X-My-New-Request` header.
+
+### Directive `set`
+
+We can define custom variables and assign values to them:
+
+```nginx
+server {
+    listen 80;
+    
+    if ($host ~* (.*)\.example\.com) {
+        set $sub_domain $1;
+    }
+    
+    location / {
+        add_header X-Sub-Domain $sub_domain;
+        return 200;
+    }
+}
+```
+Test:
+```
+curl -v http://some.example.com/
+```
+Server will return header `X-Sub-Domain: some`. 
 
 ## Directive `if`
 
@@ -255,7 +279,7 @@ server {
 Test:
 
 ```
-curl -v http:/example.com/
+curl -v http://example.com/
 ```
 
 It returns 500 status code and body "Oops curl detected".
@@ -263,7 +287,7 @@ It returns 500 status code and body "Oops curl detected".
 We can bypass this check:
 
 ```
-curl -H "User-agent: Chrome" -v http:/example.com/
+curl -H "User-agent: Chrome" -v http://example.com/
 ```
 
 ## Nginx config examples
