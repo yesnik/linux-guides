@@ -84,6 +84,10 @@ server {
     if ($http_user_agent ~* "curl.*") {
         return 500 'Oops curl detected';
     }
+
+    if ($http_x_test_mode = 'on') {
+        return 200 'Test mode is ON';
+    }
     
     location / {
         return 200;
@@ -103,4 +107,9 @@ We can bypass this check:
 
 ```
 curl -H "User-agent: Chrome" -v http://example.com/
+```
+
+Check test mode header:
+```
+curl -H "X-Test-Mode: on" -v http://example.com/
 ```
