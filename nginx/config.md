@@ -260,6 +260,12 @@ curl -v http:/example.com/
 
 It returns 500 status code and body "Oops curl detected".
 
+We can bypass this check:
+
+```
+curl -H "User-agent: Chrome" -v http:/example.com/
+```
+
 ## Nginx config examples
 
 ### Simple virtual host
