@@ -1,6 +1,7 @@
 # Nginx config
 
-Official docs: https://nginx.org/en/docs/
+- Official docs: https://nginx.org/en/docs/
+- List of Allowed [variables](https://nginx.org/en/docs/varindex.html) in config
 
 ## Config sections
 
