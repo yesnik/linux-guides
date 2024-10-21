@@ -125,3 +125,41 @@ systemctl enable kafka-update-crm-status
 # Read logs
 journalctl -u kafka-update-crm-status
 ```
+
+## Run N processes with 1 systemd service
+
+The `@` in the service filename lets you start N processes - file `/usr/lib/systemd/system/kafka-client-data-consumer-@.service`:
+
+```
+[Unit]
+Description=Kafka Consumer for client update, instance %i
+After=network.target
+
+[Service]
+Type=simple
+User=root
+Restart=always
+RestartSec=60
+ExecStart=/usr/bin/php /var/www/mysite/current/protected/yiic.php clientConsumer &
+
+[Install]
+WantedBy=multi-user.target
+```
+Commands:
+
+```bash
+# 1 worker
+systemctl start kafka-client-data-consumer-\@1
+systemctl status kafka-client-data-consumer-\@1
+
+# 3 workers
+systemctl start kafka-client-data-consumer-\@{1..3}
+systemctl status kafka-client-data-consumer-\@{1..3}
+systemctl stop kafka-client-data-consumer-\@{1..3}
+```
+
+Then be sure to reload:
+
+```bash
+sudo systemctl daemon-reload
+```
