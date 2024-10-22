@@ -48,10 +48,10 @@
 ### Run a command in the background
 
 ```bash
-php artisan horizon > /dev/null 2>&1 &
+php artisan horizon > /dev/null 2>&1 & disown
 ```
 
-Redirect the `stdout` and `stderr` to `/dev/null` to ignore the output.
+Redirect the `stdout` and `stderr` to `/dev/null` to ignore the output. `disown` helps to prevent killing the process when console is closed.
 
 ## Create process
 
