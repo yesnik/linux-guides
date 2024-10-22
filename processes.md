@@ -2,7 +2,7 @@
 
 *Process* is a running instance of a program.
 
-## Basic commands
+## Commands
 
 - `ps aux` - show info about processes. Params:
   * `-a` - all users
@@ -15,6 +15,8 @@
 - `top -U sales` - show CPU, memory for processes of user sales
 - `sudo pmap 155` - how much memory the process with PID 155 is using
 - `kill -9 500` - kill process with PID = 500
+- `pgrep -p some_worker` - show PID of the process named 'some_worker'
+- `pkill -p some_worker` - kill process named 'some_worker'. For debug use `pgrep` to get the PID of the process that will be terminated.
 - `sleep 1000 &` - run process in the background
 - `jobs` - show processes running in the context of the current shell
 - `watch date` - run a command repeatedly (2 seconds cycle by default)
