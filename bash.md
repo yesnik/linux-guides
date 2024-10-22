@@ -46,6 +46,19 @@ echo $a
 #=> 1
 ```
 
+## `if`, `else` condition
+
+### Check if process is running
+
+```bash
+if prep -f "clientDataConsumer" > /dev/null
+then
+    echo "Process is running"
+else
+    echo "No process"
+fi
+```
+
 ## SSH and execute a command
 
 ```bash
