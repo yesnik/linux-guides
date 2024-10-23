@@ -77,7 +77,7 @@ See docs of ngx_core_module: [error_log](https://nginx.org/en/docs/ngx_core_modu
 
 Syntax:
 
-```
+```nginx
 error_log file [level=error];
 ```
 - `file` - defines a file that will store the log. The special value `stderr` selects the standard error file. Logging to syslog can be configured by specifying the `syslog:`
@@ -85,5 +85,8 @@ error_log file [level=error];
     Setting a certain log level will cause all messages of the specified and more severe log levels to be logged. 
     For example, the default level `error` will cause `error`, `crit`, `alert`, and `emerg` messages to be logged.
 
-With `debug` level we can see how Nginx do rewrite and finds appropriate `location`.
+With `debug` level we can see how Nginx do rewrite and finds appropriate `location`:
 
+```nginx
+error_log /var/log/nginx/debug.log debug;
+```
