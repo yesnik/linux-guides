@@ -4,7 +4,7 @@ See docs: [ngx_http_log_module](https://nginx.org/en/docs/http/ngx_http_log_modu
 
 ## Tools
 
-- [GoAccess](https://goaccess.io/) - allows to parse log files and show diagramms
+- [GoAccess](https://goaccess.io/) - allows to parse log files and show diagrams.
 
 ## Directives
 
