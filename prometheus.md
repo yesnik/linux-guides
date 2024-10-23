@@ -398,3 +398,9 @@ scrape_configs:
     static_configs:
       - targets: ['localhost:9111']
 ```
+
+### prometheus-nginxlog-exporter
+
+Link: https://github.com/martin-helmich/prometheus-nginxlog-exporter
+
+Export metrics from Nginx access log files to Prometheus.
