@@ -18,7 +18,6 @@ server {
         proxy_pass http://backend;
 
         proxy_set_header X-Real-ip $remote_addr;
-        proxy_set_header X-Country-Code $geoip_country_code;
 
         proxy_connect_timeout 60s;
         proxy_read_timeout 60s;
