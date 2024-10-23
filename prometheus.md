@@ -412,3 +412,8 @@ cd /opt
 wget https://github.com/martin-helmich/prometheus-nginxlog-exporter/releases/download/v1.11.0/prometheus-nginxlog-exporter_1.11.0_linux_amd64.deb
 dpkg -i prometheus-nginxlog-exporter_1.11.0_linux_amd64.deb
 ```
+
+Show status:
+```bash
+systemctl status prometheus-nginxlog-exporter.service
+```
