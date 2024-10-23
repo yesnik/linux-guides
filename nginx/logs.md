@@ -66,3 +66,20 @@ http {
 ```
 - `$upstream_response_time` - upstream response time
 - `$request_time` - could be high if a client has slow internet
+
+## Error Log
+
+See docs of ngx_core_module: [error_log](https://nginx.org/en/docs/ngx_core_module.html#error_log)
+
+Syntax:
+
+```
+error_log file [level=error];
+```
+- `file` - defines a file that will store the log. The special value `stderr` selects the standard error file. Logging to syslog can be configured by specifying the `syslog:`
+- `level` - determines the level of logging. List in the order of increasing severity: `debug`, `info`, `notice`, `warn`, `error`, `crit`, `alert`, `emerg`.
+    Setting a certain log level will cause all messages of the specified and more severe log levels to be logged. 
+    For example, the default level `error` will cause `error`, `crit`, `alert`, and `emerg` messages to be logged.
+
+With `debug` level we can see how Nginx do rewrite and finds appropriate `location`.
+
