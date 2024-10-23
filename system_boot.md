@@ -32,6 +32,15 @@ Enable this service:
 systemctl enable restore-iptables-rules.service
 ```
 
+Show logs of the service:
+
+```bash
+journalctl -u restore-iptables-rules.service -b
+```
+
+- `-u` (`--unit`) - name of the unit 
+- `-b` (`--boot`) - show info only about the current boot, no older messages
+
 ## Add / Remove service to startup
 
 If you want to edit services started at system startup use following commands.
