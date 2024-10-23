@@ -35,11 +35,12 @@ systemctl enable restore-iptables-rules.service
 Show logs of the service:
 
 ```bash
-journalctl -u restore-iptables-rules.service -b
+journalctl -u restore-iptables-rules.service -b -f
 ```
 
 - `-u` (`--unit`) - name of the unit 
 - `-b` (`--boot`) - show info only about the current boot, no older messages
+- `-f` - follow logs
 
 ## Add / Remove service to startup
 
@@ -132,7 +133,7 @@ service kafka-update-crm-status status
 systemctl enable kafka-update-crm-status
 
 # Read logs
-journalctl -u kafka-update-crm-status
+journalctl -u kafka-update-crm-status -f
 ```
 
 ## Run N processes with 1 systemd service
@@ -149,7 +150,7 @@ Type=simple
 User=root
 Restart=always
 RestartSec=60
-ExecStart=/usr/bin/php /var/www/mysite/current/protected/yiic.php clientConsumer &
+ExecStart=/usr/bin/php /var/www/mysite/current/protected/yiic.php clientConsumer
 
 [Install]
 WantedBy=multi-user.target
