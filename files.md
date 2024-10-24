@@ -95,6 +95,7 @@ Options:
 ## Search
 
 - `grep -rnw ./ -e 'hello'` - search files with text `hello` in it
+- `find . | xargs grep 'hello' -sl` - show files with text `hello` in it
 - `find -name '*.php'` - find all files with .php extension (in current folder and subfolders)
 
 ### Find .log files and delete them
