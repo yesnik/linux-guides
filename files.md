@@ -21,6 +21,13 @@
 - `fdisk -l` - list the partition tables for the specified devices
 - `lsblk` - list block devices
 
+## Move/Rename files
+
+- `mv ./index.html /var/www/html` - move file `index.html` from current dir to `/var/www/html`
+- `mv -- -nxfile.conf /var/tmp/` - move file that starts with `-` to `/var/tmp/`
+
+**Note:** The double dash `--` means "end of command line flags". It tells shell command not to try to parse what comes after command line options. 
+
 ## Copy files
 
 ### scp
