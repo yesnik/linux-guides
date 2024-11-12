@@ -9,7 +9,7 @@ At the first available line, type "@reboot xxxx", where "xxxx" is the command yo
 
 ### Add systemd service
 
-Add file `/etc/systemd/system/restore-iptables-rules.service`
+Create file `/usr/lib/systemd/system/restore-iptables-rules.service` or at another location `/etc/systemd/system/restore-iptables-rules.service`:
 
 ```service
 [Service]
