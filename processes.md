@@ -12,6 +12,9 @@
   * `-e` - extended info with all args for each process
 - `ps aux | head -1; ps aux | sort -rnk 4 | head -5` - show top 5 processes with highest memory usage
 - `pstree` - show tree of processes
+- `pstree | head -n 5` - show current system manager ("systemd" - you are using systemd, "init" - SysVinit)
+- `systemctl list-units --type=service` - list services on Linux on a systemd system. Specify the "--type=service" option in order to restrict the results to services only
+- `systemctl list-unit-files --type=service` - list all service files available
 - `top -U sales` - show CPU, memory for processes of user sales
 - `sudo pmap 155` - how much memory the process with PID 155 is using
 - `kill -9 500` - kill process with PID = 500
