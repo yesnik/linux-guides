@@ -11,7 +11,7 @@ At the first available line, type "@reboot xxxx", where "xxxx" is the command yo
 
 Add file `/etc/systemd/system/restore-iptables-rules.service`
 
-```
+```service
 [Service]
 Type=oneshot
 RemainAfterExit=yes
@@ -58,7 +58,7 @@ sudo systemctl disable apache2
 
 **Method 2**
 
-```
+```bash
 sudo update-rc.d apache2 defaults
 
 sudo update-rc.d apache2 remove
@@ -83,7 +83,6 @@ Disable Docker start on boot:
 ```bash
 sudo systemctl disable docker
 # Removed /etc/systemd/system/multi-user.target.wants/docker.service.
-
 ```
 
 **Method 2**
@@ -102,7 +101,7 @@ chkconfig php-fpm on
 
 Create file `/usr/lib/systemd/system/kafka-update-crm-status.service`:
 
-```
+```service
 [Unit]
 Description=Kafka Update CRM status
 After=network.target
@@ -118,7 +117,11 @@ ExecStart=/usr/bin/php /var/www/mysite/current/protected/yiic.php kafkaMessagesL
 WantedBy=multi-user.target
 ```
 
-**Note:** Ensure that you defined correct values for `User`, `Group`.
+**Note 1:** Don't add `&` after the `ExecStart` command. It's wrong:
+```service
+ExecStart=/usr/bin/php /var/www/mysite/current/protected/yiic.php kafkaMessagesListener &
+```
+**Note 2:** Ensure that you defined correct values for `User`, `Group`.
 
 Commands:
 
@@ -140,7 +143,7 @@ journalctl -u kafka-update-crm-status -f
 
 The `@` in the service filename lets you start N processes - file `/usr/lib/systemd/system/kafka-client-data-consumer-@.service`:
 
-```
+```service
 [Unit]
 Description=Kafka Consumer for client update, instance %i
 After=network.target
