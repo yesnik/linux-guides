@@ -90,9 +90,9 @@ curl -v http://hello.com/some/APP
 
 **Modifier `~`**
 
-Case insensitive RegExp. It has more priority than location without modifiers:
+Case sensitive RegExp. It has more priority than location without modifiers:
 
-- `/app/file.txt` - will return 200
+- `/app/file.txt` - will return 201
 - `/app/info.TXT` - will return 202
 
 ```nginx
