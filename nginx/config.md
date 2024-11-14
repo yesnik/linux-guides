@@ -40,7 +40,7 @@ location <modifier> <prefix> {
 }
 ```
 
-**No modifier**
+#### No modifier
 
 ```nginx
 location /upload/ {
@@ -49,7 +49,7 @@ location /upload/ {
 }
 ```
 
-**Modifier `=`**
+#### Modifier `=`
 
 The equal sign can be used if the location needs to match the exact request URI. When this modifier is matched, the search stops right here.
 
@@ -88,7 +88,7 @@ curl -v http://hello.com/some/app
 curl -v http://hello.com/some/APP
 ```
 
-**Modifier `~`**
+#### Modifier `~`
 
 Case sensitive RegExp. It has more priority than location without modifiers:
 
@@ -143,11 +143,11 @@ location ~ \.php$ {
 }
 ```
 
-**Modifier `~*`**
+#### Modifier `~*`
 
 It's case insensitive RegExp modifier.
 
-**Modifier `^~`**
+#### Modifier `^~`
 
 Assuming this block is the best non-RegExp match, a carat followed by a tilde modifier means that RegExp matching will not take place.
 
@@ -158,6 +158,20 @@ location ^~ /assets/ {
 
 location ^~ /api/v1/products {
     proxy_pass http://k8s-prod.site.com:30130/api/v1/products;
+}
+```
+
+#### Named location `@abc`
+
+It's internal nginx location, we can't invoke it like this: `http://hello.com/app`
+
+```nginx
+location @app {
+    proxy_pass http://backend;
+}
+
+location / {
+    try_files /maintenance.html $uri $uri/ @app;
 }
 ```
 
