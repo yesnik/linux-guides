@@ -1,8 +1,25 @@
 # Nginx Installation
 
-Official docs: https://nginx.org/en/linux_packages.html
+## System repo
 
-## Ubuntu
+It's possible to install nginx from system repo:
+
+```bash
+# Centos
+yum install nginx
+
+# Ubuntu
+apt install nginx
+```
+
+## Nginx repo
+
+It's possible to set up the nginx packages repository. 
+Afterward, we can install and update nginx from the repository.
+
+See official docs: https://nginx.org/en/linux_packages.html
+
+### Ubuntu
 
 - Install the prerequisites:
   ```bash
