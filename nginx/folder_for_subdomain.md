@@ -7,7 +7,7 @@ If we want to open each subdomain in a different folder:
 
 Edit `/etc/nginx/conf.d/site.conf`:
 
-```
+```nginx
 server {
     listen 443 ssl http2;
     
@@ -31,4 +31,9 @@ server {
         include fastcgi_params;
     }
 }
+```
+If we want regexp to match `some.mysite.com`, `ab.mysite.com`, BUT NOT match the domain `qm.mysite.com`, use:
+
+```nginx
+server_name ~^(?<branch>(?!qm).+)\.mysite.com$;
 ```
