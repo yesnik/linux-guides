@@ -20,6 +20,7 @@ because of dependency problems for example, it is skipped.
 - `dnf repository-packages fedora list` - list packages from `fedora` repo
 - `dnf info elixir.x86_64` - show package's info
 - `dnf history` - show the history of changes in packages
+- `dnf --releasever=41 --setopt=deltarpm=false --setopt=protected_packages= distro-sync` - 
 
 ## Config
 
@@ -32,3 +33,17 @@ because of dependency problems for example, it is skipped.
 
 - `/etc/dnf/dnf.conf` - main config files
 - `/etc/yum.repos.d` - folder to define individual repositories. Example: `/etc/yum.repos.d/fedora.repo`
+
+## Fedora Upgrade Errors
+
+### Error with protected packages
+
+Problem: The operation would result in removing the following protected packages: NetworkManager, grub2-tools-minimal, selinux-policy-targeted, setup, sudo, systemd, systemd-udev.
+
+Solution:
+
+```bash
+sudo dnf system-upgrade download --releasever=41 --allowerasing
+# or
+dnf --releasever=41 --setopt=deltarpm=false --setopt=protected_packages= distro-sync
+```
