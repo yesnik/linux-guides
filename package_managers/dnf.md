@@ -13,6 +13,7 @@ because of dependency problems for example, it is skipped.
 - `dnf upgrade python` - update only *python* package
 - `dnf search php` - search "php" word in all RPM package names and summaries
 - `dnf list installed` - list installed packages
+- `dnf list installed systemd --showduplicates` - list installed, available packages for `systemd`
 - `dnf list elixir*` - list installed and available packages with "elixir" word
 - `dnf repolist` - list repositories that are defined in the folder `/etc/yum.repos.d`
 - `dnf repoquery --duplicates` - display packages that have several versions
