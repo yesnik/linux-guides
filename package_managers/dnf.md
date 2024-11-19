@@ -15,6 +15,7 @@ because of dependency problems for example, it is skipped.
 - `dnf list installed` - list installed packages
 - `dnf list elixir*` - list installed and available packages with "elixir" word
 - `dnf repolist` - list repositories that are defined in the folder `/etc/yum.repos.d`
+- `dnf repoquery --duplicates` - display packages that have several versions
 - `dnf repository-packages fedora list` - list packages from `fedora` repo
 - `dnf info elixir.x86_64` - show package's info
 - `dnf history` - show the history of changes in packages
