@@ -9,6 +9,12 @@ Edit `/etc/nginx/conf.d/site.conf`:
 
 ```nginx
 server {
+    listen 80;
+    server_name ~^(?<branch>.+)\.mysite.com$;
+    return 301 https://$host$request_uri;
+}
+
+server {
     listen 443 ssl http2;
     
     set $host_path "/var/www";
@@ -32,8 +38,4 @@ server {
     }
 }
 ```
-If we want regexp to match `some.mysite.com`, `ab.mysite.com`, BUT NOT match the domain `qm.mysite.com`, use:
 
-```nginx
-server_name ~^(?<branch>(?!qm).+)\.mysite.com$;
-```
