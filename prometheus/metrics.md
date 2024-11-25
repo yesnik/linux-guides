@@ -10,6 +10,7 @@ Access Prometheus server metrics from localhost:
 - `node_disk_read_bytes_total` - bytes that were read from the disk
 - `node_disk_read_time_seconds_total`
 - `node_disk_reads_completed_total` - disk reads count
+- `process_resident_memory_bytes` - the physical memory occupied by the Prometheus process.
 
 ### Metrics Format
 
