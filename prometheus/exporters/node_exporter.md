@@ -10,7 +10,7 @@ Current version at [download page](https://prometheus.io/download/#node_exporter
 cd /opt
 wget https://github.com/prometheus/node_exporter/releases/download/v1.8.2/node_exporter-1.8.2.linux-amd64.tar.gz
 tar xzvf node_exporter-1.8.2.linux-amd64.tar.gz
-mv node_exporter-1.8.2.linux-amd64.tar.gz node_exporter
+mv node_exporter-1.8.2.linux-amd64 node_exporter
 cd node_exporter
 ```
 
