@@ -53,7 +53,7 @@ Example Options:
 service node_exporter start
 ```
 
-Visit URL http://123.123.12.11:9100/metrics to see all metrics of the OS.
+Visit URL http://123.123.12.11:9100/metrics to see all (~ 500) metrics of the OS.
 
 #### Connect Prometheus to node_exporter
 
