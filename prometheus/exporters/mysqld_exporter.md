@@ -4,9 +4,9 @@ Link: https://github.com/prometheus/mysqld_exporter
 
 ```bash
 cd /opt
-wget https://github.com/prometheus/mysqld_exporter/releases/download/v0.15.0/mysqld_exporter-0.15.0.linux-amd64.tar.gz
-tar xzvf mysqld_exporter-0.15.0.linux-amd64.tar.gz
-mv mysqld_exporter-0.15.0.linux-amd64 mysqld_exporter
+wget https://github.com/prometheus/mysqld_exporter/releases/download/v0.16.0/mysqld_exporter-0.16.0.linux-amd64.tar.gz
+tar xzvf mysqld_exporter-0.16.0.linux-amd64.tar.gz
+mv mysqld_exporter-0.16.0.linux-amd64 mysqld_exporter
 cd mysqld_exporter
 ```
 
