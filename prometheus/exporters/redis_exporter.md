@@ -19,9 +19,10 @@ Start exporter:
 ```
 URL for Redis metrics: http://123.123.23.44:9121/metrics
 
-Metrics:
+**Metrics**:
 
 - `redis_commands_total` - number of commands executed by Redis server
+- `redis_commands_total{cmd="config"}` - number of executed `config` commands
 
 #### Connect Prometheus to redis-exporter
 
