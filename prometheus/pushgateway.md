@@ -61,6 +61,15 @@ cron_processed_events 653
 EOF
 ```
 
+We can define tags in the metric:
+
+```bash
+cat <<EOF | curl --data-binary @- http://localhost:9091/metrics/job/cron
+cron_users{type="good"} 560
+cron_users{type="bad"} 24
+EOF
+```
+
 ## Send info to pushgateway
 
 ```bash
