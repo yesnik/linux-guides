@@ -49,6 +49,18 @@ Create item with tag `job = "cron"` and `instance="app1"`:
 curl --data-binary @type.txt http://127.0.0.1:9091/metrics/job/cron/instance/app1
 ```
 
+Send metrics:
+
+```bash
+cat <<EOF | curl --data-binary @- http://localhost:9091/metrics/job/cron
+# TYPE cron_processed_sum gauge
+cron_processed_sum 65000
+# TYPE cron_processed_events gauge
+# HELP cron_processed_events Processed Events Counter.
+cron_processed_events 653
+EOF
+```
+
 ## Send info to pushgateway
 
 ```bash
