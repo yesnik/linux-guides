@@ -84,6 +84,19 @@ echo 'cron_processed_events 25' | curl --data-binary @- http://127.0.0.1:9091/me
 
 Metrics are available at address: http://127.0.0.1:9091/metrics
 
+## Delete metrics' group
+
+Add metric to the `instance/db3` group:
+```
+echo 'myapp_processed{type="payments"} 56' | curl --data-binary @- http://localhost:9091/metrics/job/myapp/instance/db3
+```
+
+Delete `instance/db3` group of metrics:
+
+```bash
+curl -X DELETE http://localhost:9091/metrics/job/myapp/instance/db3
+```
+
 ## Metrics
 
 ```bash
