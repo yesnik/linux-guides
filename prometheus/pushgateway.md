@@ -2,7 +2,7 @@
 
 [Pushgateway](https://github.com/prometheus/pushgateway) is a push acceptor for ephemeral and batch jobs.
 
-It's recommended to use it for cron jobs or other short living processes.
+It's recommended to use it for cron jobs or other short living processes (see [details](https://prometheus.io/docs/practices/pushing/)).
 
 ## Installation
 
