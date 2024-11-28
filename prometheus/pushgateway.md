@@ -30,6 +30,10 @@ http://<ip-address>:9091/
 
 ## Send data to pushgateway
 
+### Define tags in the URL
+
+These metrics will belong to different groups.
+
 File `type.txt`:
 
 ```bash
@@ -61,7 +65,9 @@ cron_processed_events 653
 EOF
 ```
 
-We can define tags in the metric:
+### Define tags in the metric body
+
+These metrics will belong to the same group.
 
 ```bash
 cat <<EOF | curl --data-binary @- http://localhost:9091/metrics/job/cron
