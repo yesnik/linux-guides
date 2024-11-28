@@ -57,6 +57,19 @@ echo 'cron_processed_events 25' | curl --data-binary @- http://127.0.0.1:9091/me
 
 Metrics are available at address: http://127.0.0.1:9091/metrics
 
+## Metrics
+
+```bash
+curl http://localhost:9091/metrics
+# ...
+# HELP push_failure_time_seconds Last Unix time when changing this group in the Pushgateway failed.
+# TYPE push_failure_time_seconds gauge
+push_failure_time_seconds{instance="",job="cron"} 0
+# HELP push_time_seconds Last Unix time when changing this group in the Pushgateway succeeded.
+# TYPE push_time_seconds gauge
+push_time_seconds{instance="",job="cron"} 1.5408582544334151e+09
+```
+
 ## Add to Prometheus
 
 Edit `prometheus.yml`:
