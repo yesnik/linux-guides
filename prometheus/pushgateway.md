@@ -115,10 +115,12 @@ push_time_seconds{instance="",job="cron"} 1.5408582544334151e+09
 Edit `prometheus.yml`:
 
 ```
+scrape_configs:
+
   - job_name: 'pushgateway'
-  honor_labels: true
-  static_configs:
-  - targets: ['localhost:9091']
+    honor_labels: true
+    static_configs:
+      - targets: ['localhost:9091']
 ```
 
 Option `honor_labels: true` orders Prometheus not to replace tags: 
