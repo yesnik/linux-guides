@@ -6,6 +6,8 @@ It's recommended to use it for cron jobs or other short living processes (see [d
 
 ## Installation
 
+### Binary
+
 Actual release: https://github.com/prometheus/pushgateway/releases
 
 ```bash
@@ -14,6 +16,12 @@ wget https://github.com/prometheus/pushgateway/releases/download/v1.10.0/pushgat
 tar -xzvf pushgateway-1.10.0.linux-amd64.tar.gz
 cd pushgateway-1.10.0.linux-amd64
 ./pushgateway & disown
+```
+
+### Docker
+
+```bash
+docker run -d -p 9091:9091 prom/pushgateway
 ```
 
 ## Web interface
