@@ -1,5 +1,7 @@
 # Prometheus Config params
 
+See [official docs](https://prometheus.io/docs/prometheus/latest/configuration/configuration/) about Prometheus Configuration.
+
 We can run `./prometheus` binary with different params:
 
 ```
