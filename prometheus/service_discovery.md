@@ -23,7 +23,26 @@ Consul SD configurations allow retrieving scrape targets from [Consul](https://w
 
 When a new application registers in Consul, Prometheus starts monitoring it.
 
-# file_sd_config
+### dns_sd_config
+
+A DNS-based service discovery configuration allows specifying a set of DNS domain names which are periodically queried to discover a list of targets. 
+The DNS servers to be contacted are read from `/etc/resolv.conf`.
+
+This service discovery method only supports basic DNS A, AAAA, MX, NS and SRV record queries.
+
+Edit `prometheus.yml`:
+
+```yml
+  - job_name: 'dns'
+    dns_sd_configs:
+    - names:
+      - _hey._tcp.example.com
+      type: SRV
+      refresh_interval: 60s
+
+```
+
+### file_sd_config
 
 File-based service discovery provides a more generic way to configure static targets and serves as an interface to plug in custom service discovery mechanisms.
 
