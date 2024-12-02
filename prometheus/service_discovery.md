@@ -74,8 +74,6 @@ as each of these files will be watched too, even though the events related to th
 
 Files may be provided in `YAML` or `JSON` format. Only changes resulting in well-formed target groups are applied.
 
-## Apply to Prometheus
-
 Edit `prometheus.yml`:
 
 ```yml
