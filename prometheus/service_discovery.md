@@ -30,6 +30,8 @@ The DNS servers to be contacted are read from `/etc/resolv.conf`.
 
 This service discovery method only supports basic DNS A, AAAA, MX, NS and SRV record queries.
 
+#### "SRV" DNS-record
+
 Edit `prometheus.yml`:
 
 ```yml
@@ -41,6 +43,22 @@ Edit `prometheus.yml`:
       refresh_interval: 60s
 
 ```
+
+#### "A" DNS-record
+
+Edit `prometheus.yml`:
+
+```yml
+  - job_name: 'dns'
+    dns_sd_configs:
+    - names:
+      - example.com
+      type: A
+      port: 9090
+      refresh_interval: 15s
+```
+
+In this case we define all IP addresses that belong to domain example.com. We connect to them on port 9090.
 
 ### file_sd_config
 
