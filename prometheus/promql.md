@@ -81,7 +81,7 @@ See [docs](https://prometheus.io/docs/prometheus/latest/querying/functions/)
 
 ### rate()
 
-It calculates the per-second average rate of the counter increase. This function works only with counters.
+It takes the first and the last value in the provided interval and calculates the per-second average rate of the counter increase. This function works only with counters.
 
 #### Examples
 
@@ -100,3 +100,7 @@ We can emulate load on Redis:
 ```
 for i in {1..100}; do redis-cli info > /dev/null; done
 ```
+
+### irate()
+
+It takes the last value and the value before the last in the provided interval and do the same as `rate()`.
