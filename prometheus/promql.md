@@ -81,16 +81,16 @@ See [docs](https://prometheus.io/docs/prometheus/latest/querying/functions/)
 
 ### rate()
 
-`rate(v range-vector)` calculates the per-second average rate of increase of the time series in the range vector. This function works only with counters.
+It calculates the per-second average rate of the counter increase. This function works only with counters.
 
-Return the per-second rate of HTTP requests as measured over the last 5 minutes, per time series in the range vector:
+#### Examples
 
+Per-second rate of HTTP requests as measured over the last 5 mins:
 ```
 rate(http_requests_total{job="api-server"}[5m])
 ```
 
-Per-second rate of execution command `info` as measured over the last 10 minutes:
-
+Per-second rate of execution command `info` as measured over the last 10 mins:
 ```
 rate(redis_commands_total{cmd="info"}[10m])
 ```
