@@ -124,6 +124,16 @@ Returns the number of times its value has changed within the provided time range
 changes(up[10m])
 ```
 
+### predict_linear()
+
+Predicts the value of time series `t` seconds from now, based on the range vector v, using simple linear regression.
+The range vector must have at least two samples in order to perform the calculation.
+It should only be used with gauges.
+
+```
+predict_linear(prometheus_tsdb_blocks_loaded[60m], 60)
+```
+
 ### sum()
 
 ```
