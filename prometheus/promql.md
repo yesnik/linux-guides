@@ -124,6 +124,28 @@ Returns the number of times its value has changed within the provided time range
 changes(up[10m])
 ```
 
+### histogram_quantile()
+
+Calculates the φ-quantile (0 ≤ φ ≤ 1) from a classic histogram or from a native histogram.
+
+A histogram metric is called `http_request_duration_second`s (and therefore the metric name for the buckets of a classic histogram is `http_request_duration_seconds_bucket`).
+To calculate the 90th percentile of request durations over the last `10m`, use the following expression in case `http_request_duration_seconds` is a classic histogram:
+
+```
+histogram_quantile(0.9, rate(http_request_duration_seconds_bucket[10m]))
+```
+
+For a native histogram, use the following expression instead:
+
+```
+histogram_quantile(0.9, rate(http_request_duration_seconds[10m]))
+```
+
+Prometheus http request duration, 85th percentile:
+```
+histogram_quantile(0.85, rate(prometheus_http_request_duration_seconds_bucket[30m]))
+```
+
 ### predict_linear()
 
 Predicts the value of time series `t` seconds from now, based on the range vector v, using simple linear regression.
