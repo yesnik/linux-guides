@@ -25,6 +25,8 @@ We can use arithmetical operations with scalar types. We can get free space perc
 
 It's a metric with the last value.
 
+`up`
+
 ### Range vector
 
 We define a period: `up[1m]`
