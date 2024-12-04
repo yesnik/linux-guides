@@ -17,7 +17,8 @@
 
 ### Scalar
 
-`up{} + 1 != 0`
+- `up{} + 1 != 0`
+- `2 * 2`
 
 We can use arithmetical operations with scalar types. We can get free space percentage: `used space / total space * 100` 
 
