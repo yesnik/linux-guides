@@ -123,3 +123,11 @@ Returns the number of times its value has changed within the provided time range
 ```
 changes(up[10m])
 ```
+
+### sum()
+
+```
+sum(up)
+sum by (job) (up)
+sum by (instance) (rate(prometheus_http_requests_total{}[2m]))
+```
