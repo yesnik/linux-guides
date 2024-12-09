@@ -18,3 +18,6 @@ sudo systemctl start grafana-server
 # Check status
 sudo systemctl status grafana-server
 ```
+Open page in browser: http://site.org:3000/
+
+Use credentials: `admin / admin`
