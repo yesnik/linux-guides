@@ -1,6 +1,7 @@
 # Redis
 
 - `redis-cli` - run redis console
+- `for i in {1..100}; do echo "set key$i $i" | redis-cli; done;` - create 100 keys in Redis
 - `redis-cli --bigkeys` - show biggest keys
 - `redis-cli --raw keys "app:claim:2957*" | xargs redis-cli del` - delete keys by pattern
 
