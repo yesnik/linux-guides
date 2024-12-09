@@ -2,6 +2,25 @@
 
 See [docs](https://grafana.com/docs/grafana/latest/setup-grafana/installation/debian/)
 
+## Rpm Package
+
+See [actual instruction](https://grafana.com/grafana/download?edition=oss&platform=linux)
+
+```bash
+sudo apt-get install -y adduser libfontconfig1 musl
+wget https://dl.grafana.com/oss/release/grafana_11.4.0_amd64.deb
+sudo dpkg -i grafana_11.4.0_amd64.deb
+
+# Start grafana-server automatically using systemd
+sudo /bin/systemctl daemon-reload
+sudo /bin/systemctl enable grafana-server
+
+# Start grafana-server
+sudo /bin/systemctl start grafana-server
+```
+
+## Ubuntu Repo
+
 ```bash
 sudo apt-get install -y apt-transport-https software-properties-common wget
 sudo mkdir -p /etc/apt/keyrings/
