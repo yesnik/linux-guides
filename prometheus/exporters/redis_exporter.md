@@ -22,6 +22,27 @@ Start exporter:
     -web.telemetry-path=/metrics
 ```
 
+Or we can create systemd service file at `/etc/systemd/system/redis_exporter.service`:
+
+```
+[Unit]
+Description=Redis Exporter
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=root
+Group=root
+Type=simple
+ExecStart=/opt/redis_exporter/redis_exporter \
+    -redis.addr redis://localhost:6379 \
+    -web.listen-address=:9121 \
+    -web.telemetry-path=/metrics
+
+[Install]
+WantedBy=multi-user.target
+```
+
 Check Redis metrics:
 
 ```
