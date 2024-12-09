@@ -2,7 +2,7 @@
 
 See [docs](https://grafana.com/docs/grafana/latest/setup-grafana/installation/debian/)
 
-## Rpm Package
+## Package
 
 See [actual instruction](https://grafana.com/grafana/download?edition=oss&platform=linux)
 
