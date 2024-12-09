@@ -1,8 +1,6 @@
-# Grafana Install
+# Grafana Installation
 
-See [docs](https://grafana.com/docs/grafana/latest/setup-grafana/installation/debian/)
-
-## Package
+## Way 1. Package
 
 See [actual instruction](https://grafana.com/grafana/download?edition=oss&platform=linux)
 
@@ -19,7 +17,9 @@ sudo /bin/systemctl enable grafana-server
 sudo /bin/systemctl start grafana-server
 ```
 
-## Ubuntu Repo
+## Way 2. Debian Repo
+
+See docs for [Debian](https://grafana.com/docs/grafana/latest/setup-grafana/installation/debian/)
 
 ```bash
 sudo apt-get install -y apt-transport-https software-properties-common wget
