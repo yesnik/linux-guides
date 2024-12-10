@@ -5,6 +5,8 @@
 
 Grafana Alerting system helps us to watch for specific events or circumstances in our incoming metrics data or log entries.
 
+We can set up alerts in Prometheus or Grafana - it doesn't matter which.
+
 **Note**: Alerts should not bother you. Otherwise, you will start to ignore them.
 
 ## Config
