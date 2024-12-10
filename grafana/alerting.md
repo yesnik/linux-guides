@@ -1,6 +1,7 @@
 # Grafana Alerting
 
-See [docs](https://grafana.com/docs/grafana/latest/alerting/)
+- [Official documentation](https://grafana.com/docs/grafana/latest/alerting/)
+- [Collection of Awesome Prometheus Alerts](https://samber.github.io/awesome-prometheus-alerts/rules.html)
 
 Grafana Alerting system helps us to watch for specific events or circumstances in our incoming metrics data or log entries.
 
