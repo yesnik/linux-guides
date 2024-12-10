@@ -41,4 +41,15 @@ groups:
       description: "{{ $labels.instance }} of job {{ $labels.job }} has been down for 5 minutes."
 ```
 
-Here, `expr` refers to a PromQL query. If the query returns a result, an alert message will be generated.
+Here,
+
+- `expr` refers to a PromQL query. If the query returns a result, an alert message will be generated.
+- `for` - wait for this period of time to generate an alert.
+- `labels` - add these labels to an alert message
+- `annotations` - add these annotations to an alert message
+
+In labels, annotations we can use [Go Lang templates](https://pkg.go.dev/text/template).
+
+## Interface
+
+We can see our alerting rules in the web interface: http://site.com:9090/alerts
