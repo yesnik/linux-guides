@@ -47,6 +47,7 @@ groups:
 Here,
 
 - `name` - custom group name for all alerts in this section. This name should be unique in the file.
+- `interval` - this param redefines global `evaluation_interval`
 - `expr` - PromQL query. If the query returns a result, an alert message will be generated.
 - `for` - wait for this period of time to generate an alert.
 - `labels` - add these labels to an alert message
