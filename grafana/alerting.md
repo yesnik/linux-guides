@@ -11,7 +11,7 @@ We can set up alerts in Prometheus or Grafana - it doesn't matter which.
 
 ## Config
 
-File `prometheus.yml`:
+File `/opt/prometheus/prometheus.yml`:
 
 ```yml
 global:
@@ -26,7 +26,7 @@ rule_files:
     - alert_rules.yml
 ```
 
-File `alert_rules.yml`:
+File `/opt/prometheus/alert_rules.yml`:
 
 ```yml
 groups:
