@@ -41,3 +41,4 @@ groups:
       description: "{{ $labels.instance }} of job {{ $labels.job }} has been down for 5 minutes."
 ```
 
+Here, `expr` refers to a PromQL query. If the query returns a result, an alert message will be generated.
