@@ -16,3 +16,29 @@ wget https://github.com/prometheus/alertmanager/releases/download/v0.28.0-rc.0/a
 tar -xzvf alertmanager-0.28.0-rc.0.linux-amd64.tar.gz
 mv alertmanager-0.28.0-rc.0.linux-amd64 alertmanager
 ```
+
+Create systemd - `/etc/systemd/system/alertmanager.service`
+
+```
+[Unit]
+Description=Prometheus Alertmanager
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=root
+Group=root
+Type=simple
+ExecStart=/opt/alertmanager/alertmanager \
+    --config.file=/opt/alertmanager/alertmanager.yml
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Start and check status:
+
+```bash
+service alertmanager start
+service alertmanager status
+```
