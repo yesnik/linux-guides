@@ -143,6 +143,7 @@ We can check routing for our alerts:
 Edit `/opt/prometheus/prometheus.yml`:
 
 ```yml
+# Alertmanager configuration
 alerting:
   alertmanagers:
   - static_configs:
