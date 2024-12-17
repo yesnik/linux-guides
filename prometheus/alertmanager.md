@@ -48,7 +48,8 @@ service alertmanager status
 Alertmanager does these steps:
 
 - receives a message about an error
-- finds a route
+- finds a route using `matchers`
+- Alertmanager groups all alerts by `group_by` during `group_wait`
 - sends a message to an appropriate reciever.
 
 File `/opt/alertmanager/alertmanager.yml`:
@@ -116,10 +117,27 @@ receivers:
       channel: '#warnings'
 ```
 
+Here:
+
+- `group_wait` - Prometheus wait this period before it sends first message to reciever
+- `group_interval` - after this period Prometheus sends new info about incident
+- `repeat_interval` - after this period Prometheus will remind about incident if it won't be solved.
+
 Validate config file:
 
 ```bash
 ./amtool check-config alertmanager.yml
+```
+
+We can check routing for our alerts:
+
+```bash
+./amtool config routes --config.file alertmanager.yml
+# Routing tree:
+# .
+# └── default-route  receiver: web.hook
+#     ├── {severity="critical"}  receiver: pagerduty-critical
+#     └── {severity="warning"}  receiver: slack-warning
 ```
 
 Edit `/opt/prometheus/prometheus.yml`:
