@@ -43,7 +43,13 @@ service alertmanager start
 service alertmanager status
 ```
 
-## Condig
+## Config
+
+Alertmanager does these steps:
+
+- receives a message about an error
+- finds a route
+- sends a message to an appropriate reciever.
 
 File `/opt/alertmanager/alertmanager.yml`:
 
