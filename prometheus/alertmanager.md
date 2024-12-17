@@ -115,3 +115,13 @@ Validate config file:
 ```bash
 ./amtool check-config alertmanager.yml
 ```
+
+Edit `/opt/prometheus/prometheus.yml`:
+
+```yml
+alerting:
+  alertmanagers:
+  - static_configs:
+    - targets:
+      - localhost:9093
+```
