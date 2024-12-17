@@ -150,3 +150,7 @@ alerting:
     - targets:
       - localhost:9093
 ```
+
+## Send messages to Telegram
+
+Use this app to send alerts to the Telegram: github.com/inCaller/prometheus_bot
