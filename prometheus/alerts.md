@@ -41,7 +41,9 @@ service prometheus restart
 service prometheus status
 ```
 
-## Alert - Free space on disk
+## Alert config examples
+
+### Alert - Free space on disk
 
 ```yml
   - alert: HostOutOfDiskSpace
@@ -54,7 +56,7 @@ service prometheus status
       description: "Disk is almost full (< 10% left)\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 ```
 
-## Alert - overloaded servers
+### Alert - overloaded servers
 
 ```yml
   - alert: HostHighCpuLoad
@@ -67,7 +69,7 @@ service prometheus status
       description: "CPU load is > 80%\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 ```
 
-## Alert - Free memory
+### Alert - Free memory
 
 ```yml
   - alert: HostOutOfMemory
@@ -80,7 +82,7 @@ service prometheus status
       description: "Node memory is filling up (< 10% left)\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 ```
 
-## Alert - Network
+### Alert - Network
 
 ```yml
   - alert: HostUnusualNetworkThroughputIn
