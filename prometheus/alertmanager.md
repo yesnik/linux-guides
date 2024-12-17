@@ -57,6 +57,10 @@ route:
   # All alerts that do not match the following child routes
   # will remain at the root node and be dispatched to 'default-receiver'.
   routes:
+  - reciever: 'slack'
+    group_wait: 0s
+    matchers:
+    - severity="critical"
   # All alerts with service=mysql or service=cassandra
   # are dispatched to the database pager.
   - receiver: 'database-pager'
@@ -100,5 +104,8 @@ receivers:
         to: '<email to>'
         headers:
           subject: 'Prometheus Email Alert'
-
+  - name: 'slack'
+    slack_config:
+    - api_url: 'https://hooks.slack.com/services/TOKEN'
+      channel: '#warnings'
 ```
