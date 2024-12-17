@@ -109,3 +109,9 @@ receivers:
     - api_url: 'https://hooks.slack.com/services/TOKEN'
       channel: '#warnings'
 ```
+
+Validate config file:
+
+```bash
+./amtool check-config alertmanager.yml
+```
