@@ -18,7 +18,7 @@ For example:
 - `--web.page-title` - web page title
 - `--web.cors.origin=".*"` - CORS config for web interface
 - `--storage.tsdb.path="data/"` - path for storing time series database data
-- `--storage.tsdb.retention.time` - time for storing metrics. Default is 15 days. Expired data will be deleted
+- `--storage.tsdb.retention.time` - time for storing metrics. Default is **15 days**. Expired data will be deleted
 - `--storage.tsdb.retention.size` - max size of TSDB. After reaching this value Prometheus will delete old data
 - `--query.timeout=4m` - max execution time of one query
 - `--enable-feature` - enable [features](https://prometheus.io/docs/prometheus/latest/feature_flags/)
