@@ -110,3 +110,165 @@ Let's make request to Prometheus:
 ```bash
 curl -D - -u kenny:123 --cacert /opt/ssl/ca.crt --resolve example.org:9090:127.0.0.1 https://example.org:9090
 ```
+
+## Node exporter behind nginx
+
+Generate a key for node_exporter:
+
+```bash
+cd /opt/ssl
+openssl genrsa -out node_exporter.key 4096
+```
+```bash
+cat > req.conf << EOF
+[req]
+distinguished_name = req_distinguished_name
+x509_extensions = v3_req
+prompt = no
+[req_distinguished_name]
+C = RU
+ST = Moscow
+L = Moscow
+O = ExampleCorp
+OU = IT
+CN = node_exporter.example.com
+[v3_req]
+keyUsage = keyEncipherment, dataEncipherment
+extendedKeyUsage = serverAuth
+subjectAltName = @alt_names
+[alt_names]
+DNS.1 = node_exporter.example.com
+EOF
+```
+
+Create CSR:
+
+```bash
+openssl req -new -key node_exporter.key -out node_exporter.csr -config req.conf -extensions 'v3_req'
+```
+
+Generate certificate:
+
+```bash
+openssl x509 -req -days 365 -in node_exporter.csr -CA ca.crt -CAkey ca.key -set_serial 1 -extensions 'v3_req' -extfile req.conf -out node_exporter.crt
+```
+Here we used `req.conf` where we defined SAN names for our host. Without them Prometheus will return similar error:
+
+```
+Get "https://127.0.0.1:9101/metrics": x509: certificate relies on legacy Common Name field, use SANs or temporarily enable Common Name matching with GODEBUG=x509ignoreCN=0
+```
+
+Install nginx:
+```
+apt install nginx
+```
+
+Edit `/etc/sites-enabled/node_exporter.conf`:
+
+```nginx
+server {
+  listen 9101 ssl;
+
+  ssl_certificate /opt/ssl/node_exporter.crt;
+  ssl_certificate_key /opt/ssl/node_exporter.key;
+
+  server_name node_exporter.example.com;
+
+  location / {
+    proxy_pass http://127.0.0.1:9100/;
+    auth_basic "Restricted Area";
+    auth_basic_user_file .htpasswd;
+  }
+}
+```
+
+Here we started nginx on port 9101 and secured it with basic auth.
+
+Generate password:
+
+```bash
+htpasswd -n kenny
+
+New password: 
+Re-type new password: 
+kenny:$apr1$YefKR1dQ$gVvFzNkz.5lvVDXEY5AWw1
+```
+
+Create file `.htpasswd` for nginx:
+
+```bash
+echo 'kenny:$apr1$YefKR1dQ$gVvFzNkz.5lvVDXEY5AWw1' > /etc/nginx/.htpasswd
+```
+Restart nginx:
+```
+service nginx restart
+```
+
+Install node exporter:
+
+```bash
+cd /opt
+wget https://github.com/prometheus/node_exporter/releases/download/v1.8.2/node_exporter-1.8.2.linux-amd64.tar.gz
+tar xzvf node_exporter-1.8.2.linux-amd64.tar.gz
+mv node_exporter-1.8.2.linux-amd64 node_exporter
+cd node_exporter
+```
+
+Edit file `/etc/systemd/system/node_exporter.service`:
+
+```systemd
+[Unit]
+Description=Node Exporter
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=root
+Group=root
+Type=simple
+ExecStart=/opt/node_exporter/node_exporter \
+    --web.listen-address="127.0.0.1:9100" \
+    --collector.interrupts
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Here we starts node exporter on the *loopback* interface. Only nginx can connect to it.
+
+Test connection: 
+
+```bash
+curl -D - -u kenny:123 --cacert /opt/ssl/ca.crt --resolve node_exporter.example.com:9101:127.0.0.1 https://node_exporter.example.com:9101
+```
+
+Add node exporter to Prometheus. Edit `/opt/prometheus/prometheus.yml`:
+
+```yml
+global:
+  scrape_interval:     15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+    - targets: ['localhost:9090']
+
+  - job_name: node-exporter
+    static_configs:
+    - targets: ['127.0.0.1:9101']
+    scheme: https
+    tls_config:
+      ca_file: /opt/ssl/ca.crt
+      server_name: node_exporter.example.com
+    basic_auth:
+      username: kenny
+      password: 123
+```
+
+Restart Prometheus:
+
+```bash
+service prometheus restart
+service prometheus status
+```
