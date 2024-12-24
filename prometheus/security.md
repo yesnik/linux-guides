@@ -184,21 +184,12 @@ server {
 
 Here we started nginx on port 9101 and secured it with basic auth.
 
-Generate password:
-
-```bash
-htpasswd -n kenny
-
-New password: 
-Re-type new password: 
-kenny:$apr1$YefKR1dQ$gVvFzNkz.5lvVDXEY5AWw1
-```
-
 Create file `.htpasswd` for nginx:
 
 ```bash
-echo 'kenny:$apr1$YefKR1dQ$gVvFzNkz.5lvVDXEY5AWw1' > /etc/nginx/.htpasswd
+htpasswd -cbBC 10 /etc/nginx/.htpasswd "kenny" 123
 ```
+
 Restart nginx:
 ```
 service nginx restart
