@@ -24,6 +24,11 @@ See [RFC 5424](https://datatracker.ietf.org/doc/html/rfc5424#section-6.2.1)
 6 - Informational: informational messages
 7 - Debug: debug-level messages
 
+### Logs example
+
+- To display boot and other kernel messages: `tail -f /var/log/messages`
+- To view users and their activities: `tail -f /var/log/messages`
+
 ## Rsyslog
 
 *Rsyslog* is a daemon that is capable of forwarding logs to remote servers. The configuration makes it possible to centralize log files.
