@@ -7,6 +7,7 @@
 - `lscpu` - info about CPU
 - `cat /proc/cpuinfo` - info about CPU
 - `cat /etc/services` - port assignments to network services
+- `cd /sys/devices/system/cpu/cpu0/cache/index0` - folder contains files with CPU L1 Cache params
 - `htop --tree` - show processes with tree
 - `iptstate` - displays information held in the IP Tables state table in real-time in a top-like format
 - `sysctl -a` - show current *sysctl* settings
