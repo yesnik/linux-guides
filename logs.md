@@ -41,6 +41,21 @@ The configuration makes it possible to centralize log files.
 - ability to monitor text files and convert their contents into syslog messages (one per line)
 - [more](https://www.rsyslog.com/doc/features.html)
 
+### Send logs to remote server
+
+We want to send all OS logs (*.*) to remote server 192.168.0.15:9510 using UDP (single `@`) or TCP (double `@@`) in format [RSYSLOG_SyslogProtocol23Format](https://www.rsyslog.com/doc/configuration/templates.html)
+
+Create a file `/etc/rsyslog.d/60-custom.conf`:
+
+```
+*.* @192.168.0.15:9510;RSYSLOG_SyslogProtocol23Format
+```
+Restart rsyslog:
+
+```bash
+service rsyslog restart
+```
+
 ### Configure log host
 
 *Log host* is a server hosting log files. 
