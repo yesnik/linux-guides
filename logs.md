@@ -31,7 +31,15 @@ See [RFC 5424](https://datatracker.ietf.org/doc/html/rfc5424#section-6.2.1)
 
 ## Rsyslog
 
-*Rsyslog* is a daemon that is capable of forwarding logs to remote servers. The configuration makes it possible to centralize log files.
+[Rsyslog](https://www.rsyslog.com/) is the rocket-fast system for log processing. It's a daemon that is capable of forwarding logs to remote servers. 
+The configuration makes it possible to centralize log files.
+
+### Rsyslog Features
+
+- native support for writing to MariaDB/MySQL databases
+- native support for writing to Postgres databases
+- ability to monitor text files and convert their contents into syslog messages (one per line)
+- [more](https://www.rsyslog.com/doc/features.html)
 
 ### Configure log host
 
