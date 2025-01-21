@@ -1,6 +1,6 @@
 # Install SSL certificates
 
-```
+```nginx
 server {
     listen 443 ssl http2;
 
