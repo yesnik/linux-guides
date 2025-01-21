@@ -24,6 +24,10 @@ So you need to have this module loaded to read the system log socket and be able
 
 They are used to output info.
 
+- [omfile](https://rsyslog.readthedocs.io/en/latest/configuration/modules/omfile.html) plug-in provides the core functionality of writing messages to files residing inside the local file system (which may actually be remote if methods like NFS are used). Both files named with static names as well files with names based on message content are supported by this module.
+- [omfwd](https://rsyslog.readthedocs.io/en/latest/configuration/modules/omfwd.html) plug-in provides the core functionality of traditional message forwarding via UDP and plain TCP. It is a built-in module that does not need to be loaded.
+- [ommysql](https://rsyslog.readthedocs.io/en/latest/configuration/modules/ommysql.html) - provides native support for logging to MySQL databases
+
 ### `fm`: Filter modules
 
 They are used for filtering messages.
@@ -31,6 +35,9 @@ They are used for filtering messages.
 ### `pm`: Parsing modules
 
 They are used for parsing messages.
+
+- [pmciscoios](https://rsyslog.readthedocs.io/en/latest/configuration/modules/pmciscoios.html) - This is a parser that understands Cisco IOS “syslog” format.
+  Note that this format is quite different from RFC syslog format, and so the default parser chain cannot deal with it.
 
 ## Rsyslog Features
 
