@@ -3,7 +3,43 @@
 [Rsyslog](https://www.rsyslog.com/) is the rocket-fast system for log processing. It's a daemon that is capable of forwarding logs to remote servers. 
 The configuration makes it possible to centralize log files.
 
+## Config
+
 Config - `/etc/rsyslog.conf`.
+
+Ubuntu `/etc/rsyslog.d/50-default.conf`:
+
+- `*.*;auth,authpriv.none    -/var/log/syslog` - Allow all messages, except `auth`, `authpriv`
+- `*.info;mail.none;cron.none /var/log/messages` - Log all `info` messages, except mail, cron
+- `kern.*    @rsyslog_server:514` - send all kernel messages to remote server
+
+Message priority:
+
+- emerg
+- alert
+- crit
+- error
+- warn
+- notice;
+- info
+- debug
+
+Message level:
+
+- auth
+- authpriv
+- cron
+- daemon
+- kern
+- lpr
+- mail
+- mark
+- news
+- security
+- syslog
+- user
+- uucp
+- local0
 
 ## Rsyslog modules
 
