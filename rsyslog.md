@@ -1,0 +1,82 @@
+# Rsyslog
+
+[Rsyslog](https://www.rsyslog.com/) is the rocket-fast system for log processing. It's a daemon that is capable of forwarding logs to remote servers. 
+The configuration makes it possible to centralize log files.
+
+Config - `/etc/rsyslog.conf`.
+
+## Rsyslog modules
+
+Rsyslog has a modular design. This enables functionality to be dynamically loaded from [modules](https://rsyslog.readthedocs.io/en/latest/configuration/modules/index.html), 
+which may also be written by any third party. 
+Rsyslog itself offers all non-core functionality as modules.
+
+### `im`: Input modules
+
+They are used for input info.
+
+- [imuxsock](https://rsyslog.readthedocs.io/en/latest/configuration/modules/imuxsock.html) - provides the ability to accept syslog messages via local Unix sockets. 
+Most importantly, this is the mechanism by which the syslog(3) call delivers syslog messages to rsyslogd. 
+So you need to have this module loaded to read the system log socket and be able to process log messages from applications running on the local system.
+- [imudp](https://rsyslog.readthedocs.io/en/latest/configuration/modules/imudp.html) - provides the ability to receive syslog messages via UDP. 
+
+### `om`: Output modules
+
+They are used to output info.
+
+### `fm`: Filter modules
+
+They are used for filtering messages.
+
+### `pm`: Parsing modules
+
+They are used for parsing messages.
+
+## Rsyslog Features
+
+- native support for writing to MariaDB/MySQL databases
+- native support for writing to Postgres databases
+- ability to monitor text files and convert their contents into syslog messages (one per line)
+- [more](https://www.rsyslog.com/doc/features.html)
+
+## Send logs to remote server
+
+We want to send all OS logs (*.*) to remote server 192.168.0.15:9510 using UDP (single `@`) or TCP (double `@@`) in format [RSYSLOG_SyslogProtocol23Format](https://www.rsyslog.com/doc/configuration/templates.html)
+
+Create a file `/etc/rsyslog.d/60-custom.conf`:
+
+```
+*.* @192.168.0.15:9510;RSYSLOG_SyslogProtocol23Format
+```
+Restart rsyslog:
+
+```bash
+service rsyslog restart
+```
+
+## Configure log host
+
+*Log host* is a server hosting log files. 
+
+1. Mount `/var/log` on a separate partition. It's critical when the server receives log files from many servers.
+2. Edit `/etc/rsyslog.conf` or file at `/etc/rsyslog.d/`. Uncomment lines to enable UDP:
+```
+# provides UDP syslog reception
+module(load="imudp")
+input(type="imudp" port="514")
+```
+3. Configure a [template](https://www.rsyslog.com/doc/v8-stable/configuration/templates.html) for incoming logs. 
+  If we don't configure a template, all of the log entries from the remote servers mix with the log host's logs.
+```
+$template DynamicFile,"/var/log/%HOSTNAME%/forwarded-logs.log" 
+*.* -?DynamicFile
+```
+4. Restart `systemctl restart rsyslog`
+5. Verify that rsyslog is listening port 514: `ss -4altunp | grep 514`
+6. Allow rsyslog through firewall: `ufw allow 514/udp`
+7. To allow specific hosts for either UDP or TCP logging, edit `rsyslog.conf`:
+    ```
+    # $AllowedSender - define which remote servers are allowed to send syslog messages to our rsyslogd
+    $AllowedSender UDP, 192.168.51.0/24, [::1]/128, *.site.org, s1.ex.com
+    $AllowedSender TCP, 192.168.52.0/24, [::1]/128, *.site.org, s2.ex.com
+    ```
