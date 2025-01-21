@@ -41,6 +41,29 @@ Message level:
 - uucp
 - local0
 
+### Templates
+
+Logstash requires JSON. Create `/etc/rsyslog.d/json-template.conf`:
+
+```
+template(name="json-template"
+type="list") {
+constant(value="{")
+constant(value="\"@timestamp\":\"") 	property(name="timereported" dateFormat="rfc3339")
+constant(value="\",\"message\":\"") 	property(name="msg" format="json")
+constant(value="\",\"sysloghost\":\"")  property(name="hostname")
+constant(value="\",\"severity\":\"")property(name="syslogseverity-text")
+constant(value="\",\"programname\":\"") property(name="programname")
+constant(value="\"}\n")
+}
+```
+
+Use this template at `/etc/rsyslog.d/50-default.conf`:
+
+```
+*.*    @logstash_server:logstashport;json-template
+```
+
 ## Rsyslog modules
 
 Rsyslog has a modular design. This enables functionality to be dynamically loaded from [modules](https://rsyslog.readthedocs.io/en/latest/configuration/modules/index.html), 
