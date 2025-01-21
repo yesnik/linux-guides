@@ -28,6 +28,10 @@ curl "http://127.0.0.1:8000/?a=1&b=2"
   ```
   curl -I http://127.0.0.1:8000
   ```
+- **-H** Pass header value:
+  ```
+  curl -v -H "User-Agent: Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Mobile Safari/537.36" https://example.org/
+  ```
 
 ## POST query
 
