@@ -89,7 +89,7 @@ ZREM tasks user1 user2
 
 - `GET <key>` - for type `string` 
 - `HGETALL <key>` - for type `hash`
-- `LRANGE <key> <start> <end>` - for type `lists` 
+- `LRANGE <key> <start> <end>` - for type `lists`. Example: `LRANGE queues:bki-medium 0 -1`
 - `ZRANGE <key> 0 1000` - for type `zset`
 - `SMEMBERS <key>` - for type `sets` 
 - `ZRANGEBYSCORE <key> <min> <max>` - for type sorted `sets`
