@@ -19,9 +19,17 @@ Ubuntu `/etc/rsyslog.d/50-default.conf`:
   ```
   *.info;mail.none;cron.none /var/log/messages
   ```
-- Send all kernel messages to remote server:
+- To select all kernel syslog messages with any priority and send them to remote server:
   ```
   kern.*    @rsyslog_server:514  
+  ```
+- To select all mail syslog messages with priority crit and higher:
+  ```
+  mail.crit
+  ```
+- To select all cron syslog messages except those with the `info` or `debug` priority:
+  ```
+  cron.!info,!debug
   ```
 
 `kern.*` is a Facility/Priority-based filter, a commonly used method for filtering syslog messages.
@@ -30,36 +38,45 @@ Ubuntu `/etc/rsyslog.d/50-default.conf`:
 
 ### Message Facility
 
-A subsystem generating log messages. To define all facilities, we can use `*`.
+A subsystem generating log messages. It specifies the subsystem that produces a specific syslog message. 
+For example, the mail subsystem handles all mail-related syslog messages. 
 
-- auth
-- authpriv
-- cron
-- daemon
-- kern
-- lpr
-- mail
-- mark
-- news
-- security
-- syslog
-- user
-- uucp
-- local0
+FACILITY can be represented by one of the following keywords (or by a numerical code): 
+
+- kern (0)
+- user (1)
+- mail (2)
+- daemon (3)
+- auth (4)
+- syslog (5)
+- lpr (6)
+- news (7)
+- uucp (8)
+- cron (9)
+- authpriv (10)
+- ftp (11)
+- local0 through local7 (16 - 23).
 
 ### Message Priority
 
-Specifies the log message priority. If you want to send logs with any priority level, you can use `*`. 
-Optionally, you can use the priority keyword `none` for facilities without specified priorities.
+Specifies a priority of a syslog message. 
+PRIORITY can be represented by one of the following keywords (or by a number): 
 
-- emerg
-- alert
-- crit
-- error
-- warn
-- notice;
-- info
-- debug
+- debug (7)
+- info (6)
+- notice (5)
+- warning (4)
+- err (3)
+- crit (2)
+- alert (1)
+- and emerg (0)
+
+The aforementioned syntax selects syslog messages with the defined or higher priority. 
+By preceding any priority keyword with an equal sign (`=`), 
+you specify that only syslog messages with the specified priority will be selected. 
+All other priorities will be ignored. 
+
+Conversely, preceding a priority keyword with an exclamation mark (`!`) selects all syslog messages except those with the defined priority.
 
 ### Templates
 
