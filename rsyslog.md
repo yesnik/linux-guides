@@ -24,18 +24,13 @@ Ubuntu `/etc/rsyslog.d/50-default.conf`:
   kern.*    @rsyslog_server:514  
   ```
 
-### Message priority
+`kern.*` is a Facility/Priority-based filter, a commonly used method for filtering syslog messages.
 
-- emerg
-- alert
-- crit
-- error
-- warn
-- notice;
-- info
-- debug
+`kern.*` can be interpreted as follows: `FACILITY.PRIORITY`
 
-### Message level
+### Message Facility
+
+A subsystem generating log messages. To define all facilities, we can use `*`.
 
 - auth
 - authpriv
@@ -51,6 +46,20 @@ Ubuntu `/etc/rsyslog.d/50-default.conf`:
 - user
 - uucp
 - local0
+
+### Message Priority
+
+Specifies the log message priority. If you want to send logs with any priority level, you can use `*`. 
+Optionally, you can use the priority keyword `none` for facilities without specified priorities.
+
+- emerg
+- alert
+- crit
+- error
+- warn
+- notice;
+- info
+- debug
 
 ### Templates
 
