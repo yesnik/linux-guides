@@ -9,11 +9,22 @@ Config - `/etc/rsyslog.conf`.
 
 Ubuntu `/etc/rsyslog.d/50-default.conf`:
 
-- `*.*;auth,authpriv.none    -/var/log/syslog` - Allow all messages, except `auth`, `authpriv`
-- `*.info;mail.none;cron.none /var/log/messages` - Log all `info` messages, except mail, cron
-- `kern.*    @rsyslog_server:514` - send all kernel messages to remote server
+### Config examples
 
-Message priority:
+- Log all messages, except `auth`, `authpriv`:
+  ```
+  *.*;auth,authpriv.none    -/var/log/syslog`
+  ```
+- Log all `info` messages, except mail, cron:
+  ```
+  *.info;mail.none;cron.none /var/log/messages
+  ```
+- Send all kernel messages to remote server:
+  ```
+  kern.*    @rsyslog_server:514  
+  ```
+
+### Message priority
 
 - emerg
 - alert
@@ -24,7 +35,7 @@ Message priority:
 - info
 - debug
 
-Message level:
+### Message level
 
 - auth
 - authpriv
