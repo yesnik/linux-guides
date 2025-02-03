@@ -1,5 +1,37 @@
 # Logs
 
+## Log systems
+
+### Logstash
+
+[Logstash](https://www.elastic.co/logstash) is an open source server-side data processing pipeline that ingests data from a multitude of sources, transforms it, and then sends it to your favorite "stash.".
+It's written in JRuby.
+
+**ELK** — Elastic Search, Logstash, Kibana.
+
+### Filebeat
+
+[Filebeat](https://www.elastic.co/beats/filebeat) is a lightweight shipper for forwarding and centralizing log data. 
+Installed as an agent on your servers, Filebeat monitors the log files or locations that you specify, 
+collects log events, and forwards them either to Elasticsearch or Logstash for indexing.
+
+Filebeat is a part of ELK stack.
+
+### Fluentd
+
+[Fluentd](https://www.fluentd.org/) is an open source data collector for unified logging layer.
+Fluentd allows you to unify data collection and consumption for a better use and understanding of data.
+
+It's written in СRuby.
+
+Advantages:
+
+- Unified logging: Collects from various sources and normalizes them into a standard format.
+- Flexibility and Extensibility: Plugin-based architecture and customizability.
+- Scalability and Reliability: Handles high volumes of data with buffering and retry mechanisms.
+- Data routing and delivery: Supports multiple output destinations and dynamic routing.
+- Open source and community-driven: Free to use and with a large and active community.
+
 ## Syslog
 
 ### Syslog Message Facilities
