@@ -29,7 +29,7 @@ See [RFC 5424](https://datatracker.ietf.org/doc/html/rfc5424#section-6.2.1)
 ### Logstash
 
 [Logstash](https://www.elastic.co/logstash) is an open source server-side data processing pipeline that ingests data from a multitude of sources, transforms it, and then sends it to your favorite "stash.".
-It's written in JRuby.
+It's written in JRuby, JVM required.
 
 **ELK** — Elastic Search, Logstash, Kibana.
 
@@ -41,6 +41,9 @@ collects log events, and forwards them either to Elasticsearch or Logstash for i
 
 Filebeat is a part of ELK stack.
 
+- It can reduce reading speed if Elastic is under heavy load.
+- Focused on reliability
+
 ### Fluentd
 
 [Fluentd](https://www.fluentd.org/) is an open source data collector for unified logging layer.
@@ -50,6 +53,7 @@ It's written in СRuby.
 
 #### Advantages:
 
+- It consumes few resources
 - Unified logging: Collects from various sources and normalizes them into a standard format.
 - Flexibility and Extensibility: Plugin-based architecture and customizability.
 - Scalability and Reliability: Handles high volumes of data with buffering and retry mechanisms.
@@ -146,6 +150,11 @@ Correct example. General rules are at the bottom:
   type blackhole_plugin
 </match>
 ```
+
+### Fluent Bit
+
+[Fluent Bit](https://fluentbit.io/) is a super fast, lightweight, and highly scalable logging, metrics, and traces processor and forwarder. 
+It is the preferred choice for cloud and containerized environments.
 
 ### Logs example
 
