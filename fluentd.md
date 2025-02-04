@@ -106,3 +106,27 @@ Correct example where general rules are at the bottom:
   type blackhole_plugin
 </match>
 ```
+
+## Config examples
+
+File `/etc/fluent/fluentd.conf`.
+
+### From file to syslog
+
+```
+<source>
+  @type tail
+  path /var/log/app.log
+  pos_file /var/log/app.log.pos
+  tag fluentd
+  format apache2
+</source>
+
+## Match tag 'fluentd' logs and forward to local syslog
+<match fluentd>
+  @type remote_syslog
+  host 127.0.0.1
+  port 514
+  protocol udp
+</match>
+```
