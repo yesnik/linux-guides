@@ -141,6 +141,43 @@ The json parser plugin parses JSON logs. One JSON map per line.
 </source>
 ```
 
+#### regexp
+
+```
+<source>
+  @type tail
+  path /var/log/app.log
+  tag myapp
+
+  <parse>
+    @type regexp
+    expression /^\[(?<logtime>[^\]]*)\] (?<name>[^ ]*) (?<title>[^ ]*) (?<id>\d*)$/
+    time_key logtime
+    time_format %Y-%m-%d %H:%M:%S %z
+    types id:integer
+  </parse>
+</source>
+```
+This incoming event:
+
+```
+[2013-02-28 12:00:00 +0900] alice engineer 1
+```
+
+is parsed as:
+
+```
+time:
+1362020400 (2013-02-28 12:00:00 +0900)
+
+record:
+{
+  "name" : "alice",
+  "title": "engineer",
+  "id"   : 1
+}
+```
+
 ### Output plugins
 
 See https://docs.fluentd.org/output
