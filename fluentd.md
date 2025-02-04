@@ -107,6 +107,26 @@ Correct example where general rules are at the bottom:
 </match>
 ```
 
+### Extract section
+
+It helps to extract fields from a message.
+
+```
+<source>
+  @type exec
+  command echo '{"value": 2, "action": "update"}'
+  run_interval 5s
+  <parse>
+    @type json
+  </parse>
+  <extract>
+    tag_key action
+  </extract>
+</source>
+```
+
+This config will extract field `action`. Later we use this value as a tag.
+
 ## Plugins
 
 ### Parser
