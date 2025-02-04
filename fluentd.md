@@ -130,9 +130,15 @@ See https://docs.fluentd.org/parser
 The json parser plugin parses JSON logs. One JSON map per line.
 
 ```
-<parse>
-  @type json
-</parse>
+<source>
+  @type tail
+  path /var/log/app.json.log
+  tag myapp
+
+  <parse>
+    @type json
+  </parse>
+</source>
 ```
 
 ### Output plugins
