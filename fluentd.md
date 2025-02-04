@@ -127,6 +127,26 @@ It helps to extract fields from a message.
 
 This config will extract field `action`. Later we use this value as a tag.
 
+### Inject section
+
+The inject section can be under `<match>` or `<filter>` section. 
+It is enabled for the plugins that support injecting values to the event record.
+
+```
+<match **>
+  @type stdout
+
+  <inject>
+    hostname_key "hostname"
+    hostname "#{Socket.gethostname}"
+    tag_key tag
+  </inject>
+</match>
+```
+
+As a result, a message will be sent to `stdout`, the body of which will contain a `tag` field with the value of the message tag assigned by fluentd, 
+as well as a `hostname` field with the value of the host name of the node on which the fluentd process is running.
+
 ## Plugins
 
 ### Parser
