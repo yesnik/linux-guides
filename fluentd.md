@@ -107,6 +107,39 @@ Correct example where general rules are at the bottom:
 </match>
 ```
 
+## Plugins
+
+### out_rewrite_tag_filter
+
+This output [plugin](https://docs.fluentd.org/output/rewrite_tag_filter) provides a rule-based mechanism for rewriting tags.
+
+The plugin is configured by defining a list of rules containing conditional statements and information on how to rewrite the matching tags.
+
+When a message is handled by the plugin, the rules are tested one by one in order. 
+If a matching rule is found, the message tag will be rewritten according to the definition in the rule and the message will be emitted again with the new tag.
+
+```
+<match apache.access>
+  @type rewrite_tag_filter
+
+  <rule>
+    key code
+    pattern /([45][0-9]{2})/
+    tag apache.$1
+  </rule>
+</match>
+```
+
+This filter processes messages with the tag `apache.access`. It takes field `code` from 400 to 599 and update a tag to `apache.CODE_VALUE`.
+
+Later we can process these messages:
+
+```
+<match {apache.4**,apache.5**}>
+  @type stdout
+</match>
+```
+
 ## Config examples
 
 File `/etc/fluent/fluentd.conf`.
