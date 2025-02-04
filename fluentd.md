@@ -109,11 +109,37 @@ Correct example where general rules are at the bottom:
 
 ## Plugins
 
-### out_rewrite_tag_filter
+### Parser
 
-This output [plugin](https://docs.fluentd.org/output/rewrite_tag_filter) provides a rule-based mechanism for rewriting tags.
+See https://docs.fluentd.org/parser
 
-The plugin is configured by defining a list of rules containing conditional statements and information on how to rewrite the matching tags.
+#### apache2
+
+```
+<source>
+  @type tail
+  # ...
+  <parse>
+    @type apache2
+  </parse>
+</source>
+```
+
+#### json
+
+The json parser plugin parses JSON logs. One JSON map per line.
+
+```
+<parse>
+  @type json
+</parse>
+```
+
+### Output plugins
+
+See https://docs.fluentd.org/output
+
+#### out_rewrite_tag_filter
 
 When a message is handled by the plugin, the rules are tested one by one in order. 
 If a matching rule is found, the message tag will be rewritten according to the definition in the rule and the message will be emitted again with the new tag.
