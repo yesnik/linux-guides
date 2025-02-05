@@ -248,6 +248,7 @@ Later we can process these messages:
   @type stdout
 </match>
 ```
+**Important:** No space between `apache.4**,` and `apache.5**`.
 
 ## Config examples
 
