@@ -250,6 +250,38 @@ Later we can process these messages:
 ```
 **Important:** No space between `apache.4**,` and `apache.5**`.
 
+### out_forward
+
+The `out_forward` Buffered Output plugin forwards events to other fluentd nodes. 
+This plugin supports load-balancing and automatic fail-over (i.e. active-active backup). For replication, please use `out_copy` plugin.
+
+```
+<source>
+  @type tail
+
+  tag host01.localfile
+  path /tmp/app.log
+
+  <parse>
+    @type none
+  </parse>
+</source>
+
+<match *.localfile>
+  @type forward
+
+  <server>
+    host 192.168.0.20
+  </server>
+
+  <buffer>
+    timekey 1m
+  </buffer>
+</match>
+```
+
+This config passes logs from `/tmp/app.log` to remote Fluentd server.
+
 ## Config examples
 
 File `/etc/fluent/fluentd.conf`.
