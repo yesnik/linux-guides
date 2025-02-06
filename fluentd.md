@@ -217,6 +217,38 @@ record:
   "id"   : 1
 }
 ```
+### Filter plugins
+
+See https://docs.fluentd.org/filter
+
+#### filter_record_transformer
+
+The filter_record_transformer filter plugin mutates/transforms incoming event streams in a versatile manner. If there is a need to add/delete/modify events, this plugin is the first filter to try.
+
+```
+<filter foo.bar>
+  @type record_transformer
+  <record>
+    hostname "#{Socket.gethostname}"
+    tag ${tag}
+  </record>
+</filter>
+```
+
+The above filter adds the new field hostname with the server's hostname as its value (It is taking advantage of Ruby's string interpolation) 
+and the new field tag with tag value.
+
+So, an input like:
+
+```
+{"message":"hello world!"}
+```
+
+is transformed into
+
+```
+{"message":"hello world!", "hostname":"db001.internal.example.com", "tag":"foo.bar"}
+```
 
 ### Output plugins
 
