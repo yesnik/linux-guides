@@ -149,6 +149,31 @@ as well as a `hostname` field with the value of the host name of the node on whi
 
 ## Plugins
 
+### Filter plugins
+
+See https://docs.fluentd.org/input
+
+#### `in_tail`
+
+The `in_tail` Input plugin allows Fluentd to read events from the tail of text files. Its behavior is similar to the `tail -F` command.
+
+Read all '*.log' files in the directory `/var/log` and subdirectories. 
+
+```
+<source>
+  @type tail
+
+  path /var/log/**/*.log
+  exclude_path ["/var/log/fluent/*"]
+  pos_file /var/log/fluentd/all_logs.pos
+  tag app1.*
+
+  <parse>
+    @type none
+  </parse>
+</source>
+```
+
 ### Parser
 
 See https://docs.fluentd.org/parser
