@@ -8,7 +8,23 @@ Elasticsearch provides near real-time search and analytics for all types of data
 Whether you have structured or unstructured text, numerical data, or geospatial data, 
 Elasticsearch can efficiently store and index it in a way that supports fast searches.
 
-## Docker Compose
+## Installation
+
+See: [Official Installation Docs](https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html)
+
+### Archive
+
+```
+cd opt
+wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.17.2-linux-x86_64.tar.gz
+wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.17.2-linux-x86_64.tar.gz.sha512
+shasum -a 512 -c elasticsearch-8.17.2-linux-x86_64.tar.gz.sha512 
+tar -xzf elasticsearch-8.17.2-linux-x86_64.tar.gz
+cd elasticsearch-8.17.2/
+./bin/elasticsearch & disown
+```
+
+### Docker
 
 Use [official image](https://hub.docker.com/_/elasticsearch)
 
