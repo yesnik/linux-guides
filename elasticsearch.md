@@ -97,15 +97,29 @@ Response:
 
 ### Create index
 
+We can place document in the index by this URL: `/{index}/{type}/{id}`.
+
+```
+curl -X POST -H 'Content-Type: application/json' -d '{"message":"Hi"}' http://localhost:9200/my_index/my_type
+
+{"_index":"my_index","_type":"my_type","_id":"Cv35a3Usez99Q6irxZfL","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":2,"_primary_term":2}
+```
+
+This query created index with `my_index` name and `my_type` type and placed the document in this index. It generated Id for the document. 
+
+We can set document Id `MyId001` in the query:
+
+```
+curl -X POST -H 'Content-Type: application/json' -d '{"message":"Hi"}' http://localhost:9200/my_index/my_type/MyId001
+
+{"_index":"my_index","_type":"my_type","_id":"MyId001","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":3,"_primary_term":2}
+```
+
 Create index `products`: 
 
 ```bash
 curl -X PUT http://localhost:9200/products
-```
 
-Response: 
-
-```json
 {
    "acknowledged":true,
    "shards_acknowledged":true,
@@ -196,6 +210,20 @@ curl -X GET "http://localhost:9200/_search?pretty&size=100"
 
 ```bash
 curl -X GET "http://localhost:9200/products/_search?pretty"
+```
+
+### Search in two indeces
+
+```bash
+curl -X GET "http://localhost:9200/products,my_index/_search"
+```
+
+### Search by type in all indeces
+
+If we have several indeces that contain the same type:
+
+```bash
+curl -XGET http://localhost:9200/_all/product/_search
 ```
 
 ### Search in the index
