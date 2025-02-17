@@ -5,7 +5,7 @@ Fluentd allows you to unify data collection and consumption for a better use and
 
 It's written in СRuby.
 
-## Advantages:
+## Advantages
 
 - It consumes few resources
 - Unified logging: Collects from various sources and normalizes them into a standard format.
@@ -149,9 +149,35 @@ as well as a `hostname` field with the value of the host name of the node on whi
 
 ## Plugins
 
-### Filter plugins
+### Input plugins
 
 See https://docs.fluentd.org/input
+
+#### `in_forward`
+
+The `in_forward` Input plugin listens to a TCP socket to receive the event stream. 
+It also listens to a UDP socket to receive heartbeat messages. 
+If you want to receive events from raw TCP payload, use in_tcp plugin instead.
+
+```
+<source>
+  @type forward
+  port 24224
+  bind 0.0.0.0
+</source>
+
+<match *>
+  @type stdout
+  <buffer>
+    @type memory
+    total_limit_size 100m
+    chunk_limit_size 10m
+  </buffer>
+</match>
+```
+
+- `total_limit_size 100m` — max log storage in case of failure of the output channel. If buffer size is equal to this limit, log write will fail, and log message will be lost.
+- `chunk_limit_size 10m` — chunk size to split messages in the buffer.
 
 #### `in_tail`
 
@@ -173,6 +199,10 @@ Read all '*.log' files in the directory `/var/log` and subdirectories.
   </parse>
 </source>
 ```
+
+### Filter plugins
+
+See https://docs.fluentd.org/filter
 
 ### Parser
 
