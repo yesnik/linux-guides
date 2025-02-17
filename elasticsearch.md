@@ -65,7 +65,7 @@ Also we can use `-E` option to set param:
     /usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana
     ```
 
-## Example
+## Query Examples
 
 Use *Management / Dev Tools* in Kibana to play with API Requests: http://127.0.0.1:5601/app/dev_tools#/console
 
@@ -158,8 +158,39 @@ curl -X POST "localhost:9200/_bulk?pretty" -H 'Content-Type: application/json' -
 { "index" : { "_index" : "products" } }
 {"name": "Car", "price": 7000}
 '
-
 ```
+
+### Show all documents, limit 100 records
+
+```bash
+curl -X GET "http://localhost:9200/_search?pretty&size=100"
+
+{
+  "took": 0,
+  "timed_out": false,
+  "_shards": {
+    "total": 0,
+    "successful": 0,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 0,
+      "relation": "eq"
+    },
+    "max_score": 0,
+    "hits": []
+  }
+}
+```
+
+- `took` - cluster execution time, ms;
+- `timed_out: false` - was timeout during search;
+- `_shards`  - shows how many shards were queried among the whole cluster;
+- `hits` - docs amount;
+- `max_score` - shows the best results amount;
+- `hits` - shows documents list.
 
 ### Show all documents in the index
 
