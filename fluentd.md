@@ -172,12 +172,19 @@ If you want to receive events from raw TCP payload, use in_tcp plugin instead.
     @type memory
     total_limit_size 100m
     chunk_limit_size 10m
+    flush_interval 30s
+    flush_at_shutdown true
   </buffer>
 </match>
 ```
 
-- `total_limit_size 100m` — max log storage in case of failure of the output channel. If buffer size is equal to this limit, log write will fail, and log message will be lost.
-- `chunk_limit_size 10m` — chunk size to split messages in the buffer.
+*Options:*
+
+- `total_limit_size 100m` - max log storage in case of failure of the output channel. If buffer size is equal to this limit, log write will fail, and log message will be lost.
+- `chunk_limit_size 10m` - chunk size to split messages in the buffer.
+- `flush_interval 30s` - flush interval.
+- `flush_at_shutdown true` - flush log data as shutdown.
+- `chunk_limit_records 5000` - the max number of events that each chunks can store in it.
 
 #### `in_tail`
 
