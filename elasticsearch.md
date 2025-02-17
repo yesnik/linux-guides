@@ -21,7 +21,7 @@ wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.17.2-l
 shasum -a 512 -c elasticsearch-8.17.2-linux-x86_64.tar.gz.sha512 
 tar -xzf elasticsearch-8.17.2-linux-x86_64.tar.gz
 cd elasticsearch-8.17.2/
-./bin/elasticsearch & disown
+./bin/elasticsearch
 ```
 
 ### Docker
