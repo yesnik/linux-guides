@@ -41,6 +41,18 @@ services:
             - '9300:9300'
 ```
 
+## Configuration
+
+See [Configuring Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/settings.html)
+
+By default config is used `config/elasticsearch.yml`.
+
+Also we can use `-E` option to set param:
+
+```bash
+./bin/elasticsearch -d -Ecluster.name=mycluster -Enode.name=mynode
+```
+
 ## Console commands
 
 - Reset Elasticsearch password:
