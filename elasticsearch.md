@@ -45,12 +45,20 @@ services:
 
 See [Configuring Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/settings.html)
 
-By default config is used `config/elasticsearch.yml`.
+By default config is used `/etc/elasticsearch/elasticsearch.yml`.
 
 Also we can use `-E` option to set param:
 
 ```bash
 ./bin/elasticsearch -d -Ecluster.name=mycluster -Enode.name=mynode
+```
+### Disable security
+
+Edit config file:
+
+```yml
+# Enable security features
+xpack.security.enabled: false
 ```
 
 ## Console commands
@@ -69,6 +77,12 @@ Also we can use `-E` option to set param:
 
 Use *Management / Dev Tools* in Kibana to play with API Requests: http://127.0.0.1:5601/app/dev_tools#/console
 
+Make request to secured Elasticsearch:
+
+```bash
+curl -k -X GET "https://elastic:dd8xv5On+uZkVmdC9WoK@158.150.50.111:9200"
+```
+
 ### Get info about Elasticearch
 
 URL: http://127.0.0.1:9200/
@@ -77,21 +91,21 @@ Response:
 
 ```json
 {
-   "name":"7ebf95a384c1",
-   "cluster_name":"docker-cluster",
-   "cluster_uuid":"Co3ah38FTkSIjo5wPPHOSA",
-   "version":{
-      "number":"8.14.1",
-      "build_flavor":"default",
-      "build_type":"docker",
-      "build_hash":"93a57a1a76f556d8aee6a90d1a95b06187501310",
-      "build_date":"2024-06-10T23:35:17.114581191Z",
-      "build_snapshot":false,
-      "lucene_version":"9.10.0",
-      "minimum_wire_compatibility_version":"7.17.0",
-      "minimum_index_compatibility_version":"7.0.0"
-   },
-   "tagline":"You Know, for Search"
+  "name" : "some-host",
+  "cluster_name" : "elasticsearch",
+  "cluster_uuid" : "DHGqhGACRVS-f_62We_Xag",
+  "version" : {
+    "number" : "8.17.2",
+    "build_flavor" : "default",
+    "build_type" : "deb",
+    "build_hash" : "747663ddda3421467150de0e4301e8d4bc636b0c",
+    "build_date" : "2025-02-05T22:10:57.067596412Z",
+    "build_snapshot" : false,
+    "lucene_version" : "9.12.0",
+    "minimum_wire_compatibility_version" : "7.17.0",
+    "minimum_index_compatibility_version" : "7.0.0"
+  },
+  "tagline" : "You Know, for Search"
 }
 ```
 
