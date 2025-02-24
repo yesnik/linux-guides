@@ -309,3 +309,9 @@ GET _cat/shards/myindex
 GET /_cluster/state?pretty
 ```
 
+### Check cluster state
+
+```
+GET /_cluster/health?pretty
+```
+
