@@ -52,6 +52,32 @@ Also we can use `-E` option to set param:
 ```bash
 ./bin/elasticsearch -d -Ecluster.name=mycluster -Enode.name=mynode
 ```
+
+### `number_of_shards`, `number_of_replicas`
+
+When you create an index, you can configure both values in the settings of that index:
+
+```
+PUT myindex
+{
+  "settings": {
+    "index.number_of_shards": 5,
+    "index.number_of_replicas": 1
+  }
+}
+```
+
+Also note that you can update the settings of an index after its creation, but you can only update the number of replicas and not the number of primary shards:
+
+```
+PUT myindex/_settings
+{
+  "settings": {
+    "index.number_of_replicas": 2
+  }
+}
+```
+
 ### Disable security
 
 Edit config file:
