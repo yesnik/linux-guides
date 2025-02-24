@@ -301,3 +301,9 @@ GET _cat/shards
 GET _cat/shards/myindex
 ```
 
+### Get info about cluster
+
+```
+GET /_cluster/state?pretty
+```
+
