@@ -53,33 +53,6 @@ Also we can use `-E` option to set param:
 ./bin/elasticsearch -d -Ecluster.name=mycluster -Enode.name=mynode
 ```
 
-### `number_of_shards`, `number_of_replicas`
-
-When you create an index, you can configure both values in the settings of that index:
-
-```
-PUT myindex
-{
-  "settings": {
-    "index.number_of_shards": 5,
-    "index.number_of_replicas": 1
-  }
-}
-```
-
-Also note that you can update the settings of an index after its creation, but you can only update the number of replicas and not the number of primary shards:
-
-```
-PUT myindex/_settings
-{
-  "settings": {
-    "index.number_of_replicas": 2
-  }
-}
-```
-
-Optimal shard's size is 30-50 Gb. If we want to store 90 Gb of logs per day, we need 90 / 30 = 3 shards in the index.
-
 ### Disable security
 
 Edit config file:
@@ -170,6 +143,23 @@ curl -X PUT http://localhost:9200/products
 ```
 
 There is a maximum number of documents you can have in a *single Lucene index*. As of LUCENE-5843, the limit is 2 147 483 519 (`Integer.MAX_VALUE - 128`) documents.
+
+
+#### `number_of_shards`, `number_of_replicas`
+
+When you create an index, you can configure both values in the settings of that index:
+
+```
+curl -X PUT -H 'Content-Type: application/json' -d '{"settings": {"index.number_of_shards": 5, "index.number_of_replicas": 1}}' http://localhost:9200/myindex
+```
+
+Also note that you can update the settings of an index after its creation, but you can only update the number of replicas and not the number of primary shards:
+
+```
+curl -X PUT -H 'Content-Type: application/json' -d '{"settings": {"index.number_of_replicas": 2}}' http://localhost:9200/myindex/_settings
+```
+
+Optimal shard's size is 30-50 Gb. If we want to store 90 Gb of logs per day, we need 90 / 30 = 3 shards in the index.
 
 ### Show indices
 
@@ -291,27 +281,12 @@ Search products with `price >= 1` and `price <= 3`:
 curl -X GET "http://localhost:9200/products/_search?pretty" -H 'Content-Type: application/json' -d' { "query": { "range": { "price": { "gte": 1, "lte": 3 }  } } }'
 ```
 
-### Show shards info
+### Cluster commands
 
-```
-GET _cat/shards
-```
-
-### Show shards for index
-
-```
-GET _cat/shards/myindex
-```
-
-### Get info about cluster
-
-```
-GET /_cluster/state?pretty
-```
-
-### Check cluster state
-
-```
-GET /_cluster/health?pretty
-```
+- `GET /_cat/shards` - Show shards info
+- `GET /_cat/shards/myindex` - Show shards for index
+- `GET /_cluster/state?pretty` - Get info about cluster
+- `GET /_cluster/health?pretty` - Check cluster state
+- `GET /_cat/master/?pretty` - Show master node in cluster
+- 
 
