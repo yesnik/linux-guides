@@ -288,3 +288,16 @@ Search products with `price >= 1` and `price <= 3`:
 ```bash
 curl -X GET "http://localhost:9200/products/_search?pretty" -H 'Content-Type: application/json' -d' { "query": { "range": { "price": { "gte": 1, "lte": 3 }  } } }'
 ```
+
+### Show shards info
+
+```
+GET _cat/shards
+```
+
+### Show shards for index
+
+```
+GET _cat/shards/myindex
+```
+
