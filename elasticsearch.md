@@ -78,6 +78,8 @@ PUT myindex/_settings
 }
 ```
 
+Optimal shard's size is 30-50 Gb. If we want to store 90 Gb of logs per day, we need 90 / 30 = 3 shards in the index.
+
 ### Disable security
 
 Edit config file:
