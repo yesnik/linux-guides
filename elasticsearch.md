@@ -169,6 +169,8 @@ curl -X PUT http://localhost:9200/products
 }
 ```
 
+There is a maximum number of documents you can have in a *single Lucene index*. As of LUCENE-5843, the limit is 2 147 483 519 (`Integer.MAX_VALUE - 128`) documents.
+
 ### Show indices
 
 ```bash
