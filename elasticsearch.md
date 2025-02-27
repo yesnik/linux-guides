@@ -53,6 +53,42 @@ Also we can use `-E` option to set param:
 ./bin/elasticsearch -d -Ecluster.name=mycluster -Enode.name=mynode
 ```
 
+### Config for cluster
+
+On each node `/etc/elasticsearch/elasticsearch.yml`:
+
+```yml
+cluster.name: my_es_cluster
+# !!! Set unique name for each Node !!!
+node.name: my-es-node-1
+node.master: true
+node.data: true
+# !!! Set private IP of Node !!!
+network.host: 10.129.0.8
+
+http.port: 9200
+# !!! Set private IPs of all nodes, including current node !!!
+discovery.seed_hosts: ["10.129.0.8", "10.129.0.22","10.129.0.9"]
+# !!! Set nodes that can become master !!!
+cluster.initial_master_nodes: ["my-es-node-1", "my-es-node-2","my-es-node-3"]
+path.data: /var/lib/elasticsearch
+path.logs: /var/log/elasticsearch
+```
+Stop elastic on all nodes:
+```
+service elasticsearch stop
+```
+
+Remove folder with data:
+```
+rm -rf /var/lib/elasticsearch/*
+```
+
+One by one start elastic on all nodes:
+```
+service elasticsearch start
+```
+
 ### Disable security
 
 Edit config file:
@@ -150,7 +186,7 @@ There is a maximum number of documents you can have in a *single Lucene index*. 
 When you create an index, you can configure both values in the settings of that index:
 
 ```
-curl -X PUT -H 'Content-Type: application/json' -d '{"settings": {"index.number_of_shards": 5, "index.number_of_replicas": 1}}' http://localhost:9200/myindex
+curl -X PUT -H 'Content-Type: application/json' -d '{"settings": {"index.number_of_shards": 3, "index.number_of_replicas": 2}}' http://localhost:9200/myindex
 ```
 
 Also note that you can update the settings of an index after its creation, but you can only update the number of replicas and not the number of primary shards:
