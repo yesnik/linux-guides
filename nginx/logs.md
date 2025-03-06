@@ -23,6 +23,24 @@ access_log off;
     access_log /var/log/nginx/access.log combined if=$http_x_log_request
     ```
 
+## Example
+
+```nginx
+server {
+    listen 80;
+
+    location /app_one {
+        access_log /var/log/app_one/access.log;
+        return 200;
+    }
+
+    location /app_two {
+        access_log /var/log/app_two/access.log;
+        return 200;
+    }
+}
+```
+
 ## Log format
 
 ### Default format
