@@ -37,4 +37,6 @@ Define index pattern: `logstash-*`
 
 Timefield - `@timestamp`
 
-After this visit Home - Discover and select time range.
+After this visit Home - Discover and select time range. Select Vertical Bar.
+
+Visit Home - Visualize, button Create new visualization.
