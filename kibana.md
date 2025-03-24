@@ -1,6 +1,8 @@
 # Kibana
 
-Kibana is written on Node.js, while Elasticsearch uses Java.
+**Kibana** is a source-available data visualization dashboard software for Elasticsearch.
+
+Kibana is written in Node.js, while Elasticsearch uses Java.
 
 ## Installation
 
