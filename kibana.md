@@ -10,7 +10,7 @@ See [docs](https://www.elastic.co/guide/en/kibana/current/introduction.html)
 
 **Important**: Kibana and Elasticsearch should have equal versions.
 
-## Using Yandex mirror
+### Using Yandex mirror
 
 ```
 # Version 7
@@ -21,3 +21,18 @@ echo "deb [trusted=yes] https://mirror.yandex.ru/mirrors/elastic/8/ stable main"
 
 apt install kibana
 ```
+
+## Kibana config
+
+File `/usr/share/kibana/config/kibana.yml`
+
+- Kibana URL: 127.0.0.1:5601
+- By default Kibana connects to Elasticsearch on port 9200
+
+## Create index pattern
+
+Home - Transforms - Index patterns - Create index pattern
+
+Define index pattern: `logstash-*`
+
+Timefield - `@timestamp`
