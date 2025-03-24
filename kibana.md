@@ -36,3 +36,5 @@ Home - Transforms - Index patterns - Create index pattern
 Define index pattern: `logstash-*`
 
 Timefield - `@timestamp`
+
+After this visit Home - Discover and select time range.
