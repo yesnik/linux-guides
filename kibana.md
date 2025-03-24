@@ -8,6 +8,8 @@ Kibana is written in Node.js, while Elasticsearch uses Java.
 
 See [docs](https://www.elastic.co/guide/en/kibana/current/introduction.html)
 
+**Important**: Kibana and Elasticsearch should have equal versions.
+
 ## Using Yandex mirror
 
 ```
