@@ -43,10 +43,10 @@ The Graylog server application has the following prerequisites:
   * Port: 12201
   * Press "Launch input"
  
-## Create index
+## Create index set
 
 - Menu System > Indices > Create index set:
-  * Title: Nginx logx
+  * Title: Nginx logs
   * Description: Nginx logs
   * Index prefix: nginx
   * Select retention strategy: Delete index
