@@ -51,3 +51,21 @@ The Graylog server application has the following prerequisites:
   * Index prefix: nginx
   * Select retention strategy: Delete index
 
+## Create stream
+
+- Menu Streams - press "Create stream"
+- Im popup window:
+  * Title: Nginx stream
+  * Description: Nginx stream
+  * Index set: Select "Nginx logs"
+
+## Manage stream's rules
+
+- Menu Streams - on item "Nginx stream", press "Manage rules"
+- Press "Add stream rule"
+- In popup window:
+  * Field: image_name
+  * Match: contain
+  * Value: nginx
+- On item "Nginx stream" press "Start stream"
+- Menu Search. Ensure that incoming logs are shown on the page.
