@@ -69,3 +69,16 @@ The Graylog server application has the following prerequisites:
   * Value: nginx
 - On item "Nginx stream" press "Start stream"
 - Menu Search. Ensure that incoming logs are shown on the page.
+
+## Send Docker logs to Graylog
+
+Docker config file `/etc/docker/daemon.json`:
+
+```
+{
+  "log-driver": "gelf",
+  "log-opts": {
+    "gelf-address": "udp://192.168.110.10:12201"
+  }
+}
+```
