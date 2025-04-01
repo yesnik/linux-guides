@@ -34,3 +34,20 @@ The Graylog server application has the following prerequisites:
 - **Data Retention Policies**: Users can define retention policies to manage log storage and automatically archive or delete old data.
 - **Multi-OS Support**: Graylog can be deployed on various operating systems, including Linux, Windows, and macOS.
 - **Cloud-Native**: It supports cloud deployments on platforms like AWS, Azure, and Google Cloud, as well as containerized environments using Docker and Kubernetes.
+
+## Create input
+
+- Menu System > Inputs > Select "GELF UDP", press "Launch new input"
+- In popup window:
+  * Title: UDP Gelf
+  * Port: 12201
+  * Press "Launch input"
+ 
+## Create index
+
+- Menu System > Indices > Create index set:
+  * Title: Nginx logx
+  * Description: Nginx logs
+  * Index prefix: nginx
+  * Select retention strategy: Delete index
+
