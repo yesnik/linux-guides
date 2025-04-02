@@ -7,6 +7,7 @@
 - `up{job="prometheus"}` - filter metrics by job name
 - `up{env!="prod"}` - filter metrics by env
 - `up{job=~".*city.*"}` - filter by RegExp
+- `http_requests{host="mysite.com", status=~"2.+"}` - filter by RegExp
 - `up == 0` - show `up` metrics with 0 value
 - `{__name__=~"^redis_.*"}` - filter by metric name - `__name__`
 - `{__name__=~"^redis_.*"} > 1000` - filter redis metrics that have value > 1000. This is useful for alerting config.
