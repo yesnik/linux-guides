@@ -84,6 +84,14 @@ Histogram help us to calculate any percentile we want.
 
 See [docs](https://prometheus.io/docs/prometheus/latest/querying/functions/)
 
+### increase()
+
+The following example expression returns the number of HTTP requests as measured over the last 5 minutes, per time series in the range vector:
+
+```
+increase(http_requests_total{job="api-server"}[5m])
+```
+
 ### rate()
 
 It takes the first and the last value in the provided interval and calculates the per-second average rate of the counter increase. This function works only with counters.
