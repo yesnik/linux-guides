@@ -171,4 +171,5 @@ predict_linear(prometheus_tsdb_blocks_loaded[60m], 60)
 sum(up)
 sum by (job) (up)
 sum by (instance) (rate(prometheus_http_requests_total{}[2m]))
+sum by (uri) (rate(http_server_requests_seconds_count{uri=~"/api/.*", status=~"(4|5).*"}[1m]))
 ```
