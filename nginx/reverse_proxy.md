@@ -14,9 +14,11 @@ server {
     server_name mysite.com;
 
     location /hello {
-        proxy_pass http://another.com/path;
+        proxy_pass http://192.168.100.105:8095;
 
         # We can add additional headers:
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Real-ip $remote_addr;
         proxy_set_header X-Country-Code $geoip_country_code;
     }
