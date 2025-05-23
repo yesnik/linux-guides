@@ -38,7 +38,9 @@ service docker restart
 ### Restart iptables
 
 ```
-sudo systemctl restart iptables
+service iptables restart
+# Or
+systemctl restart iptables
 ```
 
 ### Show current iptables rules
@@ -72,7 +74,7 @@ Add line to file `/etc/sysconfig/iptables`:
 -A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -s 200.120.60.10 -j ACCEPT
 ```
 
-To apply changes restart: `systemctl restart iptables`
+To apply changes restart: `service iptables restart`
 
 ### Open port 80
 
