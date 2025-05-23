@@ -67,6 +67,30 @@ sudo iptables -A INPUT -s 155.10.10.55 -j DROP
 
 ### Allow connections from IP to port 3306
 
+#### Via console command
+
+List numbers of existing rules:
+
+```
+iptables -L -v -n --line-num
+```
+
+We're interested in the `INPUT` section in the output. Define a number of a new rule. If it's 24 than the command will be:
+
+```
+iptables -I INPUT 24 -m state --state NEW -m tcp -p tcp -s 10.200.1.11 --dport 3306 -j ACCEPT
+```
+
+the following will occur:
+
+- The existing rule at line 24 (and all rules below it) will be shifted down by one position.
+- Your new rule will take its place at line 24.
+- The old rule 24 becomes rule 25, rule 25 becomes 26, and so on.
+- No rules are overwritten or lost—they are renumbered sequentially.
+- The new rule is inserted at the exact position you specified, which is critical because iptables processes rules top-to-bottom.
+
+#### Via editing a file
+
 Add line to file `/etc/sysconfig/iptables`:
 
 ```
@@ -74,7 +98,17 @@ Add line to file `/etc/sysconfig/iptables`:
 -A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -s 200.120.60.10 -j ACCEPT
 ```
 
-To apply changes restart: `service iptables restart`
+Save the iptables rule (so it persists after a reboot): 
+
+```
+service iptables save
+```
+
+Restart iptables (optional, to ensure rules are applied): 
+
+```
+service iptables restart
+```
 
 ### Open port 80
 
