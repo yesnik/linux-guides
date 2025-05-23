@@ -89,6 +89,10 @@ the following will occur:
 - No rules are overwritten or lost—they are renumbered sequentially.
 - The new rule is inserted at the exact position you specified, which is critical because iptables processes rules top-to-bottom.
 
+The `iptables -I` (insert) command applies the rule immediately to the running kernel's firewall.
+
+Changes take effect instantly without requiring a restart.
+
 #### Via editing a file
 
 Add line to file `/etc/sysconfig/iptables`:
