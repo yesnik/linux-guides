@@ -14,6 +14,7 @@
 ## Directories
 
 - `mkdir -p mysite/logs/info` - create folder `info` with all *parent* directories: `mysite` and `logs`
+- `ls -d */` - list only directories in the current directory
 
 ## Files info
 
