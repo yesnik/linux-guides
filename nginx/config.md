@@ -319,7 +319,12 @@ server {
 
     location ~ \.php$ {
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
+
+        # Way 1. Via Unix Domain Sockets
         fastcgi_pass api-php:9000;
+        # Way 2. Via TCP Sockets
+        fastcgi_pass unix:/run/php-fpm/www.sock;
+
         fastcgi_index index.php;
         include fastcgi_params;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
