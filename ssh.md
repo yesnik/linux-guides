@@ -32,6 +32,12 @@ sudo chmod 700 /kenny/.ssh/
 sudo chmod 600 /kenny/.ssh/authorized_keys
 ```
 
+Restart SSH:
+
+```bash
+service sshd restart
+```
+
 ## Connect to remote server
 
 ```
