@@ -3,6 +3,7 @@
 - `yum update` - update packages' versions
 - `yum repolist` - list the enabled repositories
 - `yum repolist all` - list all repositories
+- `yum deplist php-gd` - list dependencies for a package
 - `yum-config-manager --add-repo https://example.com/docker-ce.repo` - add repository
 - `yum-config-manager --disable remi-safe` - remove repo
 - `yum search php-mbstring` - search repos which name contains substring "php-mbstring"
