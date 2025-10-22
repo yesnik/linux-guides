@@ -21,6 +21,7 @@
 ## systemctl
 
 - `systemctl list-units` - list active modules of systemd
+- `systemctl list-units --type=service` - list all loaded services (active, inactive, failed)
 - `systemctl list-unit-files` - list status of all available modules
 
 ## vmstat
