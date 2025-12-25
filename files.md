@@ -146,6 +146,16 @@ Attributes:
 
 - `i` -  immutable
 
+### setfacl
+
+- `setfacl -m u:kenny:rw file.txt` - Grant user 'kenny' read/write access
+- `setfacl -m g:devs:rx file.txt` - Grant group 'devs' read/execute access
+- `setfacl -x u:kenny file.txt` - Remove specific permissions for 'kenny'
+
+### getfacl
+
+`getfacl file.txt` - Shows ACLs for a file, including owner, group, traditional permissions, and any extra ACL entries.
+
 ### File rights
 
 ```
