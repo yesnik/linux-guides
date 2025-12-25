@@ -141,10 +141,12 @@ Options:
 - `sudo chattr +i test.txt` - secure file from modification, deletion
 - `sudo chattr -i test.txt` - remove security from modification
 - `lsattr test.txt` - show attributes for file. It will show: `----i--------e-- test.txt`
+- `chattr +a /var/log/audit.log` - we can only add new rows in a file and cannot delete old ones
 
 Attributes:
 
-- `i` -  immutable
+- `i` - immutable
+- `a` - append only
 
 ### setfacl
 
