@@ -1,13 +1,5 @@
 # Makefile
 
-## Installation
-
-### Windows
-
-- `make -v`
-- `choco install make`
-- `choco upgrade make`
-
 `Makefile` is a file that lets developers specify a set of operations that are necessary to build a program and the order in which the steps must be performed. 
 You may not be familiar with make, but it's been used to build programs on Unix systems since 1976.
 
@@ -39,3 +31,11 @@ go fmt ./...
 go vet ./...
 go build
 ```
+
+## Installation
+
+### Windows
+
+- `make -v`
+- `choco install make`
+- `choco upgrade make`
