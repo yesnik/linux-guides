@@ -28,6 +28,11 @@
 
 - `ss -4tunlp | grep 514` - check if some process is listening port 514
 - `netstat -tunlp`, `netstat -peanut` - show used ports
+    - `-t` - TCP
+    - `-u` - UDP
+    - `-n` - numeric. Show numerical addresses instead of trying to determine symbolic host, port or user names
+    - `-l` - listening. Show only listening sockets (These are omitted by default)
+    - `-p` - program. Show the PID and name of the program to which each socket belongs
 - `lsof` - LiSts all Open Files belonging to all active processes
 - `lsof -i :8000` - show the application used by that port with PID
 - `lsof -p 123` - show files used by process with PID 123
