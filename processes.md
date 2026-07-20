@@ -30,6 +30,7 @@
 - `netstat -tunlp`, `netstat -peanut` - show used ports
 - `lsof` - LiSts all Open Files belonging to all active processes
 - `lsof -i :8000` - show the application used by that port with PID
+- `lsof -p 123` - show files used by process with PID 123
 
 ### Command `top`
 
