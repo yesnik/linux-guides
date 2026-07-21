@@ -48,6 +48,18 @@ echo $a
 
 ## `if`, `else` condition
 
+### Compare a variable with a value
+
+```bash
+NAME="kenny"
+if [ $NAME = "kenny" ]
+then
+    echo "Hello Kenny!"
+else
+    echo "Bye!"
+fi
+```
+
 ### Check if process is running
 
 ```bash
@@ -59,7 +71,7 @@ else
 fi
 ```
 
-## SSH and execute a command
+### SSH and execute a command
 
 ```bash
 ssh sales-test "bash -s" << EOF
