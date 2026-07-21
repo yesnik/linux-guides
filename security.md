@@ -1,5 +1,10 @@
 # Linux Security Tips
 
+## Commands
+
+- `last` - show last login info
+- `tail /var/log/auth.log` - show auth attempts
+
 ## Check Listening Ports
 
 View open ports and and corresponding services:
@@ -17,6 +22,7 @@ Disable the unwanted services from the system using ‘chkconfig’ command and 
 ```
 chkconfig serviceName off
 ```
+
 ## Firewall
 
 - `sudo firewall-cmd --state` - check firewall status
