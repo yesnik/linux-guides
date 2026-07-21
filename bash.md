@@ -142,6 +142,15 @@ EOF
 
 This command will create archive `files-2021-03-10.tar.gz` on the remote host.
 
+## Loop
+
+```bash
+for i in {1..4}
+do
+    echo "Hello $i"
+done
+```
+
 ## Arrays
 
 ```bash
