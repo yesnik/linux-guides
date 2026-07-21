@@ -136,13 +136,32 @@ echo $SCRIPT_DIR; # /var/tmp/test
 
 ## Return code
 
-Script `/tmp/script.sh`:
+### Example 1
+
+File `script.sh`:
 ```bash
 exit 4
 ```
 
-Run:
+Test:
 ```bash
 sh script.sh
 echo $? #=> 4
+```
+
+### Example 2
+
+File `script.sh`:
+```bash
+#! /bin/bash
+
+ls some-file.txt
+echo "Last command return code: $?"
+```
+
+Test:
+```bash
+sh ./script.sh
+ls: cannot access 'some-file.txt': No such file or directory
+Last command return code: 2
 ```
