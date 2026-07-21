@@ -60,6 +60,28 @@ else
 fi
 ```
 
+### Check if empty
+
+```bash
+NAME=$1
+if [ -z $NAME ]
+then
+    echo "Bye"
+else
+    echo "Hello $NAME"
+fi
+```
+
+Test:
+
+```bash
+./script.sh
+Bye
+
+./script.sh Kenny
+Hello Kenny
+```
+
 ### Check if process is running
 
 ```bash
