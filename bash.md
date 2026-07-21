@@ -95,14 +95,32 @@ done
 
 ## Program's parameters
 
-We want to get arguments in this program call: `./hey a=1 b`
+We want to get arguments in this program call: `./script.sh 11 b=22 c=33`
 
-Edit file `hey`:
+File `script.sh`:
+
 ```bash
-echo "== ARGS =="
-for i in "$@"; do
-  echo $i
+#! /bin/bash
+
+echo "First arg: $1"
+echo "Second arg: $2"
+echo "Args count: $#"
+
+for arg in "$@"; do
+    echo "Arg: $arg"
 done
+```
+
+Test:
+
+```bash
+./script.sh 11 b=22 c=33
+First arg: 11
+Second arg: b=22
+Args count: 3
+Arg: 11
+Arg: b=22
+Arg: c=33
 ```
 
 ## Files and dirs
