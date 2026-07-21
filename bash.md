@@ -82,6 +82,45 @@ Bye
 Hello Kenny
 ```
 
+### Compare numbers
+
+Use operators:
+
+- `-eq` - `=`
+- `-ne` - `!=`
+- `-lt` - `<`
+- `-le` - `<=`
+- `-gt` - `>`
+- `-ge` - `>=`
+
+```bash
+SPEED=$1
+if [ $SPEED -lt 5  ]
+then
+    echo "Slow"
+fi
+
+if [ $SPEED -eq 6 ]
+then
+    echo "Move faster"
+fi
+
+if [ $SPEED -ge 200 ]
+then
+    echo "Danger"
+fi
+```
+Test:
+
+```bash
+./script.sh 2
+Slow
+./script.sh 6
+Move faster
+./script.sh 200
+Danger
+```
+
 ### Check if process is running
 
 ```bash
