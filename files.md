@@ -36,6 +36,8 @@
 - `scp -r username@example.com:/file/to/copy /place/to/save` - copy file from remote to local
 - `scp -r /file/to/send username@example.com:/place/to/save` - copy file from local to remote
 
+Add `-v` option to see verbose info.
+
 ### rsync
 
 - `rsync -av --delete ./dir1/ mysite:/root/dir1` - push: copy contents of local `dir1` folder to remote `dir1` folder (delete old files on remote). 
