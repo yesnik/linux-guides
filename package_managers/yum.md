@@ -16,6 +16,7 @@
 - `yum list librdkafka` - show installed and available package by name `librdkafka`
 - `yum --showduplicates list php-pecl-rdkafka` - show available versions of the package
 - `yum -y remove php*` - remove all php packages
+- `rpm -q librdkafka` - show installed version of a package `librdkafka`
 
 ## Config
 
