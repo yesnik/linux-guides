@@ -15,6 +15,12 @@
 - `DEBUG object <key>` - show the size of the key in bytes - see param `serializedlength` in the output. It is the size an objects would take when save to a RDB file on disk.
 - `MEMORY USAGE <key>` - the number of bytes that a key and its value require to be stored in RAM
 - `SET app:name MySite` - set the value of the key `app:name`
+- `HSET book:1 author Martin title "Ideal Work" price 150` - create a hash key
+- `HSET book:1 author "Robert Martin" price 160` - specifying a subset of its name-value pairs
+- `HGETALL book:1` - retrieve the stored data
+- `HGET book:1 price` - get field's value in a hash
+- `HDEL book:1 title price` - delete one or more fields from a hash
+- `HINCRBY book:1 price 10` - increment Integer value in hash key. The increment value must be a positive or negative integer
 - `TYPE horizon:123` - get type of the value
 - `MEMORY DOCTOR` - reports about different memory-related issues that the Redis server experiences
 - `MEMORY PURGE` - attempt to purge dirty pages so these can be reclaimed by the allocator
