@@ -11,6 +11,7 @@
 - `SET age 22` - set key `age` value `22`
 - `SET age 22 EX 10` - set the value of the key `age`, in 10 sec. this key will be deleted
 - `GET age` - get key `age` value. Returns: `"22"`
+- `TYPE age` - It returns `string`
 - `INCR age` - Redis stores integer values as strings. This command parses string value at server and increment the value by 1
 - `DEL age` - delete any key from Redis database, regardless of the datatype associated with it
 - `KEYS app:claim:2957*` - find keys by pattern
@@ -33,6 +34,15 @@
 - `LPUSH queue:tasks task-1 task-2` - insert elements in the beginning of a list. Element `task-2` will be the first in the liast.
 - `LRANGE queue:tasks 0 -1` - show all elements from first to last
 - `RPOP queue:tasks` - get element from the queue's end and remove it from the queue. It'll return `task-1`
+- `TYPE queue:tasks` - It returns `list`
+
+### Sets: unique elements
+
+- `SADD clients:today Kenny Jenny Kenny` - Redis will remove duplicate value and save a set
+- `SISMEMBER clients:today Kenny` - It returns `1`, because `Kenny` exists in a set. It has internal Hashtable, so search complexity - `O(1)`
+- `SCARD clients:today` - It returns `2`, because the set has 2 elements
+- `SMEMBERS clients:today` - Show elements of the set
+- `TYPE clients:today` - It returns `set`
 
 ### HMSET
 
