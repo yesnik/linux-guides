@@ -28,6 +28,12 @@
 - `MEMORY PURGE` - attempt to purge dirty pages so these can be reclaimed by the allocator
 - `FLUSHDB` - delete all the keys of the currently selected DB
 
+### Lists: task queues
+
+- `LPUSH queue:tasks task-1 task-2` - insert elements in the beginning of a list. Element `task-2` will be the first in the liast.
+- `LRANGE queue:tasks 0 -1` - show all elements from first to last
+- `RPOP queue:tasks` - get element from the queue's end and remove it from the queue. It'll return `task-1`
+
 ### HMSET
 
 It is used to set the specified fields to their respective values in the hash stored at the key. 
