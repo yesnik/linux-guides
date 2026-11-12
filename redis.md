@@ -29,6 +29,8 @@
 - `MEMORY PURGE` - attempt to purge dirty pages so these can be reclaimed by the allocator
 - `FLUSHDB` - delete all the keys of the currently selected DB
 
+## Data structures
+
 ### Lists: task queues
 
 - `LPUSH queue:tasks task-1 task-2` - insert elements in the beginning of a list. Element `task-2` will be the first in the liast.
@@ -43,6 +45,16 @@
 - `SCARD clients:today` - It returns `2`, because the set has 2 elements
 - `SMEMBERS clients:today` - Show elements of the set
 - `TYPE clients:today` - It returns `set`
+
+## Cache
+
+### Pattern Cache-Aside
+
+App tries to get data from cache. If there is no data in cache, app get data from the DB and put it to the cache with TTL.
+
+- `HGETALL tasks:1` - it returns `(empty array)`, cache miss, no data in the cache
+- `HSET tasks:1 title "Clean a room" workersNeeded 3 cost 100` - add hash with 3 fields
+- `EXPIRE tasks:1 3600` - set expiration time 3600 seconds for the key 
 
 ### HMSET
 
